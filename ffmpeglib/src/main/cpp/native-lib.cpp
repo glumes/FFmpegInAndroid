@@ -2,6 +2,7 @@
 #include <string>
 
 
+
 extern "C" {
 #include "libavcodec/avcodec.h"
 #include "libavformat/avformat.h"
@@ -29,4 +30,15 @@ Java_com_glumes_ffmpeglib_FFMPEGTest_stringFromJNI(JNIEnv *env,
 
     return env->NewStringUTF(s.c_str());
 
+}
+
+
+
+JNIEXPORT void JNICALL
+Java_com_glumes_ffmpeglib_Player_render(JNIEnv *env, jclass type, jstring path_) {
+    const char *path = env->GetStringUTFChars(path_, 0);
+
+    // TODO
+
+    env->ReleaseStringUTFChars(path_, path);
 }

@@ -50,6 +50,12 @@ add_library(swscale-4_lib  SHARED IMPORTED )
 set_target_properties(swscale-4_lib PROPERTIES IMPORTED_LOCATION
                        ${CMAKE_CURRENT_SOURCE_DIR}/src/main/jniLibs/armeabi/libswscale-4.so )
 
+add_library(avresample-3_lib  SHARED IMPORTED )
+set_target_properties(avresample-3_lib PROPERTIES IMPORTED_LOCATION
+                       ${CMAKE_CURRENT_SOURCE_DIR}/src/main/jniLibs/armeabi/libavresample-3.so )
+
+
+
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because CMake includes system libraries in the search path by
@@ -80,6 +86,7 @@ target_link_libraries( # Specifies the target library.
                        avutil-55_lib
                        swresample-2_lib
                        swscale-4_lib
+                       avresample-3_lib
 
 
                        # Links the target library to the log library

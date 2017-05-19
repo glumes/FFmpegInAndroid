@@ -89,7 +89,7 @@ Java_com_glumes_ffmpeglib_SimpleDecoder_decode(JNIEnv *env, jobject instance, js
 
 //    sprintf(input_str, "%s", (*env)->GetStringUTFChars(env, input_jstr, NULL));
 
-    av_log_set_callback(custom_log);
+//    av_log_set_callback(custom_log);
 
 
     av_register_all();

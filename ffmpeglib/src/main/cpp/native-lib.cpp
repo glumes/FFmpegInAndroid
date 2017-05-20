@@ -169,20 +169,104 @@ Java_com_glumes_ffmpeglib_SimpleDecoder_decode(JNIEnv *env, jobject instance, js
     time_start = clock();
 
     while (av_read_frame(pFormatContext, packet) >= 0) {
-        if (packet->stream_index == videoindex){
-            ret = avcodec_decode_video2(pCodecCtx,pFrame,&got_picture,packet);
-            if (ret < 0){
+        if (packet->stream_index == videoindex) {
+            ret = avcodec_decode_video2(pCodecCtx, pFrame, &got_picture, packet);
+            if (ret < 0) {
                 LOGE("Decode Error.\n");
-                return -1 ;
+                return -1;
             }
-            if (got_picture){
+            if (got_picture) {
+                sws_scale(img_convert_ctx, (const uint8_t *const *) pFrame->data, pFrame->linesize,
+                          0, pCodecCtx->height,
+                          pFrameYUV->data, pFrameYUV->linesize);
+                y_size = pCodecCtx->width * pCodecCtx->height;
+                fwrite(pFrameYUV->data[0], 1, y_size, fp_yuv);
+                fwrite(pFrameYUV->data[1], 1, y_size / 4, fp_yuv);
+                fwrite(pFrameYUV->data[2], 1, y_size / 4, fp_yuv);
 
+                char pictype_str[10] = {0};
+                switch (pFrame->pict_type) {
+                    case AV_PICTURE_TYPE_I:
+                        cout << pictype_str << "I" << endl;
+                        break;
+                    case AV_PICTURE_TYPE_P:
+                        cout << pictype_str << "P" << endl;
+                        break;
+                    case AV_PICTURE_TYPE_B:
+                        cout << pictype_str << "B" << endl;
+                        break;
+                    default:
+                        cout << pictype_str << "Other" << endl;
+                }
+                LOGI("Frame index: %5d,Type:%s", frame_cnt, pictype_str);
+                frame_cnt++;
             }
         }
+        av_free_packet(packet);
     }
+
+    while (1) {
+        ret = avcodec_decode_video2(pCodecCtx, pFrame, &got_picture, packet);
+        if (ret < 0) {
+            break;
+        }
+
+        if (!got_picture) {
+            break;
+        }
+        sws_scale(img_convert_ctx, (const uint8_t *const *) pFrame->data, pFrame->linesize, 0,
+                  pCodecCtx->height,
+                  pFrameYUV->data, pFrameYUV->linesize);
+
+        int y_size = pCodecCtx->width * pCodecCtx->height;
+        fwrite(pFrameYUV->data[0], 1, y_size, fp_yuv);    //Y
+        fwrite(pFrameYUV->data[1], 1, y_size / 4, fp_yuv);  //U
+        fwrite(pFrameYUV->data[2], 1, y_size / 4, fp_yuv);  //V
+
+
+        //output info
+        char pictype_str[10] = {0};
+        switch (pFrame->pict_type) {
+            case AV_PICTURE_TYPE_I:
+                cout << pictype_str << "I" << endl;
+                break;
+            case AV_PICTURE_TYPE_P:
+                cout << pictype_str << "P" << endl;
+                break;
+            case AV_PICTURE_TYPE_B:
+                cout << pictype_str << "B" << endl;
+                break;
+            default:
+                cout << pictype_str << "Other" << endl;
+                break;
+        }
+        LOGI("Frame index : %5d,.Type:%s", frame_cnt, pictype_str);
+        frame_cnt++;
+    }
+    time_finish = clock();
+
+    time_duration = time_finish - time_start;
+
+    sprintf(info, "%s[Time      ]%fms\n", info, time_duration);
+    sprintf(info, "%s[Count     ]%d\n", info, frame_cnt);
+
+    sws_freeContext(img_convert_ctx);
+
+    fclose(fp_yuv);
+
+    av_frame_free(&pFrameYUV);
+
+    av_frame_free(&pFrame);
+
+    avcodec_close(pCodecCtx);
+
+    avformat_close_input(&pFormatContext);
+
 
     env->ReleaseStringUTFChars(input_jstr, inputurl);
     env->ReleaseStringUTFChars(output_jstr, outputurl);
+
+    return  0;
 }
 
 
@@ -195,3 +279,12 @@ void custom_log(void *ptr, int level, const char *fmt, va_list vl) {
         fclose(fp);
     }
 }
+
+
+
+
+
+
+
+
+

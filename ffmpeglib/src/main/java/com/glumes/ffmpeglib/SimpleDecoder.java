@@ -6,7 +6,7 @@ package com.glumes.ffmpeglib;
 
 public class SimpleDecoder {
 
-    public native int decode(String inputurl, String outputurl);
+    public static native int decode(String inputurl, String outputurl);
 
     static {
         System.loadLibrary("native-lib");

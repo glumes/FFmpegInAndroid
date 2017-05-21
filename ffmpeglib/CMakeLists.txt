@@ -54,6 +54,9 @@ add_library(avresample-3_lib  SHARED IMPORTED )
 set_target_properties(avresample-3_lib PROPERTIES IMPORTED_LOCATION
                        ${CMAKE_CURRENT_SOURCE_DIR}/src/main/jniLibs/armeabi/libavresample-3.so )
 
+add_library(x264-148_lib  SHARED IMPORTED )
+set_target_properties(x264-148_lib PROPERTIES IMPORTED_LOCATION
+                       ${CMAKE_CURRENT_SOURCE_DIR}/src/main/jniLibs/armeabi/libx264-148.so )
 
 
 
@@ -87,6 +90,7 @@ target_link_libraries( # Specifies the target library.
                        swresample-2_lib
                        swscale-4_lib
                        avresample-3_lib
+                       x264-148_lib
 
 
                        # Links the target library to the log library

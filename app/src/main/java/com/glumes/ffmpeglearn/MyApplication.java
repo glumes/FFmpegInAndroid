@@ -17,8 +17,6 @@ public class MyApplication extends Application {
     }
 
     private void initTimber() {
-        if (com.glumes.ffmpeglib.BuildConfig.DEBUG) {
-            Timber.plant(new Timber.DebugTree());
-        }
+        Timber.plant(new Timber.DebugTree());
     }
 }

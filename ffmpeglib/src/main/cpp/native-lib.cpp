@@ -58,8 +58,9 @@ Java_com_glumes_ffmpeglib_Player_render(JNIEnv *env, jclass type, jstring path_)
 /**
  * 解码函数
  */
+extern "C"
 JNIEXPORT jint JNICALL
-Java_com_glumes_ffmpeglib_SimpleDecoder_decode(JNIEnv *env, jobject instance, jstring input_jstr,
+Java_com_glumes_ffmpeglib_SimpleDecoder_decode(JNIEnv *env, jobject /*this*/, jstring input_jstr,
                                                jstring output_jstr) {
     const char *inputurl = env->GetStringUTFChars(input_jstr, 0);
     const char *outputurl = env->GetStringUTFChars(output_jstr, 0);
@@ -82,12 +83,13 @@ Java_com_glumes_ffmpeglib_SimpleDecoder_decode(JNIEnv *env, jobject instance, js
     clock_t time_start, time_finish;
     double time_duration = 0.0;
 
-    char input_str[500] = {0};
-    char output_str[500] = {0};
+//    char input_str[500] = {0};
+//    char output_str[500] = {0};
 
     char info[1000] = {0};
 
-//    sprintf(input_str, "%s", (*env)->GetStringUTFChars(env, input_jstr, NULL));
+//    sprintf(input_str, "%s", env->GetStringUTFChars(input_jstr, NULL));
+//    sprintf(output_str, "%s", env->GetStringUTFChars(output_jstr, NULL));
 
 //    av_log_set_callback(custom_log);
 
@@ -98,7 +100,9 @@ Java_com_glumes_ffmpeglib_SimpleDecoder_decode(JNIEnv *env, jobject instance, js
 
     pFormatContext = avformat_alloc_context();
 
-    if (avformat_open_input(&pFormatContext, input_str, NULL, NULL) != 0) {
+    LOGI("input str is %s",inputurl);
+
+    if (avformat_open_input(&pFormatContext, inputurl, NULL, NULL) != 0) {
         LOGE("Couldn't open input stream\n");
         return -1;
     }
@@ -151,14 +155,14 @@ Java_com_glumes_ffmpeglib_SimpleDecoder_decode(JNIEnv *env, jobject instance, js
                                      pCodecCtx->width, pCodecCtx->height, AV_PIX_FMT_YUV420P,
                                      SWS_BICUBIC, NULL, NULL, NULL);
 
-    cout << info << "input is " << input_str << endl;
-    cout << info << "output is " << output_str << endl;
+    cout << info << "input is " << inputurl << endl;
+    cout << info << "output is " << inputurl << endl;
     cout << info << "format is " << pFormatContext->iformat->name << endl;
     cout << info << "codec is " << pCodecCtx->codec->name << endl;
     cout << info << "Resolution is " << pCodecCtx->width << pCodecCtx->height << endl;
 
 
-    fp_yuv = fopen(output_str, "wb+");
+    fp_yuv = fopen(outputurl, "wb+");
 
     if (fp_yuv == NULL) {
         cout << "cannot open output file " << endl;
@@ -266,7 +270,7 @@ Java_com_glumes_ffmpeglib_SimpleDecoder_decode(JNIEnv *env, jobject instance, js
     env->ReleaseStringUTFChars(input_jstr, inputurl);
     env->ReleaseStringUTFChars(output_jstr, outputurl);
 
-    return  0;
+    return 0;
 }
 
 
@@ -281,10 +285,18 @@ void custom_log(void *ptr, int level, const char *fmt, va_list vl) {
 }
 
 
-
-
-
-
-
-
-
+// JNI 调用 C 和 C++ 代码是有区别的，调用 C++ 代码，是要加 extern "C" 的。
+//extern  "C"
+//JNIEXPORT jint JNICALL
+//Java_com_glumes_ffmpeglib_SimpleDecoder_decode(JNIEnv *env, jobject instance, jstring inputurl_,
+//                                               jstring outputurl_) {
+//    const char *inputurl = env->GetStringUTFChars(inputurl_, 0);
+//    const char *outputurl = env->GetStringUTFChars(outputurl_, 0);
+//
+//    // TODO
+//
+//    env->ReleaseStringUTFChars(inputurl_, inputurl);
+//    env->ReleaseStringUTFChars(outputurl_, outputurl);
+//
+//    return 0 ;
+//}

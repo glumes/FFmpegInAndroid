@@ -3,6 +3,7 @@ package com.glumes.ffmpeglearn;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.Button;
 
 import com.glumes.ffmpeglib.SimpleDecoder;
@@ -12,6 +13,7 @@ import java.io.File;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import timber.log.Timber;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,11 +35,19 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.button)
     public void onViewClicked() {
         String folderurl = Environment.getExternalStorageDirectory().getAbsolutePath()
-                + File.pathSeparator + fileName;
+                + File.separator + fileName;
+
+        Timber.d(folderurl);
 
         String outputUrl = Environment.getExternalStorageDirectory().getAbsolutePath()
-                + File.pathSeparator + targetFileName;
+                + File.separator + targetFileName;
 
-        SimpleDecoder.decode(folderurl,outputUrl);
+        Timber.d(outputUrl);
+
+        Log.d("FFMEPG", folderurl + outputUrl);
+
+        SimpleDecoder simpleDecoder = new SimpleDecoder();
+
+        simpleDecoder.decode(folderurl,outputUrl);
     }
 }

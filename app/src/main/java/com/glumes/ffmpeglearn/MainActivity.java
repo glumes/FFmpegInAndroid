@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Button;
 
+import com.glumes.ffmpeglib.FFMPEGTest;
 import com.glumes.ffmpeglib.SimpleDecoder;
 
 import java.io.File;
@@ -34,20 +35,24 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.button)
     public void onViewClicked() {
-        String folderurl = Environment.getExternalStorageDirectory().getAbsolutePath()
-                + File.separator + fileName;
+//        String folderurl = Environment.getExternalStorageDirectory().getAbsolutePath()
+//                + File.separator + fileName;
+//
+//        Timber.d(folderurl);
+//
+//        String outputUrl = Environment.getExternalStorageDirectory().getAbsolutePath()
+//                + File.separator + targetFileName;
+//
+//        Timber.d(outputUrl);
+//
+//        Log.d("FFMEPG", folderurl + outputUrl);
+//
+//        SimpleDecoder simpleDecoder = new SimpleDecoder();
+//
+//        simpleDecoder.decode(folderurl,outputUrl);
 
-        Timber.d(folderurl);
+        Timber.d("testtest");
 
-        String outputUrl = Environment.getExternalStorageDirectory().getAbsolutePath()
-                + File.separator + targetFileName;
-
-        Timber.d(outputUrl);
-
-        Log.d("FFMEPG", folderurl + outputUrl);
-
-        SimpleDecoder simpleDecoder = new SimpleDecoder();
-
-        simpleDecoder.decode(folderurl,outputUrl);
+        FFMPEGTest.printFFmpegConfigInfo();
     }
 }

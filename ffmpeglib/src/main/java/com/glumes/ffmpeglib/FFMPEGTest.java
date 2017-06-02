@@ -19,5 +19,5 @@ public class FFMPEGTest {
         System.loadLibrary("swscale-4");
     }
 
-    public static native String stringFromJNI(String name);
+    public static native void printFFmpegConfigInfo();
 }

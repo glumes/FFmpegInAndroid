@@ -700,7 +700,7 @@ AVFilter *avfilter_get_by_name(const char *name);
  * @return If prev is non-NULL, next registered filter after prev or NULL if
  * prev is the last filter. If prev is NULL, return the first registered filter.
  */
-const AVFilter *avfilter_next(const AVFilter *prev);
+const AVFilter *avfilter_next(void *pVoid);
 
 #if FF_API_OLD_FILTER_REGISTER
 /**

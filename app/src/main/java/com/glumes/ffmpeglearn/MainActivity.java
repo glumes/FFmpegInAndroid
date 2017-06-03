@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
         FFMPEGTest.printFFmpegConfigInfo();
 
-        FFMPEGTest.yuv420Split(FileContants.YUV420);
+        FFMPEGTest.yuv420Split(FileContants.YUV420, FileContants.YUV420_Y, FileContants.YUV420_U, FileContants.YUV420_V);
 
     }
 }

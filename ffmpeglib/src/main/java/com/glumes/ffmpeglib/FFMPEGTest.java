@@ -22,5 +22,6 @@ public class FFMPEGTest {
     }
 
     public static native void printFFmpegConfigInfo();
-    public static native void yuv420Split(String filename);
+
+    public static native void yuv420Split(String filename, String output_y, String output_u, String output_v);
 }

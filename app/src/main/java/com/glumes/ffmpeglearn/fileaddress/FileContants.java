@@ -10,6 +10,9 @@ import java.io.File;
 
 public class FileContants {
 
-    public static final String EXTERNAL_PATH = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator ;
+    public static final String EXTERNAL_PATH = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator;
     public static final String YUV420 = EXTERNAL_PATH + "lena_256x256_yuv420p.yuv";
+    public static final String YUV420_Y = EXTERNAL_PATH + "output_420_y.y";
+    public static final String YUV420_U = EXTERNAL_PATH + "output_420_u.y";
+    public static final String YUV420_V = EXTERNAL_PATH + "output_420_v.y";
 }

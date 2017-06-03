@@ -9,6 +9,7 @@ extern "C" {
 #include "libswscale/swscale.h"
 #include "libavutil/imgutils.h"
 #include "libavutil/avutil.h"
+#include "libsimple_mediadata/simple_mediadata.h"
 };
 
 #ifdef  ANDROID
@@ -45,14 +46,7 @@ Java_com_glumes_ffmpeglib_FFMPEGTest_stringFromJNI(JNIEnv *env,
 }
 
 
-JNIEXPORT void JNICALL
-Java_com_glumes_ffmpeglib_Player_render(JNIEnv *env, jclass type, jstring path_) {
-    const char *path = env->GetStringUTFChars(path_, 0);
 
-    // TODO
-
-    env->ReleaseStringUTFChars(path_, path);
-}
 
 
 /**
@@ -100,7 +94,7 @@ Java_com_glumes_ffmpeglib_SimpleDecoder_decode(JNIEnv *env, jobject /*this*/, js
 
     pFormatContext = avformat_alloc_context();
 
-    LOGI("input str is %s",inputurl);
+    LOGI("input str is %s", inputurl);
 
     if (avformat_open_input(&pFormatContext, inputurl, NULL, NULL) != 0) {
         LOGE("Couldn't open input stream\n");
@@ -273,18 +267,6 @@ Java_com_glumes_ffmpeglib_SimpleDecoder_decode(JNIEnv *env, jobject /*this*/, js
     return 0;
 }
 
-
-//Output FFmpeg's av_log()
-void custom_log(void *ptr, int level, const char *fmt, va_list vl) {
-    FILE *fp = fopen("/storage/emulated/0/av_log.txt", "a+");
-    if (fp) {
-        vfprintf(fp, fmt, vl);
-        fflush(fp);
-        fclose(fp);
-    }
-}
-
-
 // JNI 调用 C 和 C++ 代码是有区别的，调用 C++ 代码，是要加 extern "C" 的。
 //extern  "C"
 //JNIEXPORT jint JNICALL
@@ -299,4 +281,5 @@ void custom_log(void *ptr, int level, const char *fmt, va_list vl) {
 //    env->ReleaseStringUTFChars(outputurl_, outputurl);
 //
 //    return 0 ;
-//}
+//}JNIEXPORT void JNICALL
+

@@ -17,7 +17,10 @@ public class FFMPEGTest {
         System.loadLibrary("postproc-54");
         System.loadLibrary("swresample-2");
         System.loadLibrary("swscale-4");
+        System.loadLibrary("simple-mediadata-lib");
+        System.loadLibrary("media-lib");
     }
 
     public static native void printFFmpegConfigInfo();
+    public static native void yuv420Split(String filename);
 }

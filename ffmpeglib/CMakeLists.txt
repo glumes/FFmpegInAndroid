@@ -20,7 +20,26 @@ add_library( # Sets the name of the library.
              src/main/cpp/ffmpeg-config.cpp
              src/main/cpp/native-lib.cpp )
 
+add_library( # Sets the name of the library.
+             media-lib
 
+             # Sets the library as a shared library.
+             SHARED
+
+             # Provides a relative path to your source file(s).
+             src/main/cpp/include/mediadata.cpp
+             )
+
+
+add_library( # Sets the name of the library.
+             simple-mediadata-lib
+
+             # Sets the library as a shared library.
+             SHARED
+
+             # Provides a relative path to your source file(s).
+             src/main/cpp/include/libsimple_mediadata/simple_mediadata.cpp
+             )
 
 
 add_library(avcodec-57_lib SHARED IMPORTED)
@@ -82,7 +101,8 @@ include_directories(src/main/cpp/include/)
 
 target_link_libraries( # Specifies the target library.
                        native-lib
-
+                       simple-mediadata-lib
+                       media-lib
                        avcodec-57_lib
                        avdevice-57_lib
                        avfilter-6_lib
@@ -101,7 +121,14 @@ target_link_libraries( # Specifies the target library.
 
 
 
+target_link_libraries( # Specifies the target library.
 
+                       media-lib
+
+
+                       # Links the target library to the log library
+                       # included in the NDK.
+                       ${log-lib} )
 
 
 

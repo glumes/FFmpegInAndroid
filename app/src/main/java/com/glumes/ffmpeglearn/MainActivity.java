@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Button;
 
+import com.glumes.ffmpeglearn.fileaddress.FileContants;
 import com.glumes.ffmpeglib.FFMPEGTest;
 import com.glumes.ffmpeglib.SimpleDecoder;
 
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     String fileName = "sintel.mp4";
 
     String targetFileName = "sintel.yuv";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,5 +56,8 @@ public class MainActivity extends AppCompatActivity {
         Timber.d("testtest");
 
         FFMPEGTest.printFFmpegConfigInfo();
+
+        FFMPEGTest.yuv420Split(FileContants.YUV420);
+
     }
 }

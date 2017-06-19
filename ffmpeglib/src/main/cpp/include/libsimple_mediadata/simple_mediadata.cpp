@@ -18,6 +18,7 @@ extern "C"
 int simple_mediadata::media_yuv420_split(char *url, int w, int h, int num) {
     FILE *fp = fopen(url, "rb+");
     const char *y_file = "output_420_y.txt";
+//    chdir("/sdcard/");
     FILE *fp1 = fopen(y_file, "wb+");
     FILE *fp2 = fopen("output_420_u.y", "wb+");
     FILE *fp3 = fopen("output_420_v.y", "wb+");

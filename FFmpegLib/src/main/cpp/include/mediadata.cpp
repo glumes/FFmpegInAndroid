@@ -29,6 +29,8 @@ extern "C" {
 #define LOGE(format, ...)  __android_log_print(ANDROID_LOG_ERROR, TAG, format, ##__VA_ARGS__)
 #define LOGD(format, ...)  __android_log_print(ANDROID_LOG_DEBUG, TAG, format, ##__VA_ARGS__)
 
+
+
 extern "C"
 JNIEXPORT void JNICALL
 Java_com_glumes_ffmpeglib_FFMPEGTest_yuv420Split(JNIEnv *env, jclass type, jstring filename_,

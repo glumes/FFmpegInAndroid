@@ -11,6 +11,8 @@ extern "C" {
 #endif
 #include "../../../../ffmpeglib/src/main/cpp/include/libavcodec/avcodec.h"
 #include "../../../../ffmpeglib/src/main/cpp/include/libavutil/frame.h"
+#include "../../../../ffmpeglib/src/main/cpp/include/libavutil/mem.h"
+
 #ifdef  __cplusplus
 };
 #endif

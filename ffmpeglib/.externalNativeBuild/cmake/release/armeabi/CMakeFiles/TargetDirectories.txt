@@ -1,6 +1,6 @@
-/Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/.externalNativeBuild/cmake/release/armeabi/CMakeFiles/edit_cache.dir
-/Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/.externalNativeBuild/cmake/release/armeabi/CMakeFiles/rebuild_cache.dir
-/Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/.externalNativeBuild/cmake/release/armeabi/CMakeFiles/native-lib.dir
-/Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/.externalNativeBuild/cmake/release/armeabi/CMakeFiles/media-lib.dir
-/Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/.externalNativeBuild/cmake/release/armeabi/CMakeFiles/ffmpeg-examples-lib.dir
-/Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/.externalNativeBuild/cmake/release/armeabi/CMakeFiles/simple-mediadata-lib.dir
+/Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/.externalNativeBuild/cmake/release/armeabi/CMakeFiles/edit_cache.dir
+/Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/.externalNativeBuild/cmake/release/armeabi/CMakeFiles/rebuild_cache.dir
+/Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/.externalNativeBuild/cmake/release/armeabi/CMakeFiles/native-lib.dir
+/Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/.externalNativeBuild/cmake/release/armeabi/CMakeFiles/media-lib.dir
+/Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/.externalNativeBuild/cmake/release/armeabi/CMakeFiles/ffmpeg-examples-lib.dir
+/Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/.externalNativeBuild/cmake/release/armeabi/CMakeFiles/simple-mediadata-lib.dir

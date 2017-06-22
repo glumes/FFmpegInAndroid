@@ -1,12 +1,9 @@
 
 {
-	"buildFiles" : 
-	[
-		"/Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/CMakeLists.txt"
-	],
+	"buildFiles" : [ "/Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/CMakeLists.txt" ],
 	"cleanCommands" : 
 	[
-		"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/cmake --build /Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/.externalNativeBuild/cmake/debug/armeabi --target clean"
+		"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/cmake --build /Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/.externalNativeBuild/cmake/debug/armeabi --target clean"
 	],
 	"cppFileExtensions" : [ "cpp" ],
 	"libraries" : 
@@ -16,7 +13,7 @@
 			"abi" : "armeabi",
 			"artifactName" : "avcodec-57_lib",
 			"buildType" : "debug",
-			"output" : "/Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/src/main/jniLibs/armeabi/libavcodec-57.so",
+			"output" : "/Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/src/main/jniLibs/armeabi/libavcodec-57.so",
 			"toolchain" : "4835255075668712184"
 		},
 		"avdevice-57_lib-Debug-armeabi" : 
@@ -24,7 +21,7 @@
 			"abi" : "armeabi",
 			"artifactName" : "avdevice-57_lib",
 			"buildType" : "debug",
-			"output" : "/Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/src/main/jniLibs/armeabi/libavdevice-57.so",
+			"output" : "/Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/src/main/jniLibs/armeabi/libavdevice-57.so",
 			"toolchain" : "4835255075668712184"
 		},
 		"avfilter-6_lib-Debug-armeabi" : 
@@ -32,7 +29,7 @@
 			"abi" : "armeabi",
 			"artifactName" : "avfilter-6_lib",
 			"buildType" : "debug",
-			"output" : "/Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/src/main/jniLibs/armeabi/libavfilter-6.so",
+			"output" : "/Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/src/main/jniLibs/armeabi/libavfilter-6.so",
 			"toolchain" : "4835255075668712184"
 		},
 		"avformat-57_lib-Debug-armeabi" : 
@@ -40,7 +37,7 @@
 			"abi" : "armeabi",
 			"artifactName" : "avformat-57_lib",
 			"buildType" : "debug",
-			"output" : "/Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/src/main/jniLibs/armeabi/libavformat-57.so",
+			"output" : "/Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/src/main/jniLibs/armeabi/libavformat-57.so",
 			"toolchain" : "4835255075668712184"
 		},
 		"avresample-3_lib-Debug-armeabi" : 
@@ -48,7 +45,7 @@
 			"abi" : "armeabi",
 			"artifactName" : "avresample-3_lib",
 			"buildType" : "debug",
-			"output" : "/Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/src/main/jniLibs/armeabi/libavresample-3.so",
+			"output" : "/Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/src/main/jniLibs/armeabi/libavresample-3.so",
 			"toolchain" : "4835255075668712184"
 		},
 		"avutil-55_lib-Debug-armeabi" : 
@@ -56,85 +53,85 @@
 			"abi" : "armeabi",
 			"artifactName" : "avutil-55_lib",
 			"buildType" : "debug",
-			"output" : "/Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/src/main/jniLibs/armeabi/libavutil-55.so",
+			"output" : "/Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/src/main/jniLibs/armeabi/libavutil-55.so",
 			"toolchain" : "4835255075668712184"
 		},
 		"ffmpeg-examples-lib-Debug-armeabi" : 
 		{
 			"abi" : "armeabi",
 			"artifactName" : "ffmpeg-examples-lib",
-			"buildCommand" : "/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/cmake --build /Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/.externalNativeBuild/cmake/debug/armeabi --target ffmpeg-examples-lib",
+			"buildCommand" : "/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/cmake --build /Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/.externalNativeBuild/cmake/debug/armeabi --target ffmpeg-examples-lib",
 			"buildType" : "debug",
 			"files" : 
 			[
 				
 				{
 					"flags" : "  --target=armv5te-none-linux-androideabi --gcc-toolchain=/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/darwin-x86_64 --sysroot=/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-22/arch-arm  -Dffmpeg_examples_lib_EXPORTS -I../../../../src/main/cpp/include -isystem /Users/glumes/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include -isystem /Users/glumes/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi/include -isystem /Users/glumes/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include/backward  -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -march=armv5te -mtune=xscale -msoft-float -fno-integrated-as -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -march=armv5te -mtune=xscale -msoft-float -fno-integrated-as -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -std=c++11 -O0 -fno-limit-debug-info -O0 -fno-limit-debug-info  -fPIC    -c ",
-					"src" : "/Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/src/main/cpp/include/ffmpeg_examples/decode_audio.cpp",
-					"workingDirectory" : "/Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/.externalNativeBuild/cmake/debug/armeabi"
+					"src" : "/Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/src/main/cpp/include/ffmpeg_examples/decode_audio.cpp",
+					"workingDirectory" : "/Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/.externalNativeBuild/cmake/debug/armeabi"
 				}
 			],
-			"output" : "/Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/build/intermediates/cmake/debug/obj/armeabi/libffmpeg-examples-lib.so",
+			"output" : "/Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/build/intermediates/cmake/debug/obj/armeabi/libffmpeg-examples-lib.so",
 			"toolchain" : "4835255075668712184"
 		},
 		"media-lib-Debug-armeabi" : 
 		{
 			"abi" : "armeabi",
 			"artifactName" : "media-lib",
-			"buildCommand" : "/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/cmake --build /Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/.externalNativeBuild/cmake/debug/armeabi --target media-lib",
+			"buildCommand" : "/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/cmake --build /Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/.externalNativeBuild/cmake/debug/armeabi --target media-lib",
 			"buildType" : "debug",
 			"files" : 
 			[
 				
 				{
 					"flags" : "  --target=armv5te-none-linux-androideabi --gcc-toolchain=/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/darwin-x86_64 --sysroot=/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-22/arch-arm  -Dmedia_lib_EXPORTS -I../../../../src/main/cpp/include -isystem /Users/glumes/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include -isystem /Users/glumes/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi/include -isystem /Users/glumes/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include/backward  -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -march=armv5te -mtune=xscale -msoft-float -fno-integrated-as -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -march=armv5te -mtune=xscale -msoft-float -fno-integrated-as -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -std=c++11 -O0 -fno-limit-debug-info -O0 -fno-limit-debug-info  -fPIC    -c ",
-					"src" : "/Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/src/main/cpp/include/mediadata.cpp",
-					"workingDirectory" : "/Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/.externalNativeBuild/cmake/debug/armeabi"
+					"src" : "/Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/src/main/cpp/include/mediadata.cpp",
+					"workingDirectory" : "/Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/.externalNativeBuild/cmake/debug/armeabi"
 				}
 			],
-			"output" : "/Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/build/intermediates/cmake/debug/obj/armeabi/libmedia-lib.so",
+			"output" : "/Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/build/intermediates/cmake/debug/obj/armeabi/libmedia-lib.so",
 			"toolchain" : "4835255075668712184"
 		},
 		"native-lib-Debug-armeabi" : 
 		{
 			"abi" : "armeabi",
 			"artifactName" : "native-lib",
-			"buildCommand" : "/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/cmake --build /Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/.externalNativeBuild/cmake/debug/armeabi --target native-lib",
+			"buildCommand" : "/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/cmake --build /Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/.externalNativeBuild/cmake/debug/armeabi --target native-lib",
 			"buildType" : "debug",
 			"files" : 
 			[
 				
 				{
 					"flags" : "  --target=armv5te-none-linux-androideabi --gcc-toolchain=/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/darwin-x86_64 --sysroot=/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-22/arch-arm  -Dnative_lib_EXPORTS -I../../../../src/main/cpp/include -isystem /Users/glumes/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include -isystem /Users/glumes/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi/include -isystem /Users/glumes/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include/backward  -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -march=armv5te -mtune=xscale -msoft-float -fno-integrated-as -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -march=armv5te -mtune=xscale -msoft-float -fno-integrated-as -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -std=c++11 -O0 -fno-limit-debug-info -O0 -fno-limit-debug-info  -fPIC    -c ",
-					"src" : "/Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/src/main/cpp/ffmpeg-config.cpp",
-					"workingDirectory" : "/Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/.externalNativeBuild/cmake/debug/armeabi"
+					"src" : "/Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/src/main/cpp/ffmpeg-config.cpp",
+					"workingDirectory" : "/Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/.externalNativeBuild/cmake/debug/armeabi"
 				},
 				
 				{
 					"flags" : "  --target=armv5te-none-linux-androideabi --gcc-toolchain=/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/darwin-x86_64 --sysroot=/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-22/arch-arm  -Dnative_lib_EXPORTS -I../../../../src/main/cpp/include -isystem /Users/glumes/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include -isystem /Users/glumes/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi/include -isystem /Users/glumes/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include/backward  -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -march=armv5te -mtune=xscale -msoft-float -fno-integrated-as -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -march=armv5te -mtune=xscale -msoft-float -fno-integrated-as -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -std=c++11 -O0 -fno-limit-debug-info -O0 -fno-limit-debug-info  -fPIC    -c ",
-					"src" : "/Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/src/main/cpp/native-lib.cpp",
-					"workingDirectory" : "/Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/.externalNativeBuild/cmake/debug/armeabi"
+					"src" : "/Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/src/main/cpp/native-lib.cpp",
+					"workingDirectory" : "/Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/.externalNativeBuild/cmake/debug/armeabi"
 				}
 			],
-			"output" : "/Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/build/intermediates/cmake/debug/obj/armeabi/libnative-lib.so",
+			"output" : "/Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/build/intermediates/cmake/debug/obj/armeabi/libnative-lib.so",
 			"toolchain" : "4835255075668712184"
 		},
 		"simple-mediadata-lib-Debug-armeabi" : 
 		{
 			"abi" : "armeabi",
 			"artifactName" : "simple-mediadata-lib",
-			"buildCommand" : "/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/cmake --build /Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/.externalNativeBuild/cmake/debug/armeabi --target simple-mediadata-lib",
+			"buildCommand" : "/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/cmake --build /Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/.externalNativeBuild/cmake/debug/armeabi --target simple-mediadata-lib",
 			"buildType" : "debug",
 			"files" : 
 			[
 				
 				{
 					"flags" : "  --target=armv5te-none-linux-androideabi --gcc-toolchain=/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/darwin-x86_64 --sysroot=/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-22/arch-arm  -Dsimple_mediadata_lib_EXPORTS -I../../../../src/main/cpp/include -isystem /Users/glumes/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include -isystem /Users/glumes/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi/include -isystem /Users/glumes/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include/backward  -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -march=armv5te -mtune=xscale -msoft-float -fno-integrated-as -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -march=armv5te -mtune=xscale -msoft-float -fno-integrated-as -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -std=c++11 -O0 -fno-limit-debug-info -O0 -fno-limit-debug-info  -fPIC    -c ",
-					"src" : "/Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/src/main/cpp/include/libsimple_mediadata/simple_mediadata.cpp",
-					"workingDirectory" : "/Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/.externalNativeBuild/cmake/debug/armeabi"
+					"src" : "/Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/src/main/cpp/include/libsimple_mediadata/simple_mediadata.cpp",
+					"workingDirectory" : "/Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/.externalNativeBuild/cmake/debug/armeabi"
 				}
 			],
-			"output" : "/Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/build/intermediates/cmake/debug/obj/armeabi/libsimple-mediadata-lib.so",
+			"output" : "/Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/build/intermediates/cmake/debug/obj/armeabi/libsimple-mediadata-lib.so",
 			"toolchain" : "4835255075668712184"
 		},
 		"swresample-2_lib-Debug-armeabi" : 
@@ -142,7 +139,7 @@
 			"abi" : "armeabi",
 			"artifactName" : "swresample-2_lib",
 			"buildType" : "debug",
-			"output" : "/Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/src/main/jniLibs/armeabi/libswresample-2.so",
+			"output" : "/Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/src/main/jniLibs/armeabi/libswresample-2.so",
 			"toolchain" : "4835255075668712184"
 		},
 		"swscale-4_lib-Debug-armeabi" : 
@@ -150,7 +147,7 @@
 			"abi" : "armeabi",
 			"artifactName" : "swscale-4_lib",
 			"buildType" : "debug",
-			"output" : "/Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/src/main/jniLibs/armeabi/libswscale-4.so",
+			"output" : "/Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/src/main/jniLibs/armeabi/libswscale-4.so",
 			"toolchain" : "4835255075668712184"
 		},
 		"x264-148_lib-Debug-armeabi" : 
@@ -158,7 +155,7 @@
 			"abi" : "armeabi",
 			"artifactName" : "x264-148_lib",
 			"buildType" : "debug",
-			"output" : "/Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/src/main/jniLibs/armeabi/libx264-148.so",
+			"output" : "/Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/src/main/jniLibs/armeabi/libx264-148.so",
 			"toolchain" : "4835255075668712184"
 		}
 	},

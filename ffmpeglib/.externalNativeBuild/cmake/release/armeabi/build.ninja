@@ -34,7 +34,7 @@ include rules.ninja
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/.externalNativeBuild/cmake/release/armeabi && /Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/.externalNativeBuild/cmake/release/armeabi && /Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 build edit_cache: phony CMakeFiles/edit_cache.util
@@ -43,7 +43,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/.externalNativeBuild/cmake/release/armeabi && /Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/cmake -H/Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib -B/Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/.externalNativeBuild/cmake/release/armeabi
+  COMMAND = cd /Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/.externalNativeBuild/cmake/release/armeabi && /Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/cmake -H/Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib -B/Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/.externalNativeBuild/cmake/release/armeabi
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -61,7 +61,7 @@ build CMakeFiles/native-lib.dir/src/main/cpp/ffmpeg-config.cpp.o: CXX_COMPILER__
   DEP_FILE = CMakeFiles/native-lib.dir/src/main/cpp/ffmpeg-config.cpp.o.d
   FLAGS = -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -march=armv5te -mtune=xscale -msoft-float -fno-integrated-as -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -march=armv5te -mtune=xscale -msoft-float -fno-integrated-as -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -std=c++11 -Os -DNDEBUG -Os -DNDEBUG  -fPIC
   INCLUDES = -I../../../../src/main/cpp/include -isystem /Users/glumes/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include -isystem /Users/glumes/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi/include -isystem /Users/glumes/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include/backward
-  IN_ABS = /Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/src/main/cpp/ffmpeg-config.cpp
+  IN_ABS = /Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/src/main/cpp/ffmpeg-config.cpp
   OBJECT_DIR = CMakeFiles/native-lib.dir
   OBJECT_FILE_DIR = CMakeFiles/native-lib.dir/src/main/cpp
 build CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o: CXX_COMPILER__native-lib ../../../../src/main/cpp/native-lib.cpp || cmake_order_depends_target_native-lib
@@ -69,7 +69,7 @@ build CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o: CXX_COMPILER__nat
   DEP_FILE = CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o.d
   FLAGS = -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -march=armv5te -mtune=xscale -msoft-float -fno-integrated-as -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -march=armv5te -mtune=xscale -msoft-float -fno-integrated-as -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -std=c++11 -Os -DNDEBUG -Os -DNDEBUG  -fPIC
   INCLUDES = -I../../../../src/main/cpp/include -isystem /Users/glumes/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include -isystem /Users/glumes/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi/include -isystem /Users/glumes/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include/backward
-  IN_ABS = /Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/src/main/cpp/native-lib.cpp
+  IN_ABS = /Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/src/main/cpp/native-lib.cpp
   OBJECT_DIR = CMakeFiles/native-lib.dir
   OBJECT_FILE_DIR = CMakeFiles/native-lib.dir/src/main/cpp
 
@@ -99,7 +99,7 @@ build CMakeFiles/media-lib.dir/src/main/cpp/include/mediadata.cpp.o: CXX_COMPILE
   DEP_FILE = CMakeFiles/media-lib.dir/src/main/cpp/include/mediadata.cpp.o.d
   FLAGS = -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -march=armv5te -mtune=xscale -msoft-float -fno-integrated-as -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -march=armv5te -mtune=xscale -msoft-float -fno-integrated-as -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -std=c++11 -Os -DNDEBUG -Os -DNDEBUG  -fPIC
   INCLUDES = -I../../../../src/main/cpp/include -isystem /Users/glumes/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include -isystem /Users/glumes/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi/include -isystem /Users/glumes/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include/backward
-  IN_ABS = /Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/src/main/cpp/include/mediadata.cpp
+  IN_ABS = /Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/src/main/cpp/include/mediadata.cpp
   OBJECT_DIR = CMakeFiles/media-lib.dir
   OBJECT_FILE_DIR = CMakeFiles/media-lib.dir/src/main/cpp/include
 
@@ -129,7 +129,7 @@ build CMakeFiles/ffmpeg-examples-lib.dir/src/main/cpp/include/ffmpeg_examples/de
   DEP_FILE = CMakeFiles/ffmpeg-examples-lib.dir/src/main/cpp/include/ffmpeg_examples/decode_audio.cpp.o.d
   FLAGS = -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -march=armv5te -mtune=xscale -msoft-float -fno-integrated-as -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -march=armv5te -mtune=xscale -msoft-float -fno-integrated-as -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -std=c++11 -Os -DNDEBUG -Os -DNDEBUG  -fPIC
   INCLUDES = -I../../../../src/main/cpp/include -isystem /Users/glumes/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include -isystem /Users/glumes/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi/include -isystem /Users/glumes/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include/backward
-  IN_ABS = /Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/src/main/cpp/include/ffmpeg_examples/decode_audio.cpp
+  IN_ABS = /Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/src/main/cpp/include/ffmpeg_examples/decode_audio.cpp
   OBJECT_DIR = CMakeFiles/ffmpeg-examples-lib.dir
   OBJECT_FILE_DIR = CMakeFiles/ffmpeg-examples-lib.dir/src/main/cpp/include/ffmpeg_examples
 
@@ -159,7 +159,7 @@ build CMakeFiles/simple-mediadata-lib.dir/src/main/cpp/include/libsimple_mediada
   DEP_FILE = CMakeFiles/simple-mediadata-lib.dir/src/main/cpp/include/libsimple_mediadata/simple_mediadata.cpp.o.d
   FLAGS = -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -march=armv5te -mtune=xscale -msoft-float -fno-integrated-as -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -march=armv5te -mtune=xscale -msoft-float -fno-integrated-as -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -std=c++11 -Os -DNDEBUG -Os -DNDEBUG  -fPIC
   INCLUDES = -I../../../../src/main/cpp/include -isystem /Users/glumes/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include -isystem /Users/glumes/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi/include -isystem /Users/glumes/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include/backward
-  IN_ABS = /Users/glumes/AndroidOpenSource/FFMPEGLearn/ffmpeglib/src/main/cpp/include/libsimple_mediadata/simple_mediadata.cpp
+  IN_ABS = /Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/src/main/cpp/include/libsimple_mediadata/simple_mediadata.cpp
   OBJECT_DIR = CMakeFiles/simple-mediadata-lib.dir
   OBJECT_FILE_DIR = CMakeFiles/simple-mediadata-lib.dir/src/main/cpp/include/libsimple_mediadata
 

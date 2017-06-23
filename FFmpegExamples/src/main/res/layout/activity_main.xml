@@ -2,6 +2,15 @@
 
 <layout xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <import type="com.glumes.ffmpeglib.FFmpegEvent" />
+
+        <variable
+            name="FFmpegEvent"
+            type="FFmpegEvent" />
+    </data>
+
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -13,6 +22,7 @@
             style="@style/ButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="@{FFmpegEvent.onDecodeAudio}"
             android:text="@string/decode_audio" />
 
         <Button
@@ -20,9 +30,8 @@
             style="@style/ButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/btnDecodeAudio"
-            android:layout_alignBottom="@+id/btnDecodeAudio"
-            android:layout_centerHorizontal="true" />
+            android:layout_toEndOf="@+id/btnDecodeAudio"
+            android:text="@string/decode_video" />
     </RelativeLayout>
 
 </layout>

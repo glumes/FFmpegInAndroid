@@ -1,6 +1,0 @@
-/Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/.externalNativeBuild/cmake/debug/armeabi/CMakeFiles/edit_cache.dir
-/Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/.externalNativeBuild/cmake/debug/armeabi/CMakeFiles/rebuild_cache.dir
-/Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/.externalNativeBuild/cmake/debug/armeabi/CMakeFiles/native-lib.dir
-/Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/.externalNativeBuild/cmake/debug/armeabi/CMakeFiles/media-lib.dir
-/Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/.externalNativeBuild/cmake/debug/armeabi/CMakeFiles/ffmpeg-examples-lib.dir
-/Users/glumes/GithubCode/FFMPEGLearn/FFmpegLib/.externalNativeBuild/cmake/debug/armeabi/CMakeFiles/simple-mediadata-lib.dir

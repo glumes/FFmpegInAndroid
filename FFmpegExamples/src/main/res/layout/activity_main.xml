@@ -19,12 +19,14 @@
         tools:context="com.glumes.ffmpegexamples.MainActivity">
 
         <include
+            android:id="@+id/audio_layout"
             layout="@layout/audio_encode_decode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             binding:ClickHandler="@{ClickHandler}" />
 
         <include
+            android:id="@+id/video_layout"
             layout="@layout/video_encode_decode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

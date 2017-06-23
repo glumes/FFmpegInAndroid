@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:binding="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout>
 
     <data>
 
@@ -15,20 +14,25 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context="com.glumes.ffmpegexamples.MainActivity">
+        android:orientation="horizontal">
 
-        <include
-            layout="@layout/audio_encode_decode"
+
+        <Button
+            android:id="@+id/btnDecodeAudio"
+            style="@style/ButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            binding:ClickHandler="@{ClickHandler}" />
+            android:onClick="@{ClickHandler.onDecodeAudio}"
+            android:text="@string/decode_audio" />
 
-        <include
-            layout="@layout/video_encode_decode"
+        <Button
+            android:id="@+id/btnEncodeAudio"
+            style="@style/ButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            binding:ClickHandler="@{ClickHandler}" />
+            android:onClick="@{ClickHandler.onEncodeAudio}"
+            android:text="@string/encode_audio" />
+
     </LinearLayout>
 
 </layout>

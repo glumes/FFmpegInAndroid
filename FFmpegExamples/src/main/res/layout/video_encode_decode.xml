@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<layout xmlns:binding="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout>
 
     <data>
 
@@ -15,21 +13,23 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context="com.glumes.ffmpegexamples.MainActivity">
+        android:orientation="horizontal">
 
-        <include
-            layout="@layout/audio_encode_decode"
+        <Button
+            android:id="@+id/btnDecodeVideo"
+            style="@style/ButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            binding:ClickHandler="@{ClickHandler}" />
+            android:onClick="@{ClickHandler.onDecodeVideo}"
+            android:text="@string/decode_video" />
 
-        <include
-            layout="@layout/video_encode_decode"
+        <Button
+            android:id="@+id/btnEncodeVideo"
+            style="@style/ButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            binding:ClickHandler="@{ClickHandler}" />
+            android:onClick="@{ClickHandler.onEncodeVideo}"
+            android:text="@string/encode_video" />
     </LinearLayout>
 
 </layout>
-

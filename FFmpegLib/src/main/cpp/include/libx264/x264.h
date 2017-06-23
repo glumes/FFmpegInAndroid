@@ -47,7 +47,7 @@ extern "C" {
 
 #define X264_BUILD 148
 
-/* Application developers planning to link against a shared library version of
+/* BaseApplication developers planning to link against a shared library version of
  * libx264 from a Microsoft Visual Studio or similar development environment
  * will need to define X264_API_IMPORTS before including this header.
  * This clause does not apply to MinGW, similar development environments, or non

@@ -1,4 +1,4 @@
-package com.glumes.ffmpegexamples;
+package com.glumes.ffmpeglib;
 
 /**
  * Created by zhaoying on 2017/6/20.
@@ -10,5 +10,4 @@ public class FFmpegSampleHolder {
         System.loadLibrary("native-lib");
     }
 
-    public static native void decode(String inputFile, String outputFile);
 }

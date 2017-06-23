@@ -1,19 +1,19 @@
 The target system is: Android - 23 - mips
-The host system is: Darwin - 16.5.0 - x86_64
+The host system is: Darwin - 16.6.0 - x86_64
 Determining if the C compiler works passed with the following output:
-Change Dir: /Users/glumes/AndroidOpenSource/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/mips/CMakeFiles/CMakeTmp
+Change Dir: /Users/glumes/GithubCode/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/mips/CMakeFiles/CMakeTmp
 
-Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_0652b"
-[1/2] Building C object CMakeFiles/cmTC_0652b.dir/testCCompiler.c.o
-[2/2] Linking C executable cmTC_0652b
+Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_c0924"
+[1/2] Building C object CMakeFiles/cmTC_c0924.dir/testCCompiler.c.o
+[2/2] Linking C executable cmTC_c0924
 
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: /Users/glumes/AndroidOpenSource/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/mips/CMakeFiles/CMakeTmp
+Change Dir: /Users/glumes/GithubCode/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/mips/CMakeFiles/CMakeTmp
 
-Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_6fa60"
-[1/2] Building C object CMakeFiles/cmTC_6fa60.dir/CMakeCCompilerABI.c.o
-[2/2] Linking C executable cmTC_6fa60
+Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_63583"
+[1/2] Building C object CMakeFiles/cmTC_63583.dir/CMakeCCompilerABI.c.o
+[2/2] Linking C executable cmTC_63583
 Android clang version 3.8.275480  (based on LLVM 3.8.275480)
 Target: mipsel-none-linux-android
 Thread model: posix
@@ -25,16 +25,16 @@ Candidate multilib: 32/mips-r1;@march=mips32
 Candidate multilib: 32/mips-r2;@march=mips32r2
 Candidate multilib: 32/mips-r6;@march=mips32r6
 Selected multilib: 32/mips-r1;@march=mips32
- "/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/bin/ld" --sysroot=/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips -pie --sysroot=/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips --eh-frame-hdr -m elf32ltsmip -dynamic-linker /system/bin/linker -o cmTC_6fa60 /Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips/usr/lib/../lib/crtbegin_dynamic.o -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/32/mips-r1 -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/32/mips-r1 -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/32/mips-r1 -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/lib/../lib -L/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips/usr/lib/../lib -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/lib -L/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_6fa60.dir/CMakeCCompilerABI.c.o -lgcc -ldl -lc -lgcc -ldl /Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips/usr/lib/../lib/crtend_android.o
+ "/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/bin/ld" --sysroot=/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips -pie --sysroot=/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips --eh-frame-hdr -m elf32ltsmip -dynamic-linker /system/bin/linker -o cmTC_63583 /Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips/usr/lib/../lib/crtbegin_dynamic.o -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/32/mips-r1 -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/32/mips-r1 -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/32/mips-r1 -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/lib/../lib -L/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips/usr/lib/../lib -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/lib -L/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_63583.dir/CMakeCCompilerABI.c.o -lgcc -ldl -lc -lgcc -ldl /Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips/usr/lib/../lib/crtend_android.o
 
 
 Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(mips64el-linux-android-ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /Users/glumes/AndroidOpenSource/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/mips/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /Users/glumes/GithubCode/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/mips/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_6fa60"]
-  ignore line: [[1/2] Building C object CMakeFiles/cmTC_6fa60.dir/CMakeCCompilerABI.c.o]
-  ignore line: [[2/2] Linking C executable cmTC_6fa60]
+  ignore line: [Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_63583"]
+  ignore line: [[1/2] Building C object CMakeFiles/cmTC_63583.dir/CMakeCCompilerABI.c.o]
+  ignore line: [[2/2] Linking C executable cmTC_63583]
   ignore line: [Android clang version 3.8.275480  (based on LLVM 3.8.275480)]
   ignore line: [Target: mipsel-none-linux-android]
   ignore line: [Thread model: posix]
@@ -51,7 +51,7 @@ Parsed C implicit link information from above output:
   ignore line: [@march=mips32r6]
   ignore line: [Selected multilib: 32/mips-r1]
   ignore line: [@march=mips32]
-  link line: [ "/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/bin/ld" --sysroot=/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips -pie --sysroot=/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips --eh-frame-hdr -m elf32ltsmip -dynamic-linker /system/bin/linker -o cmTC_6fa60 /Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips/usr/lib/../lib/crtbegin_dynamic.o -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/32/mips-r1 -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/32/mips-r1 -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/32/mips-r1 -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/lib/../lib -L/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips/usr/lib/../lib -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/lib -L/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_6fa60.dir/CMakeCCompilerABI.c.o -lgcc -ldl -lc -lgcc -ldl /Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips/usr/lib/../lib/crtend_android.o]
+  link line: [ "/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/bin/ld" --sysroot=/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips -pie --sysroot=/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips --eh-frame-hdr -m elf32ltsmip -dynamic-linker /system/bin/linker -o cmTC_63583 /Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips/usr/lib/../lib/crtbegin_dynamic.o -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/32/mips-r1 -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/32/mips-r1 -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/32/mips-r1 -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/lib/../lib -L/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips/usr/lib/../lib -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/lib -L/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_63583.dir/CMakeCCompilerABI.c.o -lgcc -ldl -lc -lgcc -ldl /Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips/usr/lib/../lib/crtend_android.o]
     arg [/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/bin/ld] ==> ignore
     arg [--sysroot=/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips] ==> ignore
     arg [-pie] ==> ignore
@@ -62,7 +62,7 @@ Parsed C implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/system/bin/linker] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_6fa60] ==> ignore
+    arg [cmTC_63583] ==> ignore
     arg [/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips/usr/lib/../lib/crtbegin_dynamic.o] ==> ignore
     arg [-L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/32/mips-r1] ==> dir [/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/32/mips-r1]
     arg [-L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/32/mips-r1] ==> dir [/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/32/mips-r1]
@@ -89,7 +89,7 @@ Parsed C implicit link information from above output:
     arg [-znow] ==> ignore
     arg [--gc-sections] ==> ignore
     arg [-znocopyreloc] ==> ignore
-    arg [CMakeFiles/cmTC_6fa60.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_63583.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [-ldl] ==> lib [dl]
     arg [-lc] ==> lib [c]
@@ -113,11 +113,11 @@ Parsed C implicit link information from above output:
 
 
 Detecting C [-std=c11] compiler features compiled with the following output:
-Change Dir: /Users/glumes/AndroidOpenSource/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/mips/CMakeFiles/CMakeTmp
+Change Dir: /Users/glumes/GithubCode/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/mips/CMakeFiles/CMakeTmp
 
-Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_f502a"
-[1/2] Building C object CMakeFiles/cmTC_f502a.dir/feature_tests.c.o
-[2/2] Linking C executable cmTC_f502a
+Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_e445a"
+[1/2] Building C object CMakeFiles/cmTC_e445a.dir/feature_tests.c.o
+[2/2] Linking C executable cmTC_e445a
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -127,11 +127,11 @@ Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja
 
 
 Detecting C [-std=c99] compiler features compiled with the following output:
-Change Dir: /Users/glumes/AndroidOpenSource/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/mips/CMakeFiles/CMakeTmp
+Change Dir: /Users/glumes/GithubCode/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/mips/CMakeFiles/CMakeTmp
 
-Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_a685b"
-[1/2] Building C object CMakeFiles/cmTC_a685b.dir/feature_tests.c.o
-[2/2] Linking C executable cmTC_a685b
+Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_a340d"
+[1/2] Building C object CMakeFiles/cmTC_a340d.dir/feature_tests.c.o
+[2/2] Linking C executable cmTC_a340d
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -141,11 +141,11 @@ Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja
 
 
 Detecting C [-std=c90] compiler features compiled with the following output:
-Change Dir: /Users/glumes/AndroidOpenSource/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/mips/CMakeFiles/CMakeTmp
+Change Dir: /Users/glumes/GithubCode/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/mips/CMakeFiles/CMakeTmp
 
-Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_e9e49"
-[1/2] Building C object CMakeFiles/cmTC_e9e49.dir/feature_tests.c.o
-[2/2] Linking C executable cmTC_e9e49
+Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_b0f09"
+[1/2] Building C object CMakeFiles/cmTC_b0f09.dir/feature_tests.c.o
+[2/2] Linking C executable cmTC_b0f09
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -153,19 +153,19 @@ Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja
     Feature record: C_FEATURE:0c_static_assert
     Feature record: C_FEATURE:0c_variadic_macros
 Determining if the CXX compiler works passed with the following output:
-Change Dir: /Users/glumes/AndroidOpenSource/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/mips/CMakeFiles/CMakeTmp
+Change Dir: /Users/glumes/GithubCode/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/mips/CMakeFiles/CMakeTmp
 
-Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_d3772"
-[1/2] Building CXX object CMakeFiles/cmTC_d3772.dir/testCXXCompiler.cxx.o
-[2/2] Linking CXX executable cmTC_d3772
+Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_d7f7d"
+[1/2] Building CXX object CMakeFiles/cmTC_d7f7d.dir/testCXXCompiler.cxx.o
+[2/2] Linking CXX executable cmTC_d7f7d
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: /Users/glumes/AndroidOpenSource/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/mips/CMakeFiles/CMakeTmp
+Change Dir: /Users/glumes/GithubCode/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/mips/CMakeFiles/CMakeTmp
 
-Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_a531e"
-[1/2] Building CXX object CMakeFiles/cmTC_a531e.dir/CMakeCXXCompilerABI.cpp.o
-[2/2] Linking CXX executable cmTC_a531e
+Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_2ae82"
+[1/2] Building CXX object CMakeFiles/cmTC_2ae82.dir/CMakeCXXCompilerABI.cpp.o
+[2/2] Linking CXX executable cmTC_2ae82
 Android clang version 3.8.275480  (based on LLVM 3.8.275480)
 Target: mipsel-none-linux-android
 Thread model: posix
@@ -177,16 +177,16 @@ Candidate multilib: 32/mips-r1;@march=mips32
 Candidate multilib: 32/mips-r2;@march=mips32r2
 Candidate multilib: 32/mips-r6;@march=mips32r6
 Selected multilib: 32/mips-r1;@march=mips32
- "/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/bin/ld" --sysroot=/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips -pie --sysroot=/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips --eh-frame-hdr -m elf32ltsmip -dynamic-linker /system/bin/linker -o cmTC_a531e /Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips/usr/lib/../lib/crtbegin_dynamic.o -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/32/mips-r1 -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/32/mips-r1 -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/32/mips-r1 -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/lib/../lib -L/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips/usr/lib/../lib -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/lib -L/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_a531e.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc -lgcc -ldl -lc -lgcc -lgcc -ldl /Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips/usr/lib/../lib/crtend_android.o
+ "/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/bin/ld" --sysroot=/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips -pie --sysroot=/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips --eh-frame-hdr -m elf32ltsmip -dynamic-linker /system/bin/linker -o cmTC_2ae82 /Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips/usr/lib/../lib/crtbegin_dynamic.o -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/32/mips-r1 -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/32/mips-r1 -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/32/mips-r1 -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/lib/../lib -L/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips/usr/lib/../lib -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/lib -L/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_2ae82.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc -lgcc -ldl -lc -lgcc -lgcc -ldl /Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips/usr/lib/../lib/crtend_android.o
 
 
 Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(mips64el-linux-android-ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /Users/glumes/AndroidOpenSource/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/mips/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /Users/glumes/GithubCode/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/mips/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_a531e"]
-  ignore line: [[1/2] Building CXX object CMakeFiles/cmTC_a531e.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [[2/2] Linking CXX executable cmTC_a531e]
+  ignore line: [Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_2ae82"]
+  ignore line: [[1/2] Building CXX object CMakeFiles/cmTC_2ae82.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [[2/2] Linking CXX executable cmTC_2ae82]
   ignore line: [Android clang version 3.8.275480  (based on LLVM 3.8.275480)]
   ignore line: [Target: mipsel-none-linux-android]
   ignore line: [Thread model: posix]
@@ -203,7 +203,7 @@ Parsed CXX implicit link information from above output:
   ignore line: [@march=mips32r6]
   ignore line: [Selected multilib: 32/mips-r1]
   ignore line: [@march=mips32]
-  link line: [ "/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/bin/ld" --sysroot=/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips -pie --sysroot=/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips --eh-frame-hdr -m elf32ltsmip -dynamic-linker /system/bin/linker -o cmTC_a531e /Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips/usr/lib/../lib/crtbegin_dynamic.o -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/32/mips-r1 -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/32/mips-r1 -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/32/mips-r1 -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/lib/../lib -L/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips/usr/lib/../lib -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/lib -L/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_a531e.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc -lgcc -ldl -lc -lgcc -lgcc -ldl /Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips/usr/lib/../lib/crtend_android.o]
+  link line: [ "/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/bin/ld" --sysroot=/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips -pie --sysroot=/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips --eh-frame-hdr -m elf32ltsmip -dynamic-linker /system/bin/linker -o cmTC_2ae82 /Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips/usr/lib/../lib/crtbegin_dynamic.o -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/32/mips-r1 -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/32/mips-r1 -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/32/mips-r1 -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/lib/../lib -L/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips/usr/lib/../lib -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/lib -L/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_2ae82.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc -lgcc -ldl -lc -lgcc -lgcc -ldl /Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips/usr/lib/../lib/crtend_android.o]
     arg [/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/bin/ld] ==> ignore
     arg [--sysroot=/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips] ==> ignore
     arg [-pie] ==> ignore
@@ -214,7 +214,7 @@ Parsed CXX implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/system/bin/linker] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_a531e] ==> ignore
+    arg [cmTC_2ae82] ==> ignore
     arg [/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-mips/usr/lib/../lib/crtbegin_dynamic.o] ==> ignore
     arg [-L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/32/mips-r1] ==> dir [/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/32/mips-r1]
     arg [-L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/32/mips-r1] ==> dir [/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/32/mips-r1]
@@ -241,7 +241,7 @@ Parsed CXX implicit link information from above output:
     arg [-znow] ==> ignore
     arg [--gc-sections] ==> ignore
     arg [-znocopyreloc] ==> ignore
-    arg [CMakeFiles/cmTC_a531e.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_2ae82.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc] ==> lib [gcc]
@@ -271,11 +271,11 @@ Parsed CXX implicit link information from above output:
 
 
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
-Change Dir: /Users/glumes/AndroidOpenSource/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/mips/CMakeFiles/CMakeTmp
+Change Dir: /Users/glumes/GithubCode/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/mips/CMakeFiles/CMakeTmp
 
-Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_db1c9"
-[1/2] Building CXX object CMakeFiles/cmTC_db1c9.dir/feature_tests.cxx.o
-[2/2] Linking CXX executable cmTC_db1c9
+Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_eaf9e"
+[1/2] Building CXX object CMakeFiles/cmTC_eaf9e.dir/feature_tests.cxx.o
+[2/2] Linking CXX executable cmTC_eaf9e
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -338,11 +338,11 @@ Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja
 
 
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
-Change Dir: /Users/glumes/AndroidOpenSource/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/mips/CMakeFiles/CMakeTmp
+Change Dir: /Users/glumes/GithubCode/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/mips/CMakeFiles/CMakeTmp
 
-Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_3717d"
-[1/2] Building CXX object CMakeFiles/cmTC_3717d.dir/feature_tests.cxx.o
-[2/2] Linking CXX executable cmTC_3717d
+Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_27e56"
+[1/2] Building CXX object CMakeFiles/cmTC_27e56.dir/feature_tests.cxx.o
+[2/2] Linking CXX executable cmTC_27e56
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
@@ -405,11 +405,11 @@ Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja
 
 
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
-Change Dir: /Users/glumes/AndroidOpenSource/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/mips/CMakeFiles/CMakeTmp
+Change Dir: /Users/glumes/GithubCode/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/mips/CMakeFiles/CMakeTmp
 
-Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_43a71"
-[1/2] Building CXX object CMakeFiles/cmTC_43a71.dir/feature_tests.cxx.o
-[2/2] Linking CXX executable cmTC_43a71
+Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_7dd2a"
+[1/2] Building CXX object CMakeFiles/cmTC_7dd2a.dir/feature_tests.cxx.o
+[2/2] Linking CXX executable cmTC_7dd2a
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers

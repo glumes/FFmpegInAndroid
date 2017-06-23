@@ -1,4 +1,4 @@
-# Install script for directory: /Users/glumes/AndroidOpenSource/FFMPEGLearn/FFmpegExamples
+# Install script for directory: /Users/glumes/GithubCode/FFMPEGLearn/FFmpegExamples
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/glumes/AndroidOpenSource/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/x86_64/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/glumes/GithubCode/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/x86_64/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -1,19 +1,19 @@
 The target system is: Android - 23 - aarch64
-The host system is: Darwin - 16.5.0 - x86_64
+The host system is: Darwin - 16.6.0 - x86_64
 Determining if the C compiler works passed with the following output:
-Change Dir: /Users/glumes/AndroidOpenSource/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/arm64-v8a/CMakeFiles/CMakeTmp
+Change Dir: /Users/glumes/GithubCode/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/arm64-v8a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_791fe"
-[1/2] Building C object CMakeFiles/cmTC_791fe.dir/testCCompiler.c.o
-[2/2] Linking C executable cmTC_791fe
+Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_9e123"
+[1/2] Building C object CMakeFiles/cmTC_9e123.dir/testCCompiler.c.o
+[2/2] Linking C executable cmTC_9e123
 
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: /Users/glumes/AndroidOpenSource/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/arm64-v8a/CMakeFiles/CMakeTmp
+Change Dir: /Users/glumes/GithubCode/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/arm64-v8a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_19819"
-[1/2] Building C object CMakeFiles/cmTC_19819.dir/CMakeCCompilerABI.c.o
-[2/2] Linking C executable cmTC_19819
+Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_e21cc"
+[1/2] Building C object CMakeFiles/cmTC_e21cc.dir/CMakeCCompilerABI.c.o
+[2/2] Linking C executable cmTC_e21cc
 Android clang version 3.8.275480  (based on LLVM 3.8.275480)
 Target: aarch64-none-linux-android
 Thread model: posix
@@ -22,16 +22,16 @@ Found candidate GCC installation: /Users/glumes/Library/Android/sdk/ndk-bundle/t
 Selected GCC installation: /Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x
 Candidate multilib: .;@m64
 Selected multilib: .;@m64
- "/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/bin/ld" --sysroot=/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-arm64 -pie --eh-frame-hdr -m aarch64linux -dynamic-linker /system/bin/linker64 -o cmTC_19819 /Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-arm64/usr/lib/crtbegin_dynamic.o -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib/../lib64 -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib -L/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-arm64/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_19819.dir/CMakeCCompilerABI.c.o -lgcc -ldl -lc -lgcc -ldl /Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-arm64/usr/lib/crtend_android.o
+ "/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/bin/ld" --sysroot=/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-arm64 -pie --eh-frame-hdr -m aarch64linux -dynamic-linker /system/bin/linker64 -o cmTC_e21cc /Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-arm64/usr/lib/crtbegin_dynamic.o -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib/../lib64 -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib -L/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-arm64/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_e21cc.dir/CMakeCCompilerABI.c.o -lgcc -ldl -lc -lgcc -ldl /Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-arm64/usr/lib/crtend_android.o
 
 
 Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(aarch64-linux-android-ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /Users/glumes/AndroidOpenSource/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/arm64-v8a/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /Users/glumes/GithubCode/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/arm64-v8a/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_19819"]
-  ignore line: [[1/2] Building C object CMakeFiles/cmTC_19819.dir/CMakeCCompilerABI.c.o]
-  ignore line: [[2/2] Linking C executable cmTC_19819]
+  ignore line: [Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_e21cc"]
+  ignore line: [[1/2] Building C object CMakeFiles/cmTC_e21cc.dir/CMakeCCompilerABI.c.o]
+  ignore line: [[2/2] Linking C executable cmTC_e21cc]
   ignore line: [Android clang version 3.8.275480  (based on LLVM 3.8.275480)]
   ignore line: [Target: aarch64-none-linux-android]
   ignore line: [Thread model: posix]
@@ -42,7 +42,7 @@ Parsed C implicit link information from above output:
   ignore line: [@m64]
   ignore line: [Selected multilib: .]
   ignore line: [@m64]
-  link line: [ "/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/bin/ld" --sysroot=/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-arm64 -pie --eh-frame-hdr -m aarch64linux -dynamic-linker /system/bin/linker64 -o cmTC_19819 /Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-arm64/usr/lib/crtbegin_dynamic.o -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib/../lib64 -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib -L/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-arm64/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_19819.dir/CMakeCCompilerABI.c.o -lgcc -ldl -lc -lgcc -ldl /Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-arm64/usr/lib/crtend_android.o]
+  link line: [ "/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/bin/ld" --sysroot=/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-arm64 -pie --eh-frame-hdr -m aarch64linux -dynamic-linker /system/bin/linker64 -o cmTC_e21cc /Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-arm64/usr/lib/crtbegin_dynamic.o -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib/../lib64 -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib -L/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-arm64/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_e21cc.dir/CMakeCCompilerABI.c.o -lgcc -ldl -lc -lgcc -ldl /Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-arm64/usr/lib/crtend_android.o]
     arg [/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/bin/ld] ==> ignore
     arg [--sysroot=/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-arm64] ==> ignore
     arg [-pie] ==> ignore
@@ -52,7 +52,7 @@ Parsed C implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/system/bin/linker64] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_19819] ==> ignore
+    arg [cmTC_e21cc] ==> ignore
     arg [/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-arm64/usr/lib/crtbegin_dynamic.o] ==> ignore
     arg [-L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x] ==> dir [/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x]
     arg [-L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib/../lib64] ==> dir [/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib/../lib64]
@@ -76,7 +76,7 @@ Parsed C implicit link information from above output:
     arg [-znow] ==> ignore
     arg [--gc-sections] ==> ignore
     arg [-znocopyreloc] ==> ignore
-    arg [CMakeFiles/cmTC_19819.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_e21cc.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [-ldl] ==> lib [dl]
     arg [-lc] ==> lib [c]
@@ -97,11 +97,11 @@ Parsed C implicit link information from above output:
 
 
 Detecting C [-std=c11] compiler features compiled with the following output:
-Change Dir: /Users/glumes/AndroidOpenSource/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/arm64-v8a/CMakeFiles/CMakeTmp
+Change Dir: /Users/glumes/GithubCode/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/arm64-v8a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_672fa"
-[1/2] Building C object CMakeFiles/cmTC_672fa.dir/feature_tests.c.o
-[2/2] Linking C executable cmTC_672fa
+Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_d6f4f"
+[1/2] Building C object CMakeFiles/cmTC_d6f4f.dir/feature_tests.c.o
+[2/2] Linking C executable cmTC_d6f4f
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -111,11 +111,11 @@ Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja
 
 
 Detecting C [-std=c99] compiler features compiled with the following output:
-Change Dir: /Users/glumes/AndroidOpenSource/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/arm64-v8a/CMakeFiles/CMakeTmp
+Change Dir: /Users/glumes/GithubCode/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/arm64-v8a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_c2358"
-[1/2] Building C object CMakeFiles/cmTC_c2358.dir/feature_tests.c.o
-[2/2] Linking C executable cmTC_c2358
+Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_15ec1"
+[1/2] Building C object CMakeFiles/cmTC_15ec1.dir/feature_tests.c.o
+[2/2] Linking C executable cmTC_15ec1
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -125,11 +125,11 @@ Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja
 
 
 Detecting C [-std=c90] compiler features compiled with the following output:
-Change Dir: /Users/glumes/AndroidOpenSource/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/arm64-v8a/CMakeFiles/CMakeTmp
+Change Dir: /Users/glumes/GithubCode/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/arm64-v8a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_2bf27"
-[1/2] Building C object CMakeFiles/cmTC_2bf27.dir/feature_tests.c.o
-[2/2] Linking C executable cmTC_2bf27
+Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_4dfda"
+[1/2] Building C object CMakeFiles/cmTC_4dfda.dir/feature_tests.c.o
+[2/2] Linking C executable cmTC_4dfda
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -137,19 +137,19 @@ Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja
     Feature record: C_FEATURE:0c_static_assert
     Feature record: C_FEATURE:0c_variadic_macros
 Determining if the CXX compiler works passed with the following output:
-Change Dir: /Users/glumes/AndroidOpenSource/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/arm64-v8a/CMakeFiles/CMakeTmp
+Change Dir: /Users/glumes/GithubCode/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/arm64-v8a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_50e01"
-[1/2] Building CXX object CMakeFiles/cmTC_50e01.dir/testCXXCompiler.cxx.o
-[2/2] Linking CXX executable cmTC_50e01
+Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_89a9f"
+[1/2] Building CXX object CMakeFiles/cmTC_89a9f.dir/testCXXCompiler.cxx.o
+[2/2] Linking CXX executable cmTC_89a9f
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: /Users/glumes/AndroidOpenSource/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/arm64-v8a/CMakeFiles/CMakeTmp
+Change Dir: /Users/glumes/GithubCode/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/arm64-v8a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_d076c"
-[1/2] Building CXX object CMakeFiles/cmTC_d076c.dir/CMakeCXXCompilerABI.cpp.o
-[2/2] Linking CXX executable cmTC_d076c
+Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_1f0ef"
+[1/2] Building CXX object CMakeFiles/cmTC_1f0ef.dir/CMakeCXXCompilerABI.cpp.o
+[2/2] Linking CXX executable cmTC_1f0ef
 Android clang version 3.8.275480  (based on LLVM 3.8.275480)
 Target: aarch64-none-linux-android
 Thread model: posix
@@ -158,16 +158,16 @@ Found candidate GCC installation: /Users/glumes/Library/Android/sdk/ndk-bundle/t
 Selected GCC installation: /Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x
 Candidate multilib: .;@m64
 Selected multilib: .;@m64
- "/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/bin/ld" --sysroot=/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-arm64 -pie --eh-frame-hdr -m aarch64linux -dynamic-linker /system/bin/linker64 -o cmTC_d076c /Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-arm64/usr/lib/crtbegin_dynamic.o -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib/../lib64 -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib -L/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-arm64/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_d076c.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc -lgcc -ldl -lc -lgcc -lgcc -ldl /Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-arm64/usr/lib/crtend_android.o
+ "/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/bin/ld" --sysroot=/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-arm64 -pie --eh-frame-hdr -m aarch64linux -dynamic-linker /system/bin/linker64 -o cmTC_1f0ef /Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-arm64/usr/lib/crtbegin_dynamic.o -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib/../lib64 -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib -L/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-arm64/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_1f0ef.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc -lgcc -ldl -lc -lgcc -lgcc -ldl /Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-arm64/usr/lib/crtend_android.o
 
 
 Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(aarch64-linux-android-ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /Users/glumes/AndroidOpenSource/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/arm64-v8a/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /Users/glumes/GithubCode/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/arm64-v8a/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_d076c"]
-  ignore line: [[1/2] Building CXX object CMakeFiles/cmTC_d076c.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [[2/2] Linking CXX executable cmTC_d076c]
+  ignore line: [Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_1f0ef"]
+  ignore line: [[1/2] Building CXX object CMakeFiles/cmTC_1f0ef.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [[2/2] Linking CXX executable cmTC_1f0ef]
   ignore line: [Android clang version 3.8.275480  (based on LLVM 3.8.275480)]
   ignore line: [Target: aarch64-none-linux-android]
   ignore line: [Thread model: posix]
@@ -178,7 +178,7 @@ Parsed CXX implicit link information from above output:
   ignore line: [@m64]
   ignore line: [Selected multilib: .]
   ignore line: [@m64]
-  link line: [ "/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/bin/ld" --sysroot=/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-arm64 -pie --eh-frame-hdr -m aarch64linux -dynamic-linker /system/bin/linker64 -o cmTC_d076c /Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-arm64/usr/lib/crtbegin_dynamic.o -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib/../lib64 -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib -L/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-arm64/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_d076c.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc -lgcc -ldl -lc -lgcc -lgcc -ldl /Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-arm64/usr/lib/crtend_android.o]
+  link line: [ "/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/bin/ld" --sysroot=/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-arm64 -pie --eh-frame-hdr -m aarch64linux -dynamic-linker /system/bin/linker64 -o cmTC_1f0ef /Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-arm64/usr/lib/crtbegin_dynamic.o -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib/../lib64 -L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib -L/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-arm64/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_1f0ef.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc -lgcc -ldl -lc -lgcc -lgcc -ldl /Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-arm64/usr/lib/crtend_android.o]
     arg [/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/bin/ld] ==> ignore
     arg [--sysroot=/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-arm64] ==> ignore
     arg [-pie] ==> ignore
@@ -188,7 +188,7 @@ Parsed CXX implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/system/bin/linker64] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_d076c] ==> ignore
+    arg [cmTC_1f0ef] ==> ignore
     arg [/Users/glumes/Library/Android/sdk/ndk-bundle/platforms/android-23/arch-arm64/usr/lib/crtbegin_dynamic.o] ==> ignore
     arg [-L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x] ==> dir [/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x]
     arg [-L/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib/../lib64] ==> dir [/Users/glumes/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib/../lib64]
@@ -212,7 +212,7 @@ Parsed CXX implicit link information from above output:
     arg [-znow] ==> ignore
     arg [--gc-sections] ==> ignore
     arg [-znocopyreloc] ==> ignore
-    arg [CMakeFiles/cmTC_d076c.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_1f0ef.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc] ==> lib [gcc]
@@ -239,11 +239,11 @@ Parsed CXX implicit link information from above output:
 
 
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
-Change Dir: /Users/glumes/AndroidOpenSource/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/arm64-v8a/CMakeFiles/CMakeTmp
+Change Dir: /Users/glumes/GithubCode/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/arm64-v8a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_ba7c5"
-[1/2] Building CXX object CMakeFiles/cmTC_ba7c5.dir/feature_tests.cxx.o
-[2/2] Linking CXX executable cmTC_ba7c5
+Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_88a20"
+[1/2] Building CXX object CMakeFiles/cmTC_88a20.dir/feature_tests.cxx.o
+[2/2] Linking CXX executable cmTC_88a20
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -306,11 +306,11 @@ Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja
 
 
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
-Change Dir: /Users/glumes/AndroidOpenSource/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/arm64-v8a/CMakeFiles/CMakeTmp
+Change Dir: /Users/glumes/GithubCode/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/arm64-v8a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_7a33f"
-[1/2] Building CXX object CMakeFiles/cmTC_7a33f.dir/feature_tests.cxx.o
-[2/2] Linking CXX executable cmTC_7a33f
+Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_9e81f"
+[1/2] Building CXX object CMakeFiles/cmTC_9e81f.dir/feature_tests.cxx.o
+[2/2] Linking CXX executable cmTC_9e81f
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
@@ -373,11 +373,11 @@ Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja
 
 
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
-Change Dir: /Users/glumes/AndroidOpenSource/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/arm64-v8a/CMakeFiles/CMakeTmp
+Change Dir: /Users/glumes/GithubCode/FFMPEGLearn/FFmpegExamples/.externalNativeBuild/cmake/release/arm64-v8a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_e4375"
-[1/2] Building CXX object CMakeFiles/cmTC_e4375.dir/feature_tests.cxx.o
-[2/2] Linking CXX executable cmTC_e4375
+Run Build Command:"/Users/glumes/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_d868a"
+[1/2] Building CXX object CMakeFiles/cmTC_d868a.dir/feature_tests.cxx.o
+[2/2] Linking CXX executable cmTC_d868a
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers

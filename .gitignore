@@ -5,4 +5,4 @@
 .DS_Store
 /build
 
-FFmpegLib/.externalNativeBuild/
+FFmpegLib/.externalNativeBuild/*

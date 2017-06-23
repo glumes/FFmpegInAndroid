@@ -43,4 +43,8 @@ dependencies {
     testCompile 'junit:junit:4.12'
 
     compile project(':FFmpegLib')
+    compile project(':CommonLibrary')
+
+    compile 'com.android.support:gridlayout-v7:25.3.1'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
 }

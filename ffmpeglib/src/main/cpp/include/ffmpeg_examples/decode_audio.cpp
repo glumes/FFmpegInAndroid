@@ -5,6 +5,7 @@
 #include <string>
 #include <stdlib.h>
 #include <jni.h>
+#include <android/log.h>
 
 #ifdef  __cplusplus
 extern "C" {
@@ -24,8 +25,27 @@ extern "C" {
 #endif
 
 
-#define AUDIO_INPUF_SIZE 20480
-#define AUDIO_REFILL_THRESH 4096
+#ifdef  ANDROID
+
+#define LOGI(format, ...)  __android_log_print(ANDROID_LOG_INFO,  "FFmpegExamples", format, ##__VA_ARGS__)
+
+#endif
+
+extern "C"
+JNIEXPORT void JNICALL
+Java_com_glumes_ffmpeglib_FFmpegSample_onDecodeAudio(JNIEnv *env, jobject instance,
+                                                     jstring inFileName_, jstring outFileName_) {
+    const char *inFileName = env->GetStringUTFChars(inFileName_, 0);
+    const char *outFileName = env->GetStringUTFChars(outFileName_, 0);
+
+    // TODO
+    LOGI("%s", "onDecodeAudio");
+
+    env->ReleaseStringUTFChars(inFileName_, inFileName);
+    env->ReleaseStringUTFChars(outFileName_, outFileName);
+}
+
+
 
 //
 //void decode(AVCodecContext *avCodecContext, AVPacket *packet, AVFrame *frame, FILE *outfile) {
@@ -188,3 +208,5 @@ extern "C" {
 //    env->ReleaseStringUTFChars(inputFile_, filename);
 //    env->ReleaseStringUTFChars(outputFile_, outfilename);
 //}
+//
+

@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.glumes.ffmpegexamples.databinding.ActivityMainBinding;
+import com.glumes.ffmpeglib.FFMPEGTest;
 import com.glumes.ffmpeglib.FFmpegEvent;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,7 +18,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         mBinding.setClickHandler(new FFmpegEvent());
-    }
 
+        FFMPEGTest.printFFmpegConfigInfo();
+    }
 
 }

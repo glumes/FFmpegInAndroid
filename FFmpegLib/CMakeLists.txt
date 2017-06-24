@@ -46,6 +46,9 @@ add_library( # Sets the name of the library.
 
              # Provides a relative path to your source file(s).
              src/main/cpp/include/ffmpeg_examples/decode_audio.cpp
+             src/main/cpp/include/ffmpeg_examples/decode_video.cpp
+             src/main/cpp/include/ffmpeg_examples/encode_video.cpp
+             src/main/cpp/include/ffmpeg_examples/encode_audio.cpp
              )
 
 add_library(avcodec-57_lib SHARED IMPORTED)
@@ -126,8 +129,8 @@ target_link_libraries( # Specifies the target library.
 
 
 target_link_libraries(
-                        ffmpeg-examples-lib
-                        ${log-lib}
+                       ffmpeg-examples-lib
+                       ${log-lib}
                      )
 
 

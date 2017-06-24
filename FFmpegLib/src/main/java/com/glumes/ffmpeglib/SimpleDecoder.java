@@ -21,4 +21,6 @@ public class SimpleDecoder {
         System.loadLibrary("swscale-4");
         System.loadLibrary("x264-148");
     }
+
+    public native void test();
 }

@@ -47,6 +47,14 @@ Java_com_glumes_ffmpeglib_FFMPEGTest_stringFromJNI(JNIEnv *env,
 
 }
 
+extern "C"
+JNIEXPORT void JNICALL
+Java_com_glumes_ffmpeglib_SimpleDecoder_test(JNIEnv *env, jobject instance) {
+
+    // TODO
+
+}
+
 
 
 

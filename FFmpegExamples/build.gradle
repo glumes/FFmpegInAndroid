@@ -16,12 +16,16 @@ android {
             abiFilters "armeabi" // ,'arm64-v8a','x86', 'x86_64', 'armeabi-v7a'
         }
 
-//
-//        externalNativeBuild {
-//            cmake {
-//                cppFlags "-std=c++11 -frtti -fexceptions"
-//            }
-//        }
+
+        externalNativeBuild {
+            cmake {
+                cppFlags "-std=c++11 -frtti -fexceptions"
+
+                arguments '-DANDROID_PLATFORM=android-23',
+                        '-DANDROID_TOOLCHAIN=clang', '-DANDROID_STL=gnustl_static'
+
+            }
+        }
     }
     buildTypes {
         release {
@@ -31,7 +35,7 @@ android {
     }
     externalNativeBuild {
         cmake {
-            path "CMakeLists.txt"
+            path "src/main/cpp/CMakeLists.txt"
         }
     }
 

@@ -45,10 +45,10 @@ add_library( # Sets the name of the library.
              SHARED
 
              # Provides a relative path to your source file(s).
-             src/main/cpp/include/ffmpeg_examples/decode_audio.cpp
-             src/main/cpp/include/ffmpeg_examples/decode_video.cpp
-             src/main/cpp/include/ffmpeg_examples/encode_video.cpp
-             src/main/cpp/include/ffmpeg_examples/encode_audio.cpp
+             src/main/cpp/ffmpeg_examples/decode_audio.cpp
+             src/main/cpp/ffmpeg_examples/decode_video.cpp
+             src/main/cpp/ffmpeg_examples/encode_video.cpp
+             src/main/cpp/ffmpeg_examples/encode_audio.cpp
              )
 
 add_library(avcodec-57_lib SHARED IMPORTED)
@@ -113,7 +113,7 @@ target_link_libraries( # Specifies the target library.
                        swscale-4_lib
                        avresample-3_lib
                        x264-148_lib
-
+                       ffmpeg-examples-lib
 
                        # Links the target library to the log library
                        # included in the NDK.
@@ -126,17 +126,18 @@ target_link_libraries( # Specifies the target library.
                        ${log-lib}
                        )
 
-
-
 target_link_libraries(
                        ffmpeg-examples-lib
+                        avcodec-57_lib
+                        avdevice-57_lib
+                        avfilter-6_lib
+                        avformat-57_lib
+                        avutil-55_lib
+                        swresample-2_lib
+                        swscale-4_lib
+                        avresample-3_lib
+                        x264-148_lib
                        ${log-lib}
                      )
-
-
-
-
-
-
 
 

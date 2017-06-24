@@ -33,7 +33,6 @@ public class FFmpegSample {
 
     private FFmpegSample() {
         Timber.d("Init FFmpegSample");
-
     }
 
 
@@ -45,8 +44,5 @@ public class FFmpegSample {
 
     public native void onEncodeVideo(String outFileName);
 
-    public void test() {
-        SimpleDecoder decoder = new SimpleDecoder();
-        decoder.test();
-    }
+
 }

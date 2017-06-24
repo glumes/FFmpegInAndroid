@@ -13,8 +13,7 @@ public class FFmpegEvent {
 
     public void onDecodeAudio(View view) {
         Timber.d("onDecodeAudio");
-//        FFmpegSample.getInstance().onDecodeAudio("", "");
-        FFmpegSample.getInstance().test();
+        FFmpegSample.getInstance().onDecodeAudio("", "");
     }
 
     public void onDecodeVideo(View view) {

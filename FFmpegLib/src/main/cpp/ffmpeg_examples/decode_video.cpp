@@ -30,6 +30,11 @@ extern "C" {
 
 using namespace std;
 
+void decode(AVCodecContext *pContext, AVFrame *pFrame, AVPacket *pPacket, const char *name);
+
+void pgm_save(uint8_t *string, int i, int width, int height, const char *filename);
+
+
 extern "C"
 JNIEXPORT void JNICALL
 Java_com_glumes_ffmpeglib_FFmpegSample_onDecodeVideo(JNIEnv *env, jobject instance,
@@ -51,6 +56,8 @@ Java_com_glumes_ffmpeglib_FFmpegSample_onDecodeVideo(JNIEnv *env, jobject instan
     uint8_t *data;
     size_t data_size;
     int ret;
+
+    FILE *file;
 
     avcodec_register_all();
 
@@ -86,15 +93,98 @@ Java_com_glumes_ffmpeglib_FFmpegSample_onDecodeVideo(JNIEnv *env, jobject instan
         return;
     }
 
-//    inFile.open(inFileName)
+    // open file
+//    inFile.open(inFileName, ios_base::in | ios_base::binary);
+//    if (!inFile.is_open()) {
+//        LOGI("%s", "open file failed\n");
+//        return;
+//    }
 
+    file = fopen(inFileName, "rb");
+    if (!file) {
+        LOGI("%s", "open file failed");
+        return;
+    }
 
+    frame = av_frame_alloc();
+    if (!frame) {
+        LOGI("%s", "Could not allocate video frame\n");
+        return;
+    }
+
+    while (!feof(file)) {
+        data_size = fread(inbuf, 1, INBUF_SIZE, file);
+        if (!data_size) {
+            LOGI("%s", "read data from file failed");
+        }
+        data = inbuf;
+        while (data_size > 0) {
+            ret = av_parser_parse2(parserContext, avCodecContext,
+                                   &packet->data, &packet->size,
+                                   data, data_size,
+                                   AV_NOPTS_VALUE, AV_NOPTS_VALUE, 0);
+            if (ret < 0) {
+                LOGI("%s", "Error while parsing\n");
+                return;
+            }
+            data += ret;
+            data_size -= ret;
+            if (packet->size) {
+                decode(avCodecContext, frame, packet, outFileName);
+            }
+        }
+    }
+
+    /**
+     * flush the decoder
+     */
+
+    decode(avCodecContext, frame, NULL, outFileName);
+
+    fclose(file);
 
     av_frame_free(&frame);
     av_packet_free(&packet);
     avcodec_free_context(&avCodecContext);
+    av_parser_close(parserContext);
     env->ReleaseStringUTFChars(inFileName_, inFileName);
     env->ReleaseStringUTFChars(outFileName_, outFileName);
 }
 
+
+void decode(AVCodecContext *pContext, AVFrame *pFrame, AVPacket *pPacket, const char *name) {
+    char buf[1024];
+    int ret;
+    ret = avcodec_send_packet(pContext, pPacket);
+    if (ret < 0) {
+        LOGI("%s", "Error sending a packet for decoding\n");
+        return;
+    }
+
+    while (ret >= 0) {
+        ret = avcodec_receive_frame(pContext, pFrame);
+        if (ret == AVERROR(EAGAIN) || ret == AVERROR_EOF) {
+            return;
+        } else if (ret < 0) {
+            LOGI("%s", "Error while decoding\n");
+            return;
+        }
+
+        LOGI("Saving frame %3d\n", pContext->frame_number);
+        fflush(stdout);
+
+        pgm_save(pFrame->data[0], pFrame->linesize[0], pFrame->width, pFrame->height, buf);
+    }
+}
+
+void pgm_save(unsigned char *buf, int wrap, int width, int height, const char *filename) {
+    FILE *file;
+    int i;
+    file = fopen(filename, "w");
+    fprintf(file, "P5\n%d %d\n%d\n", width, height, 255);
+    for (int i = 0; i < height; ++i) {
+        fwrite(buf + i * wrap, 1, width, file);
+    }
+    fclose(file);
+}
 

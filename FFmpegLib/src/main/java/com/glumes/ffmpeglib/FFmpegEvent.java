@@ -22,9 +22,11 @@ public class FFmpegEvent {
     String targFilePath = Environment.getExternalStorageDirectory() + File.separator + "PGM" + File.separator + "test";
 
 
+    String mp2FilePath = Environment.getExternalStorageDirectory() + File.separator + "output.mp2";
+
     public void onDecodeAudio(View view) {
         Timber.d("onDecodeAudio");
-        FFmpegSample.getInstance().onDecodeAudio("", "");
+        FFmpegSample.getInstance().onDecodeAudio(mpegFilePath, mp2FilePath);
     }
 
     public void onDecodeVideo(View view) {

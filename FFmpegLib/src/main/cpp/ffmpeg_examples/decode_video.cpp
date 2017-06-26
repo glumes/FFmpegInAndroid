@@ -38,6 +38,9 @@ void decode(AVCodecContext *pContext, AVFrame *pFrame, AVPacket *pPacket, const 
 void pgm_save(uint8_t *string, int i, int width, int height, const char *filename);
 
 
+/**
+ * 实现 MEPG 文件到 PCM 图片格式的转换
+ */
 extern "C"
 JNIEXPORT void JNICALL
 Java_com_glumes_ffmpeglib_FFmpegSample_onDecodeVideo(JNIEnv *env, jobject instance,
@@ -46,7 +49,7 @@ Java_com_glumes_ffmpeglib_FFmpegSample_onDecodeVideo(JNIEnv *env, jobject instan
     const char *outFileName = env->GetStringUTFChars(outFileName_, 0);
 
 // TODO
-    LOGI("%s", "onDecodeVideo on FFmpegSample");
+    LOGI("onDecodeVideo on FFmpegSample");
 
     const AVCodec *codec;
     AVCodecContext *avCodecContext = nullptr;
@@ -67,7 +70,7 @@ Java_com_glumes_ffmpeglib_FFmpegSample_onDecodeVideo(JNIEnv *env, jobject instan
     packet = av_packet_alloc();
 
     if (!packet) {
-        LOGI("%s", "malloc for packet failed");
+        LOGI("malloc for packet failed");
         return;
     }
 
@@ -75,24 +78,24 @@ Java_com_glumes_ffmpeglib_FFmpegSample_onDecodeVideo(JNIEnv *env, jobject instan
 
     codec = avcodec_find_decoder(AV_CODEC_ID_MPEG1VIDEO);
     if (!codec) {
-        LOGI("%s", "Codec not found\n");
+        LOGI("Codec not found\n");
         return;
     }
 
     parserContext = av_parser_init(codec->id);
     if (!parserContext) {
-        LOGI("%s", "parser not found");
+        LOGI("parser not found");
         return;
     }
 
     avCodecContext = avcodec_alloc_context3(codec);
     if (!avCodecContext) {
-        LOGI("%s", "Could not allocate video codec context\n");
+        LOGI("Could not allocate video codec context\n");
         return;
     }
 
     if (avcodec_open2(avCodecContext, codec, nullptr) < 0) {
-        LOGI("%s", "Could not open codec\n");
+        LOGI("Could not open codec\n");
         return;
     }
 
@@ -107,13 +110,13 @@ Java_com_glumes_ffmpeglib_FFmpegSample_onDecodeVideo(JNIEnv *env, jobject instan
     LOGI("inFileName is %s", inFileName);
     LOGI("outFileName is %s", outFileName);
     if (!file) {
-        LOGI("%s", "open file failed");
+        LOGI("open file failed");
         return;
     }
 
     frame = av_frame_alloc();
     if (!frame) {
-        LOGI("%s", "Could not allocate video frame\n");
+        LOGI("Could not allocate video frame\n");
         return;
     }
 
@@ -122,7 +125,7 @@ Java_com_glumes_ffmpeglib_FFmpegSample_onDecodeVideo(JNIEnv *env, jobject instan
 //        data_size = (size_t) inFile.read((char *) inbuf, INBUF_SIZE);
         data_size = fread(inbuf, 1, INBUF_SIZE, file);
         if (!data_size) {
-            LOGI("%s", "read data from file failed");
+            LOGI("read data from file failed");
         }
         data = inbuf;
         while (data_size > 0) {
@@ -131,7 +134,7 @@ Java_com_glumes_ffmpeglib_FFmpegSample_onDecodeVideo(JNIEnv *env, jobject instan
                                    data, data_size,
                                    AV_NOPTS_VALUE, AV_NOPTS_VALUE, 0);
             if (ret < 0) {
-                LOGI("%s", "Error while parsing\n");
+                LOGI("Error while parsing\n");
                 return;
             }
             data += ret;
@@ -164,7 +167,7 @@ void decode(AVCodecContext *pContext, AVFrame *pFrame, AVPacket *pPacket, const 
     int ret;
     ret = avcodec_send_packet(pContext, pPacket);
     if (ret < 0) {
-        LOGI("%s", "Error sending a packet for decoding\n");
+        LOGI("Error sending a packet for decoding\n");
         return;
     }
 
@@ -173,7 +176,7 @@ void decode(AVCodecContext *pContext, AVFrame *pFrame, AVPacket *pPacket, const 
         if (ret == AVERROR(EAGAIN) || ret == AVERROR_EOF) {
             return;
         } else if (ret < 0) {
-            LOGI("%s", "Error while decoding\n");
+            LOGI("Error while decoding\n");
             return;
         }
 

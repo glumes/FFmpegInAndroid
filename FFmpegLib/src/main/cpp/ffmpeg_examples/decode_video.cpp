@@ -28,7 +28,10 @@ extern "C" {
 #define INBUF_SIZE 4096
 
 
+void decode(AVCodecContext *pContext, AVFrame *pFrame, AVPacket *pPacket, const char *name);
+
 using namespace std;
+
 
 void decode(AVCodecContext *pContext, AVFrame *pFrame, AVPacket *pPacket, const char *name);
 
@@ -113,6 +116,8 @@ Java_com_glumes_ffmpeglib_FFmpegSample_onDecodeVideo(JNIEnv *env, jobject instan
     }
 
     while (!feof(file)) {
+
+//        data_size = (size_t) inFile.read((char *) inbuf, INBUF_SIZE);
         data_size = fread(inbuf, 1, INBUF_SIZE, file);
         if (!data_size) {
             LOGI("%s", "read data from file failed");
@@ -172,7 +177,7 @@ void decode(AVCodecContext *pContext, AVFrame *pFrame, AVPacket *pPacket, const 
 
         LOGI("Saving frame %3d\n", pContext->frame_number);
         fflush(stdout);
-
+        snprintf(buf, sizeof(buf),"%s-%d",name,pContext->frame_number);
         pgm_save(pFrame->data[0], pFrame->linesize[0], pFrame->width, pFrame->height, buf);
     }
 }
@@ -187,4 +192,6 @@ void pgm_save(unsigned char *buf, int wrap, int width, int height, const char *f
     }
     fclose(file);
 }
+
+
 

@@ -104,6 +104,8 @@ Java_com_glumes_ffmpeglib_FFmpegSample_onDecodeVideo(JNIEnv *env, jobject instan
 //    }
 
     file = fopen(inFileName, "rb");
+    LOGI("inFileName is %s", inFileName);
+    LOGI("outFileName is %s", outFileName);
     if (!file) {
         LOGI("%s", "open file failed");
         return;
@@ -175,17 +177,26 @@ void decode(AVCodecContext *pContext, AVFrame *pFrame, AVPacket *pPacket, const 
             return;
         }
 
+        if (pContext->frame_number == 200) {
+            break;
+        }
         LOGI("Saving frame %3d\n", pContext->frame_number);
         fflush(stdout);
-        snprintf(buf, sizeof(buf),"%s-%d",name,pContext->frame_number);
+        snprintf(buf, sizeof(buf), "%s-%d", name, pContext->frame_number);
+        LOGI("buf name is %s", buf);
         pgm_save(pFrame->data[0], pFrame->linesize[0], pFrame->width, pFrame->height, buf);
+        LOGI("save success");
     }
 }
 
-void pgm_save(unsigned char *buf, int wrap, int width, int height, const char *filename) {
+void pgm_save(unsigned char *buf, int wrap, int width, int height, const char *name) {
     FILE *file;
-    int i;
+    char *filename = strcat((char *) name, ".pgm");
+
     file = fopen(filename, "w");
+    if (!file) {
+        LOGI("could not open file");
+    }
     fprintf(file, "P5\n%d %d\n%d\n", width, height, 255);
     for (int i = 0; i < height; ++i) {
         fwrite(buf + i * wrap, 1, width, file);

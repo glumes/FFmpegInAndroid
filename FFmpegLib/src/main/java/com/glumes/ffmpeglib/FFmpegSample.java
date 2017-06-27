@@ -40,7 +40,7 @@ public class FFmpegSample {
 
     public native void onDecodeVideo(String inFileName, String outFileName);
 
-    public native void onEncodeAudio(String outFileName);
+    public native void onEncodeAudio(String inFileName, String outFileName);
 
     public native void onEncodeVideo(String outFileName);
 

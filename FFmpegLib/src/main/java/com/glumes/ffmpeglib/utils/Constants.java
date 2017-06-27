@@ -12,5 +12,7 @@ public class Constants {
 
     public static final String MEGP_1_FILE_NAME = "Tor_Animation_ar.mpg";
 
+    public static final String PCM_FILE_NAME = "tdjm.pcm";
 
+    public static final String OUT_PCM_FILE_NAME = "out_tdjm.pcm";
 }

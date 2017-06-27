@@ -120,6 +120,8 @@ Java_com_glumes_ffmpeglib_FFmpegSample_onDecodeVideo(JNIEnv *env, jobject instan
         return;
     }
 
+
+
     while (!feof(file)) {
 
 //        data_size = (size_t) inFile.read((char *) inbuf, INBUF_SIZE);
@@ -167,7 +169,7 @@ void decode(AVCodecContext *pContext, AVFrame *pFrame, AVPacket *pPacket, const 
     int ret;
     ret = avcodec_send_packet(pContext, pPacket);
     if (ret < 0) {
-        LOGI("Error sending a packet for decoding\n");
+//        LOGI("Error sending a packet for decoding\n");
         return;
     }
 

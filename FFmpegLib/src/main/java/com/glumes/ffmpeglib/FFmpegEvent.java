@@ -19,24 +19,40 @@ public class FFmpegEvent {
 
     String mpegFilePath = Environment.getExternalStorageDirectory() + File.separator + Constants.MEGP_1_FILE_NAME;
 
-    String targFilePath = Environment.getExternalStorageDirectory() + File.separator + "PGM" + File.separator + "test";
-
+    String pgmFilePath = Environment.getExternalStorageDirectory() + File.separator + "PGM" + File.separator + "test";
 
     String mp2FilePath = Environment.getExternalStorageDirectory() + File.separator + "output.mp2";
 
+    String pcmFilePath = Environment.getExternalStorageDirectory() + File.separator + Constants.PCM_FILE_NAME;
+
+    String outpcmFilePath = Environment.getExternalStorageDirectory() + File.separator + Constants.OUT_PCM_FILE_NAME;
+
+
+
     public void onDecodeAudio(View view) {
         Timber.d("onDecodeAudio");
-        FFmpegSample.getInstance().onDecodeAudio(mpegFilePath, mp2FilePath);
+        FFmpegSample.getInstance().onDecodeAudio(mp2FilePath, outpcmFilePath);
     }
 
+
+    /**
+     * decode video mpeg_1 to pgm success
+     *
+     * @param view
+     */
     public void onDecodeVideo(View view) {
         Timber.d("onDecodeVideo");
-        FFmpegSample.getInstance().onDecodeVideo(mpegFilePath, targFilePath);
+        FFmpegSample.getInstance().onDecodeVideo(mpegFilePath, pgmFilePath);
     }
 
+    /**
+     * encode audio pcm to mp2 success
+     *
+     * @param view
+     */
     public void onEncodeAudio(View view) {
         Timber.d("onEncodeAudio");
-        FFmpegSample.getInstance().onEncodeAudio("");
+        FFmpegSample.getInstance().onEncodeAudio(pcmFilePath, mp2FilePath);
     }
 
     public void onEncodeVideo(View view) {
@@ -44,6 +60,11 @@ public class FFmpegEvent {
         FFmpegSample.getInstance().onEncodeVideo("");
     }
 
+    /**
+     * print FFmpeg Config success
+     *
+     * @param view
+     */
     public void onFFmpegConfig(View view) {
         Timber.d("onFFmepgConfig");
         FFMPEGTest.printFFmpegConfigInfo();

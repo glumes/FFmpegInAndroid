@@ -38,10 +38,11 @@ void encode(AVCodecContext *pContext, AVFrame *pFrame, AVPacket *pPacket, FILE *
 extern "C"
 JNIEXPORT void JNICALL
 Java_com_glumes_ffmpeglib_FFmpegSample_onEncodeAudio(JNIEnv *env, jobject instance,
+                                                     jstring inFileName_,
                                                      jstring outFileName_) {
     const char *outFileName = env->GetStringUTFChars(outFileName_, 0);
+    const char *inFileName = env->GetStringUTFChars(inFileName_, 0);
 
-// TODO
     LOGI("%s", "onEncodeAudio");
 
     const AVCodec *codec;

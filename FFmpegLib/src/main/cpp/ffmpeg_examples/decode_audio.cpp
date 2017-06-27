@@ -63,7 +63,7 @@ Java_com_glumes_ffmpeglib_FFmpegSample_onDecodeAudio(JNIEnv *env, jobject instan
 
     packet = av_packet_alloc();
 
-    codec = avcodec_find_decoder(AV_CODEC_ID_MP3);
+    codec = avcodec_find_decoder(AV_CODEC_ID_MP2);
     if (!codec) {
         LOGI("codec not found");
         return;
@@ -98,39 +98,87 @@ Java_com_glumes_ffmpeglib_FFmpegSample_onDecodeAudio(JNIEnv *env, jobject instan
         return;
     }
 
-    data = inbuf;
-    data_size = fread(inbuf, 1, AUDIO_INBUF_SIZE, f);
+//    data = inbuf;
+//    data_size = fread(inbuf, 1, AUDIO_INBUF_SIZE, f);
 
-    while (data_size > 0) {
-        if (!decode_frame) {
-            if (!(decode_frame = av_frame_alloc())) {
-                LOGI("con not allocate audio frame");
+    LOGI("data size is %d", data_size);
+
+    decode_frame = av_frame_alloc();
+    if (!decode_frame) {
+        LOGI("con not allocate audio frame");
+        return;
+    }
+
+//    while (data_size > 0) {
+//        if (!decode_frame) {
+//            if (!(decode_frame = av_frame_alloc())) {
+//                LOGI("con not allocate audio frame");
+//                return;
+//            }
+//        }
+//        ret = av_parser_parse2(parserContext, avCodecContext,
+//                               &packet->data, &packet->size,
+//                               data, data_size,
+//                               AV_NOPTS_VALUE, AV_NOPTS_VALUE, 0);
+//        if (ret < 0) {
+//            LOGI("error while parsing");
+//            return;
+//        } else {
+//            LOGI("parser byte is %d", ret);
+//        }
+//
+//        LOGI("decode time");
+//        data += ret;
+//        data_size -= ret;
+//        if (packet->size) {
+//            decode(avCodecContext, packet, decode_frame, outfile);
+//        }
+//
+//        if (data_size < AUDIO_REFILL_THRESH) {
+//            memmove(inbuf, data, data_size);
+//            data = inbuf;
+//            len = fread(data + data_size, 1, AUDIO_INBUF_SIZE - data_size, f);
+//            if (len > 0) {
+//                data_size += len;
+//            }
+//        }
+//    }
+
+    ret = avcodec_receive_frame(avCodecContext, decode_frame);
+
+    if (ret < 0) {
+        LOGI("receive failed");
+    } else if (ret > 0) {
+        LOGI("receive success");
+    } else {
+        LOGI("ee 0");
+    }
+
+
+    while (!feof(f)) {
+
+        data_size = fread(inbuf, 1, AUDIO_INBUF_SIZE, f);
+        if (!data_size) {
+            LOGI("read data from file failed");
+        }
+        data = inbuf;
+        while (data_size > 0) {
+            ret = av_parser_parse2(parserContext, avCodecContext,
+                                   &packet->data, &packet->size,
+                                   data, data_size,
+                                   AV_NOPTS_VALUE, AV_NOPTS_VALUE, 0);
+            if (ret < 0) {
+                LOGI("Error while parsing\n");
                 return;
             }
-        }
-        ret = av_parser_parse2(parserContext, avCodecContext,
-                               &packet->data, &packet->size,
-                               data, data_size,
-                               AV_NOPTS_VALUE, AV_NOPTS_VALUE, 0);
-        if (ret < 0) {
-            LOGI("error while parsing");
-            return;
-        }
-        data += ret;
-        data_size -= ret;
-        if (packet->size) {
-            decode(avCodecContext, packet, decode_frame, outfile);
-        }
-
-        if (data_size < AUDIO_REFILL_THRESH) {
-            memmove(inbuf, data, data_size);
-            data = inbuf;
-            len = fread(data + data_size, 1, AUDIO_INBUF_SIZE - data_size, f);
-            if (len > 0) {
-                data_size += len;
+            data += ret;
+            data_size -= ret;
+            if (packet->size) {
+                decode(avCodecContext, packet, decode_frame, outfile);
             }
         }
     }
+
 
     packet->data = nullptr;
     packet->size = 0;
@@ -147,20 +195,28 @@ Java_com_glumes_ffmpeglib_FFmpegSample_onDecodeAudio(JNIEnv *env, jobject instan
 
     env->ReleaseStringUTFChars(inFileName_, inFileName);
     env->ReleaseStringUTFChars(outFileName_, outFileName);
+
+    LOGI("decode audio finish");
+    LOGI("log is averror einval %d", AVERROR(EINVAL));
+    LOGI("log is averror EAGAIN %d", AVERROR(EAGAIN));
+    LOGI("log is averror ENOMEM %d", AVERROR(ENOMEM));
+    LOGI("log is averror AVERROR_EOF %d", AVERROR_EOF);
 }
 
 void decode(AVCodecContext *pContext, AVPacket *pPacket, AVFrame *pFrame, FILE *pFILE) {
 
     int ret, data_size;
     ret = avcodec_send_packet(pContext, pPacket);
-//    if (ret < 0) {
-//        LOGI("Error submitting the packet to the decoder");
-//        return;
-//    }
+    if (ret < 0) {
+        LOGI("Error submitting the packet to the decoder");
+        LOGI("return ret is %d", ret);
+        return;
+    }
 
     while (ret > 0) {
         ret = avcodec_receive_frame(pContext, pFrame);
         if (ret == AVERROR(EAGAIN) || ret == AVERROR_EOF) {
+            LOGI("error");
             return;
         } else if (ret < 0) {
             LOGI("Error during decoding");

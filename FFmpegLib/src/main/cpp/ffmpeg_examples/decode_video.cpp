@@ -169,7 +169,7 @@ void decode(AVCodecContext *pContext, AVFrame *pFrame, AVPacket *pPacket, const 
     int ret;
     ret = avcodec_send_packet(pContext, pPacket);
     if (ret < 0) {
-//        LOGI("Error sending a packet for decoding\n");
+        LOGI("Error sending a packet for decoding\n");
         return;
     }
 

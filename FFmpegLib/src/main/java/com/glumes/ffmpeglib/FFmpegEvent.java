@@ -30,6 +30,10 @@ public class FFmpegEvent {
     String outpcmFilePath = Environment.getExternalStorageDirectory() + File.separator + Constants.OUT_PCM_FILE_NAME;
 
 
+    String hevcFilePath = Environment.getExternalStorageDirectory() + File.separator + Constants.HEVC_FILE_NAME;
+
+    String outYuvFilePath = Environment.getExternalStorageDirectory() + File.separator + "testOutput.yuv";
+
     /**
      * decode Failed
      *
@@ -78,7 +82,7 @@ public class FFmpegEvent {
 
     public void onHevcToYuv(View view) {
         Timber.d("decode HEVC TO YUV");
-        FFmpegSample.getInstance().onHevcToYuv("", "");
+        FFmpegSample.getInstance().onHevcToYuv(hevcFilePath, outYuvFilePath);
     }
 
     public void onH264ToYuv(View view) {

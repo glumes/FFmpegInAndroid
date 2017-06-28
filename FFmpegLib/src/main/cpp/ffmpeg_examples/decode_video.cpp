@@ -182,9 +182,6 @@ void decode(AVCodecContext *pContext, AVFrame *pFrame, AVPacket *pPacket, const 
             return;
         }
 
-        if (pContext->frame_number == 200) {
-            break;
-        }
         LOGI("Saving frame %3d\n", pContext->frame_number);
         fflush(stdout);
         snprintf(buf, sizeof(buf), "%s-%d", name, pContext->frame_number);

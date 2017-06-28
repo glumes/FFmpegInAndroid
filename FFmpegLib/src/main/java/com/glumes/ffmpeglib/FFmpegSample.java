@@ -44,5 +44,9 @@ public class FFmpegSample {
 
     public native void onEncodeVideo(String outFileName);
 
+    public native void onHevcToYuv(String s, String s1);
+
+    public native void onH264ToYuv(String s, String s1);
+
 
 }

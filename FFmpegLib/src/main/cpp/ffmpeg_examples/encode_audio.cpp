@@ -230,3 +230,4 @@ int check_sample_fmt(const AVCodec *pCodec, enum AVSampleFormat format) {
     }
     return 0;
 }
+

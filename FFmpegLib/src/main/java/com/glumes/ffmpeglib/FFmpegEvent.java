@@ -6,6 +6,8 @@ import android.view.View;
 
 import com.glumes.ffmpeglib.utils.Constants;
 
+import junit.framework.TestSuite;
+
 import java.io.File;
 
 import timber.log.Timber;
@@ -28,7 +30,11 @@ public class FFmpegEvent {
     String outpcmFilePath = Environment.getExternalStorageDirectory() + File.separator + Constants.OUT_PCM_FILE_NAME;
 
 
-
+    /**
+     * decode Failed
+     *
+     * @param view
+     */
     public void onDecodeAudio(View view) {
         Timber.d("onDecodeAudio");
         FFmpegSample.getInstance().onDecodeAudio(mp2FilePath, outpcmFilePath);
@@ -68,6 +74,16 @@ public class FFmpegEvent {
     public void onFFmpegConfig(View view) {
         Timber.d("onFFmepgConfig");
         FFMPEGTest.printFFmpegConfigInfo();
+    }
+
+    public void onHevcToYuv(View view) {
+        Timber.d("decode HEVC TO YUV");
+        FFmpegSample.getInstance().onHevcToYuv("", "");
+    }
+
+    public void onH264ToYuv(View view) {
+        Timber.d("decode H264 TO YUV");
+        FFmpegSample.getInstance().onH264ToYuv("", "");
     }
 
 }

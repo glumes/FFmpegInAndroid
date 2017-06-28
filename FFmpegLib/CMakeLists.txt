@@ -49,6 +49,7 @@ add_library( # Sets the name of the library.
              src/main/cpp/ffmpeg_examples/decode_video.cpp
              src/main/cpp/ffmpeg_examples/encode_video.cpp
              src/main/cpp/ffmpeg_examples/encode_audio.cpp
+             src/main/cpp/ffmpeg_examples/decode_to_yuv.cpp
              )
 
 add_library(avcodec-57_lib SHARED IMPORTED)

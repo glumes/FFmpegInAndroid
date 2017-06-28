@@ -5,4 +5,6 @@
     <string name="encode_audio">音频编码</string>
     <string name="encode_video">视频编码</string>
     <string name="ffmpeg_config">配置参数</string>
+    <string name="hevc_to_yuv">HEVC-to-YUV</string>
+    <string name="h264_to_yuv">H264-to-YUV</string>
 </resources>

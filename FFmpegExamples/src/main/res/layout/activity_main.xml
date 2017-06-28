@@ -38,6 +38,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             binding:ClickHandler="@{ClickHandler}" />
+
+        <include
+            android:id="@+id/ffmpeg_decod_to_yuv"
+            layout="@layout/decode_to_yuv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            binding:ClickHandler="@{ClickHandler}" />
     </LinearLayout>
 
 </layout>

@@ -151,7 +151,7 @@ Java_com_glumes_ffmpeglib_FFmpegSample_onDecodeVideo(JNIEnv *env, jobject instan
      * flush the decoder
      */
 
-    decode(avCodecContext, frame, NULL, outFileName);
+//    decode(avCodecContext, frame, NULL, outFileName);
 
     fclose(file);
 
@@ -168,6 +168,7 @@ void decode(AVCodecContext *pContext, AVFrame *pFrame, AVPacket *pPacket, const 
     char buf[1024];
     int ret;
     ret = avcodec_send_packet(pContext, pPacket);
+
     if (ret < 0) {
         LOGI("Error sending a packet for decoding\n");
         return;
@@ -193,12 +194,16 @@ void decode(AVCodecContext *pContext, AVFrame *pFrame, AVPacket *pPacket, const 
 
 void pgm_save(unsigned char *buf, int wrap, int width, int height, const char *name) {
     FILE *file;
-    char *filename = strcat((char *) name, ".pgm");
+//    char *filename = strcat((char *) name, ".pgm");
 
-    file = fopen(filename, "w");
-    if (!file) {
-        LOGI("could not open file");
-    }
+    file = fopen(name, "w");
+
+    LOGI("file path is %s",name);
+
+//    if (!file) {
+//        LOGI("could not open file and  return");
+//        return;
+//    }
     fprintf(file, "P5\n%d %d\n%d\n", width, height, 255);
     for (int i = 0; i < height; ++i) {
         fwrite(buf + i * wrap, 1, width, file);

@@ -51,6 +51,9 @@ Java_com_glumes_ffmpeglib_FFmpegSample_onHevcToYuv(JNIEnv *env, jobject instance
     uint8_t *data;
     size_t data_size;
 
+
+    memset(inbuffer + INBUF_SIZE, 0, AV_INPUT_BUFFER_PADDING_SIZE);
+
     inFile = fopen(inFileName, "rb");
     if (!inFile) {
         LOGI("open in file failed");
@@ -182,6 +185,12 @@ Java_com_glumes_ffmpeglib_FFmpegSample_onH264ToYuv(JNIEnv *env, jobject instance
 void decode(AVCodecContext *pContext, AVFrame *pFrame, AVPacket *pPacket, FILE *pFILE) {
     char buf[1024];
     int ret;
+
+    if (pContext == nullptr) {
+        LOGI("avCodecContext is null");
+        return;
+    }
+
     ret = avcodec_send_packet(pContext, pPacket);
     if (ret < 0) {
         LOGI("Error sending a packet for decoding\n");

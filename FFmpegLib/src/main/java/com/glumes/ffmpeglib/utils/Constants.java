@@ -10,7 +10,7 @@ public class Constants {
     public static final String HEVC_FILE_NAME = "bigbuckbunny_480x272.hevc";
     public static final String M2V_FILE_NAME = "bigbuckbunny_480x272.m2v";
 
-    public static final String MEGP_1_FILE_NAME = "Tor_Animation_ar.mpg";
+    public static final String MEGP_1_FILE_NAME = "mpeg_file.mpg";
 
     public static final String PCM_FILE_NAME = "tdjm.pcm";
 

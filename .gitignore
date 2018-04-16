@@ -6,8 +6,7 @@
 /build
 
 FFmpegLib/.externalNativeBuild/
-
-ffmpeglib/.externalNativeBuild/
+app/.externalNativeBuild/
 
 ffmpeg_data/
 

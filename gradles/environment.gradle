@@ -1,0 +1,4 @@
+ext.versions = [
+        'kotlin': '1.2.21',
+        'support': '26.1.0'
+]

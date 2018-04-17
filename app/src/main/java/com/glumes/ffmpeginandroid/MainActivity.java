@@ -1,58 +1,36 @@
 package com.glumes.ffmpeginandroid;
 
-import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-
+import com.glumes.base.BaseListActivity;
 import com.glumes.base.binder.BasicItem;
 import com.glumes.base.binder.BasicItemBinder;
-import com.glumes.databindingadapter.DataBindingAdapter;
-import com.glumes.databindingadapter.Items;
-import com.glumes.ffmpegexamples.base.BaseActivity;
+import com.glumes.base.binder.JumpActivityBinder;
+import com.glumes.base.binder.JumpActivityItem;
+import com.glumes.codec.DecodeActivity;
+import com.glumes.codec.EncodeActivity;
 
 import org.jetbrains.annotations.NotNull;
 
 /**
  * @author glumes
  */
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseListActivity {
 
-
-    private Items mItems;
-    private DataBindingAdapter mBindingAdapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
-
-        initData();
-        initAdapter();
-        initRecyclerView();
+    protected void initData() {
+        mItems.add(new BasicItem("编解码操作"));
+        mItems.add(new JumpActivityItem("编码操作", EncodeActivity.class));
+        mItems.add(new JumpActivityItem("解码操作", DecodeActivity.class));
+        mItems.add(new JumpActivityItem("图片预览", ShowPGMActivity.class));
     }
 
-    private void initData() {
-        mItems = new Items();
-        mItems.add(new BasicItem("编解码操作", 0));
-    }
-
-
-    private void initAdapter() {
-        mBindingAdapter = new DataBindingAdapter();
-        mBindingAdapter.map(BasicItem.class, new BasicItemBinder())
+    @Override
+    protected void initAdapter() {
+        mBindingAdapter
+                .map(BasicItem.class, new BasicItemBinder())
+                .map(JumpActivityItem.class, new JumpActivityBinder())
                 .setItems(mItems);
     }
-
-    private void initRecyclerView() {
-
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(mBindingAdapter);
-    }
-
 
     @NotNull
     @Override

@@ -13,12 +13,12 @@ import com.glumes.ffmpeginandroid.databinding.AdapterBasicTypeBinding
  * Created by glumes on 08/04/2018
  */
 
-data class BasicItem(var title: String, var type: Int)
+data class BasicItem(var title: String)
 
 
 class BasicItemEventHandler {
     fun onClick(v: View, model: BasicItem) {
-        
+
     }
 }
 

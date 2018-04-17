@@ -1,14 +1,25 @@
-package com.glumes.ffmpegexamples
+package com.glumes.codec
 
-import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+
+import com.glumes.base.BaseListActivity
+import com.glumes.base.binder.BackOperationBinder
+import com.glumes.base.binder.BackOpsItem
 import com.glumes.ffmpeginandroid.R
 
-class EncodeActivity : AppCompatActivity() {
+class EncodeActivity : BaseListActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_encode)
+
+    override fun initData() {
+
     }
 
+    override fun initAdapter() {
+        mBindingAdapter
+                .map(BackOpsItem::class.java, BackOperationBinder())
+                .setItems(mItems)
+    }
+
+    override fun getToolbarTitle(): String {
+        return getString(R.string.encode_ops)
+    }
 }

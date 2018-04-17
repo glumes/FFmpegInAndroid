@@ -194,9 +194,10 @@ void decode(AVCodecContext *pContext, AVFrame *pFrame, AVPacket *pPacket, const 
 
 void pgm_save(unsigned char *buf, int wrap, int width, int height, const char *name) {
     FILE *file;
-//    char *filename = strcat((char *) name, ".pgm");
 
-    file = fopen(name, "w");
+    char *filename = strcat((char *) name, ".pgm");
+
+    file = fopen(filename, "w");
 
     LOGI("file path is %s",name);
 

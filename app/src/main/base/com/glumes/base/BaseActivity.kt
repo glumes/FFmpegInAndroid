@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import android.support.v7.widget.Toolbar
-import com.glumes.ffmpeginandroid.R
 import com.glumes.sampleutil.BaseToolbarActivity
 
 abstract class BaseActivity : BaseToolbarActivity() {

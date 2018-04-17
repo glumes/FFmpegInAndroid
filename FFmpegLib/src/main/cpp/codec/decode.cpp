@@ -1,27 +1,25 @@
 //
-// Created by glumes on 2017/6/28.
+// Created by glumes on 2018/4/17.
 //
 
 #include <jni.h>
+#include <string>
+#include <stdlib.h>
+#include <iostream>
 #include <android/log.h>
 
 #ifdef  __cplusplus
 extern "C" {
 #endif
 #include "libavcodec/avcodec.h"
-#include "libavutil/frame.h"
-#include "libavutil/mem.h"
-
 #include "libavformat/avformat.h"
 #include "libswscale/swscale.h"
 #include "libavutil/imgutils.h"
 #include "libavutil/avutil.h"
 #include "libavfilter/avfilter.h"
-
 #ifdef  __cplusplus
 };
 #endif
-
 
 #ifdef  ANDROID
 #define LOGI(format, ...)  __android_log_print(ANDROID_LOG_INFO,  "FFmpegExamples", format, ##__VA_ARGS__)
@@ -32,12 +30,14 @@ extern "C" {
 
 void decode(AVCodecContext *pContext, AVFrame *pFrame, AVPacket *pPacket, FILE *pFILE);
 
+
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_glumes_ffmpeglib_FFmpegSample_onHevcToYuv(JNIEnv *env, jobject instance, jstring s_,
-                                                   jstring s1_) {
-    const char *inFileName = env->GetStringUTFChars(s_, 0);
-    const char *outFileName = env->GetStringUTFChars(s1_, 0);
+Java_com_glumes_ffmpeglib_codec_DecodeUtils_decodeMP4TOYUV(JNIEnv *env, jclass type,
+                                                           jstring inputFile_,
+                                                           jstring outputFile_) {
+    const char *inputFile = env->GetStringUTFChars(inputFile_, 0);
+    const char *outputFile = env->GetStringUTFChars(outputFile_, 0);
 
     FILE *inFile;
     FILE *outFile;
@@ -54,13 +54,13 @@ Java_com_glumes_ffmpeglib_FFmpegSample_onHevcToYuv(JNIEnv *env, jobject instance
 
     memset(inbuffer + INBUF_SIZE, 0, AV_INPUT_BUFFER_PADDING_SIZE);
 
-    inFile = fopen(inFileName, "rb");
+    inFile = fopen(inputFile, "rb");
     if (!inFile) {
         LOGI("open in file failed");
         return;
     }
 
-    outFile = fopen(outFileName, "wb");
+    outFile = fopen(outputFile, "wb");
     if (!outFile) {
         LOGI("open out file failed");
         return;
@@ -109,7 +109,7 @@ Java_com_glumes_ffmpeglib_FFmpegSample_onHevcToYuv(JNIEnv *env, jobject instance
             LOGI("read data failed");
             return;
         }
-        LOGI("data_size is %d",data_size);
+        LOGI("data_size is %d", data_size);
         // 读取的缓冲数据，赋值给指针
         data = inbuffer;
         while (data_size > 0) {
@@ -161,24 +161,8 @@ Java_com_glumes_ffmpeglib_FFmpegSample_onHevcToYuv(JNIEnv *env, jobject instance
     avcodec_free_context(&avCodecContext);
     av_parser_close(parserContext);
 
-    env->ReleaseStringUTFChars(s_, inFileName);
-    env->ReleaseStringUTFChars(s1_, outFileName);
-}
-
-
-
-
-extern "C"
-JNIEXPORT void JNICALL
-Java_com_glumes_ffmpeglib_FFmpegSample_onH264ToYuv(JNIEnv *env, jobject instance, jstring s_,
-                                                   jstring s1_) {
-    const char *inFileName = env->GetStringUTFChars(s_, 0);
-    const char *outFileName = env->GetStringUTFChars(s1_, 0);
-
-    // TODO
-
-    env->ReleaseStringUTFChars(s_, inFileName);
-    env->ReleaseStringUTFChars(s1_, outFileName);
+    env->ReleaseStringUTFChars(inputFile_, inputFile);
+    env->ReleaseStringUTFChars(outputFile_, outputFile);
 }
 
 

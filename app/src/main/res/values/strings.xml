@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">FFmpegInAndroid</string>
 
+
+    <string name="decode_ops">解码操作</string>
+    <string name="encode_ops">编码操作</string>
+
+
     <string name="decode_audio">音频解码</string>
     <string name="decode_video">视频解码</string>
     <string name="encode_audio">音频编码</string>

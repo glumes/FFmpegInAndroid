@@ -9,7 +9,7 @@ import timber.log.Timber;
 public class FFmpegSample {
 
     static {
-        System.loadLibrary("native-lib");
+        System.loadLibrary("codec-lib");
         System.loadLibrary("avcodec-57");
         System.loadLibrary("avdevice-57");
         System.loadLibrary("avfilter-6");
@@ -35,18 +35,7 @@ public class FFmpegSample {
         Timber.d("Init FFmpegSample");
     }
 
-
-    public native void onDecodeAudio(String inFileName, String outFileName);
-
-    public native void onDecodeVideo(String inFileName, String outFileName);
-
-    public native void onEncodeAudio(String inFileName, String outFileName);
-
-    public native void onEncodeVideo(String outFileName);
-
-    public native void onHevcToYuv(String s, String s1);
-
-    public native void onH264ToYuv(String s, String s1);
+    public native void decode_mpeg_to_pgm(String inputFilePath, String outputFilePath);
 
 
 }

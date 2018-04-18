@@ -1,0 +1,8 @@
+//
+// Created by glumes on 2018/4/18.
+//
+
+#ifndef FFMPEGINANDROID_DECODE_H
+#define FFMPEGINANDROID_DECODE_H
+
+#endif //FFMPEGINANDROID_DECODE_H

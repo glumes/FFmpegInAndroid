@@ -84,7 +84,9 @@ public class PGM {
             }while(c >= '0' && c <= '9');
             maxpix = k;
         }
-        catch(IOException e1){System.out.println("Exception!");}
+        catch(IOException e1){
+            System.out.println("Exception!");
+        }
     }
 
     public void readPPMHeader(String name)

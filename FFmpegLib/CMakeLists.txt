@@ -6,15 +6,6 @@
 cmake_minimum_required(VERSION 3.4.1)
 
 
-add_library( # Sets the name of the library.
-             native-lib
-
-             # Sets the library as a shared library.
-             SHARED
-
-             # Provides a relative path to your source file(s).
-             src/main/cpp/ffmpeg-config.cpp
-             src/main/cpp/native-lib.cpp )
 
 add_library( # Sets the name of the library.
              media-lib
@@ -28,31 +19,15 @@ add_library( # Sets the name of the library.
 
 
 
-
-
 add_library( # Sets the name of the library.
-             simple-mediadata-lib
+             codec-lib
 
              # Sets the library as a shared library.
              SHARED
 
              # Provides a relative path to your source file(s).
-             src/main/cpp/include/libsimple_mediadata/simple_mediadata.cpp
-             )
-
-
-add_library( # Sets the name of the library.
-             ffmpeg-examples-lib
-
-             # Sets the library as a shared library.
-             SHARED
-
-             # Provides a relative path to your source file(s).
-             src/main/cpp/ffmpeg_examples/decode_audio.cpp
-             src/main/cpp/ffmpeg_examples/decode_video.cpp
-             src/main/cpp/ffmpeg_examples/encode_video.cpp
-             src/main/cpp/ffmpeg_examples/encode_audio.cpp
-             src/main/cpp/ffmpeg_examples/decode_to_yuv.cpp
+             src/main/cpp/codec/decode.cpp
+             src/main/cpp/codec/decodeUtil.cpp
              )
 
 add_library(avcodec-57_lib SHARED IMPORTED)
@@ -102,26 +77,9 @@ find_library( # Sets the name of the path variable.
               log )
 
 include_directories(src/main/cpp/include/)
+include_directories(src/main/cpp/common/)
 
 
-target_link_libraries( # Specifies the target library.
-                       native-lib
-                       simple-mediadata-lib
-                       media-lib
-                       avcodec-57_lib
-                       avdevice-57_lib
-                       avfilter-6_lib
-                       avformat-57_lib
-                       avutil-55_lib
-                       swresample-2_lib
-                       swscale-4_lib
-                       avresample-3_lib
-                       x264-148_lib
-                       ffmpeg-examples-lib
-
-                       # Links the target library to the log library
-                       # included in the NDK.
-                       ${log-lib} )
 
 target_link_libraries( # Specifies the target library.
                        media-lib
@@ -131,7 +89,7 @@ target_link_libraries( # Specifies the target library.
                        )
 
 target_link_libraries(
-                       ffmpeg-examples-lib
+                        codec-lib
                         avcodec-57_lib
                         avdevice-57_lib
                         avfilter-6_lib

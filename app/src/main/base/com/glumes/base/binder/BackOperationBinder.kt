@@ -33,7 +33,7 @@ class BackOpsHandler {
             outFile.createNewFile()
         }
 
-        FFmpegSample.getInstance().onDecodeVideo(FileContants.FILE_MPEG, FileContants.OUT_PUT_FILE)
+        FFmpegSample.getInstance().decode_mpeg_to_pgm(FileContants.FILE_MPEG, FileContants.OUT_PUT_FILE)
     }
 }
 

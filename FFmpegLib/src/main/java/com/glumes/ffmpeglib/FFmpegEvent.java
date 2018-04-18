@@ -41,7 +41,6 @@ public class FFmpegEvent {
      */
     public void onDecodeAudio(View view) {
         Timber.d("onDecodeAudio");
-        FFmpegSample.getInstance().onDecodeAudio(mp2FilePath, outpcmFilePath);
     }
 
 
@@ -52,7 +51,6 @@ public class FFmpegEvent {
      */
     public void onDecodeVideo(View view) {
         Timber.d("onDecodeVideo");
-        FFmpegSample.getInstance().onDecodeVideo(mpegFilePath, pgmFilePath);
     }
 
     /**
@@ -62,12 +60,10 @@ public class FFmpegEvent {
      */
     public void onEncodeAudio(View view) {
         Timber.d("onEncodeAudio");
-        FFmpegSample.getInstance().onEncodeAudio(pcmFilePath, mp2FilePath);
     }
 
     public void onEncodeVideo(View view) {
         Timber.d("onEncodeVideo");
-        FFmpegSample.getInstance().onEncodeVideo("");
     }
 
     /**
@@ -77,17 +73,14 @@ public class FFmpegEvent {
      */
     public void onFFmpegConfig(View view) {
         Timber.d("onFFmepgConfig");
-        FFMPEGTest.printFFmpegConfigInfo();
     }
 
     public void onHevcToYuv(View view) {
         Timber.d("decode HEVC TO YUV");
-        FFmpegSample.getInstance().onHevcToYuv(hevcFilePath, outYuvFilePath);
     }
 
     public void onH264ToYuv(View view) {
         Timber.d("decode H264 TO YUV");
-        FFmpegSample.getInstance().onH264ToYuv("", "");
     }
 
 }

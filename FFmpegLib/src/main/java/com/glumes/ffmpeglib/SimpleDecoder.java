@@ -6,7 +6,6 @@ package com.glumes.ffmpeglib;
 
 public class SimpleDecoder {
 
-    public native int decode(String inputurl, String outputurl);
 
     static {
         System.loadLibrary("native-lib");
@@ -22,5 +21,4 @@ public class SimpleDecoder {
         System.loadLibrary("x264-148");
     }
 
-    public native void test();
 }

@@ -4,36 +4,37 @@ import android.databinding.DataBindingUtil
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.glumes.codec.DecodeWrapper
+import com.glumes.codec.EncodeWrapper
 import com.glumes.databindingadapter.BindingViewHolder
 import com.glumes.databindingadapter.ViewHolderBinder
 import com.glumes.ffmpeginandroid.R
 import com.glumes.ffmpeginandroid.databinding.AdapterBackgroundOperationBinding
-import com.glumes.ffmpeglib.FFmpegSample
-import com.glumes.util.FileContants
-import java.io.File
+import com.glumes.util.OPS_TYPE_DECODE
+import com.glumes.util.OPS_TYPE_ENCODE
 
 /**
  * Created by glumes on 17/04/2018
  */
 
-data class BackOpsItem(var title: String, var opsType: Int)
+data class BackOpsItem(var title: String, var opsType: Int, var ops: Int)
 
 
 class BackOpsHandler {
 
     fun onClick(v: View, model: BackOpsItem) {
 
-        var file = File(FileContants.PGM_DRI)
-        if (!file.exists()) {
-            file.mkdir()
+        when (model.opsType) {
+
+            OPS_TYPE_DECODE -> {
+                DecodeWrapper.handleDecode(model.ops)
+            }
+
+            OPS_TYPE_ENCODE -> {
+                EncodeWrapper.handleEecode(model.ops)
+            }
         }
 
-        var outFile = File(FileContants.OUT_PUT_FILE)
-        if (!outFile.exists()) {
-            outFile.createNewFile()
-        }
-
-        FFmpegSample.getInstance().decode_mpeg_to_pgm(FileContants.FILE_MPEG, FileContants.OUT_PUT_FILE)
     }
 }
 

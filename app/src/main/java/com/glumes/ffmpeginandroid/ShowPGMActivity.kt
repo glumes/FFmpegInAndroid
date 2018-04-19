@@ -1,10 +1,8 @@
 package com.glumes.ffmpeginandroid
 
-import android.support.v7.app.AppCompatActivity
-import android.os.Bundle
 import android.graphics.Bitmap
-import android.opengl.ETC1.getHeight
-import android.opengl.ETC1.getWidth
+import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.glumes.commonlibrary.LogUtil
 import com.glumes.util.FileContants
@@ -50,7 +48,7 @@ class ShowPGMActivity : AppCompatActivity(), View.OnClickListener {
 
 
     fun showImage(num: Int) {
-        val path = FileContants.PGM_DRI + File.separator + "test-" + num + ".pgm"
+        val path = FileContants.PGM_DRI + File.separator + "test-" + num
         val iw: Int
         val ih: Int
         val pix: IntArray

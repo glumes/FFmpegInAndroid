@@ -26,8 +26,11 @@ add_library( # Sets the name of the library.
              SHARED
 
              # Provides a relative path to your source file(s).
-             src/main/cpp/codec/decode.cpp
-             src/main/cpp/codec/decodeUtil.cpp
+             src/main/cpp/codec/decode/decode.cpp
+             src/main/cpp/codec/decode/decodeUtil.cpp
+
+             src/main/cpp/codec/encode/encode.cpp
+
              )
 
 add_library(avcodec-57_lib SHARED IMPORTED)

@@ -5,6 +5,12 @@ package com.glumes.ffmpeglib.codec;
  */
 public class DecodeUtils {
 
-    public static native void decodeMP4TOYUV(String inputFile, String outputFile);
+
+    static {
+        System.loadLibrary("codec-lib");
+    }
+
+
+    public static native void decode_MPEG_to_PGM(String inputFile, String outputFile);
 
 }

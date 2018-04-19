@@ -21,9 +21,15 @@ public class FileContants {
 
     public static final String FILE_MPEG = EXTERNAL_PATH + "mpeg_file.mpeg";
 
+    public static final String FILE_M2V = EXTERNAL_PATH + "bigbuckbunny_480x272.m2v";
+
+    public static final String FILE_YUV = EXTERNAL_PATH + "ds_480x272.yuv";
 
     public static final String PGM_DRI = EXTERNAL_PATH + "PGM";
 
     public static final String OUT_PUT_FILE = PGM_DRI + File.separator + "test";
+
+    public static final String FILE_H264 = EXTERNAL_PATH + "test.h264";
+
 
 }

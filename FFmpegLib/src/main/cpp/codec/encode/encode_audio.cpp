@@ -8,9 +8,6 @@
 #include "logutil.h"
 
 #ifdef  __cplusplus
-
-#endif
-
 extern "C" {
 #endif
 #include "libavcodec/avcodec.h"
@@ -20,6 +17,7 @@ extern "C" {
 
 #ifdef  __cplusplus
 };
+#endif
 
 
 bool check_sample_fmt(const AVCodec *pCodec, AVSampleFormat format);
@@ -28,6 +26,8 @@ int select_sample_rate(const AVCodec *pCodec);
 
 uint64_t select_channel_layout(const AVCodec *pCodec);
 
+
+void encode(AVCodecContext *pContext, AVFrame *pFrame, AVPacket *pPacket, FILE *pFILE);
 
 extern "C"
 JNIEXPORT void JNICALL
@@ -118,25 +118,99 @@ Java_com_glumes_ffmpeglib_codec_EncodeUtils_encode_1audio(JNIEnv *env, jclass ty
         }
         samples = (uint16_t *) avFrame->data[0];
         for (j = 0; j < avCodecContext->frame_size; j++) {
-            samples[2*j]
+            samples[2 * j] = (int) (sin(t) * 10000);
+            for (k = 1; k < avCodecContext->channels; k++) {
+                samples[2 * j + k] = samples[2 * j];
+            }
+            t += tincr;
         }
+        encode(avCodecContext, avFrame, avPacket, file);
     }
 
+    encode(avCodecContext, avFrame, avPacket, file);
+
+    fclose(file);
+
+    av_frame_free(&avFrame);
+    av_packet_free(&avPacket);
+    avcodec_free_context(&avCodecContext);
 
     env->ReleaseStringUTFChars(outputFile_, outputFile);
 }
 
+void encode(AVCodecContext *pContext, AVFrame *pFrame, AVPacket *pPacket, FILE *pFILE) {
+    int ret;
+    ret = avcodec_send_frame(pContext, pFrame);
+    if (ret < 0) {
+        LOGI("Error sending the frame to the encoder\n");
+        return;
+    }
+
+    while (ret >= 0) {
+        ret = avcodec_receive_packet(pContext, pPacket);
+        if (ret == AVERROR(EAGAIN) || ret == AVERROR_EOF) {
+            return;
+        } else if (ret < 0) {
+            LOGI("Error encoding audio frame\n");
+            return;
+        }
+        fwrite(pPacket->data, 1, pPacket->size, pFILE);
+        av_packet_unref(pPacket);
+    }
+}
+
 uint64_t select_channel_layout(const AVCodec *pCodec) {
-    return 0;
+    const uint64_t *p;
+    uint64_t best_ch_layout = 0;
+    int best_nb_channels = 0;
+
+    if (!pCodec->channel_layouts) {
+        return AV_CH_LAYOUT_STEREO;
+    }
+
+    p = pCodec->channel_layouts;
+    while (*p) {
+
+        int nb_channels = av_get_channel_layout_nb_channels(*p);
+
+        if (nb_channels > best_nb_channels) {
+            best_ch_layout = *p;
+            best_nb_channels = nb_channels;
+        }
+        p++;
+
+    }
+    return best_ch_layout;
 }
 
 
 bool check_sample_fmt(const AVCodec *pCodec, AVSampleFormat format) {
+    const enum AVSampleFormat *avSampleFormat = pCodec->sample_fmts;
+    while (*avSampleFormat != AV_SAMPLE_FMT_NONE) {
+        if (*avSampleFormat == format) {
+            return true;
+        }
+        avSampleFormat++;
+    }
     return false;
 }
 
 
 int select_sample_rate(const AVCodec *pCodec) {
-    return 0;
+    const int *p;
+    int best_samplerate = 0;
+    if (!pCodec->supported_samplerates) {
+        return 44100;
+    }
+
+    p = pCodec->supported_samplerates;
+
+    while (*p) {
+        if (!best_samplerate || abs(44100 - *p) < abs(44100 - best_samplerate)) {
+            best_samplerate = *p;
+        }
+        p++;
+    }
+    return best_samplerate;
 }
 

@@ -11,4 +11,6 @@ public class EncodeUtils {
 
 
     public static native void encode_YUV_to_H264(String inputFile, String outputFile);
+
+    public static native void encode_audio(String outputFile);
 }

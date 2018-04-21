@@ -27,7 +27,7 @@ int select_sample_rate(const AVCodec *pCodec);
 uint64_t select_channel_layout(const AVCodec *pCodec);
 
 
-void encode(AVCodecContext *pContext, AVFrame *pFrame, AVPacket *pPacket, FILE *pFILE);
+void encode_audio(AVCodecContext *pContext, AVFrame *pFrame, AVPacket *pPacket, FILE *pFILE);
 
 extern "C"
 JNIEXPORT void JNICALL
@@ -124,10 +124,10 @@ Java_com_glumes_ffmpeglib_codec_EncodeUtils_encode_1audio(JNIEnv *env, jclass ty
             }
             t += tincr;
         }
-        encode(avCodecContext, avFrame, avPacket, file);
+        encode_audio(avCodecContext, avFrame, avPacket, file);
     }
 
-    encode(avCodecContext, avFrame, avPacket, file);
+    encode_audio(avCodecContext, avFrame, avPacket, file);
 
     fclose(file);
 
@@ -138,7 +138,7 @@ Java_com_glumes_ffmpeglib_codec_EncodeUtils_encode_1audio(JNIEnv *env, jclass ty
     env->ReleaseStringUTFChars(outputFile_, outputFile);
 }
 
-void encode(AVCodecContext *pContext, AVFrame *pFrame, AVPacket *pPacket, FILE *pFILE) {
+void encode_audio(AVCodecContext *pContext, AVFrame *pFrame, AVPacket *pPacket, FILE *pFILE) {
     int ret;
     ret = avcodec_send_frame(pContext, pFrame);
     if (ret < 0) {

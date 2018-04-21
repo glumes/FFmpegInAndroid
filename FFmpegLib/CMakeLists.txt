@@ -29,7 +29,7 @@ add_library( # Sets the name of the library.
              src/main/cpp/codec/decode/decode.cpp
              src/main/cpp/codec/decode/decodeUtil.cpp
 
-             src/main/cpp/codec/encode/encode.cpp
+             src/main/cpp/codec/encode/encode_video.cpp
              src/main/cpp/codec/encode/encode_audio.cpp
 
              )

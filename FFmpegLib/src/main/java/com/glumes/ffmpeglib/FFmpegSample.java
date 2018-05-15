@@ -1,6 +1,5 @@
 package com.glumes.ffmpeglib;
 
-import timber.log.Timber;
 
 /**
  * Created by zhaoying on 2017/6/20.
@@ -32,7 +31,6 @@ public class FFmpegSample {
 
 
     private FFmpegSample() {
-        Timber.d("Init FFmpegSample");
     }
 
     public native void decode_mpeg_to_pgm(String inputFilePath, String outputFilePath);

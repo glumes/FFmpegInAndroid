@@ -4,7 +4,7 @@ import android.graphics.Bitmap
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
-import com.glumes.commonlibrary.LogUtil
+import com.glumes.ffmpeglib.utils.LogUtil
 import com.glumes.util.FileContants
 import com.glumes.util.PGM
 import kotlinx.android.synthetic.main.activity_show_pgm.*

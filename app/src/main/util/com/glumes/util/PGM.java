@@ -1,6 +1,6 @@
 package com.glumes.util;
 
-import com.glumes.commonlibrary.LogUtil;
+import com.glumes.ffmpeglib.utils.LogUtil;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;

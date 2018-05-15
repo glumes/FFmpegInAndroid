@@ -1,4 +1,4 @@
-package com.glumes.commonlibrary;
+package com.glumes.ffmpeglib.utils;
 
 import android.util.Log;
 

@@ -1,4 +1,2 @@
 include ':app',
-        ':FFmpegLib',
-//        ':FFmpegExamples',
-        ':CommonLibrary'
+        ':FFmpegLib'

@@ -69,9 +69,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
 
     implementation project(':FFmpegLib')
-    implementation project(':CommonLibrary')
 
-    kapt 'com.android.databinding:compiler:3.1.1'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:${versions.kotlin}"
     implementation "com.android.support:gridlayout-v7:${versions.support}"

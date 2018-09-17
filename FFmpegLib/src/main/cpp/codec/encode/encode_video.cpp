@@ -11,10 +11,10 @@
 #ifdef  __cplusplus
 extern "C" {
 #endif
-#include "libavcodec/avcodec.h"
-#include "libavformat/avformat.h"
-#include "libavutil/opt.h"
-#include "libavutil/imgutils.h"
+#include <libavcodec/avcodec.h>
+#include <libavformat/avformat.h>
+#include <libavutil/opt.h>
+#include <libavutil/imgutils.h>
 
 #ifdef  __cplusplus
 };
@@ -180,7 +180,7 @@ Java_com_glumes_ffmpeglib_codec_EncodeUtils_encode_1YUV_1to_1H264(JNIEnv *env, j
 void encode(AVCodecContext *avCodecContext, AVFrame *avFrame, AVPacket *avPacket, FILE *outFile) {
     int ret;
     if (avFrame) {
-        LOGI("Send frame %3lld PRId64\n", avFrame->pts);
+//        LOGI("Send frame %" PRId64 "\n", avFrame->pts);
     }
 
     ret = avcodec_send_frame(avCodecContext, avFrame);
@@ -195,7 +195,7 @@ void encode(AVCodecContext *avCodecContext, AVFrame *avFrame, AVPacket *avPacket
             LOGI("Error during encoding\n");
         }
 
-        LOGI("Write packet %3lld PRId64 (size=%5d)\n", avPacket->pts, avPacket->size);
+//        LOGI("Write packet %" PRId64 "(size=%5d)\n", avPacket->pts, avPacket->size);
 
         fwrite(avPacket->data, 1, avPacket->size, outFile);
 

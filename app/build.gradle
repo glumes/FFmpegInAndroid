@@ -5,7 +5,6 @@ apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId "com.glumes.ffmpeginandroid"
         minSdkVersion 22
@@ -60,8 +59,8 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     implementation "com.android.support:appcompat-v7:${versions.support}"
@@ -71,7 +70,7 @@ dependencies {
     implementation project(':FFmpegLib')
 
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:${versions.kotlin}"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}"
     implementation "com.android.support:gridlayout-v7:${versions.support}"
     implementation "com.android.support:recyclerview-v7:${versions.support}"
     implementation "com.android.support:cardview-v7:${versions.support}"

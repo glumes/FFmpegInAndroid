@@ -4,13 +4,16 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 26
+
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+
     defaultConfig {
-        applicationId "com.glumes.ffmpeginandroid"
-        minSdkVersion 22
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        applicationId rootProject.ext.android.applicationId
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         ndk {
@@ -63,19 +66,25 @@ dependencies {
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    implementation "com.android.support:appcompat-v7:${versions.support}"
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    testImplementation 'junit:junit:4.12'
 
-    implementation project(':FFmpegLib')
-
-
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}"
-    implementation "com.android.support:gridlayout-v7:${versions.support}"
-    implementation "com.android.support:recyclerview-v7:${versions.support}"
-    implementation "com.android.support:cardview-v7:${versions.support}"
-    implementation "com.android.support:design:${versions.support}"
+    implementation project(':ffmpeglib')
+    implementation project(':widget')
 
     implementation 'com.glumes:sampleutil:0.0.2'
     implementation 'com.glumes:databindingadapter:0.0.3'
+
+    implementation deps.kotlin
+    implementation deps.appcompatv7
+    implementation deps.constraint_layout
+    implementation deps.supportv4
+    implementation deps.recyclerview
+    implementation deps.rxjava
+    implementation deps.rxandroid
+    implementation deps.cardview
+
+
+    testImplementation deps.junit
+    androidTestImplementation deps.test_runner
+    androidTestImplementation deps.test_espresso
+
 }

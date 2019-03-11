@@ -16,7 +16,6 @@ import org.jetbrains.annotations.NotNull;
  */
 public abstract class BaseListActivity extends BaseActivity {
 
-
     protected Items mItems;
     protected DataBindingAdapter mBindingAdapter;
 
@@ -34,7 +33,6 @@ public abstract class BaseListActivity extends BaseActivity {
     }
 
     protected abstract void initData();
-
 
     protected abstract void initAdapter();
 

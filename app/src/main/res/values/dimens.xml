@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <dimen name="ffmpeg_type_height">48dp</dimen>
+    <dimen name="ffmpeg_ops_height">48dp</dimen>
 
 </resources>

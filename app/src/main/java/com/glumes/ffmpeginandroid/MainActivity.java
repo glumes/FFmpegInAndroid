@@ -18,8 +18,8 @@ public class MainActivity extends BaseListActivity {
 
     @Override
     protected void initData() {
-        mItems.add(new BasicItem("编解码操作"));
-        mItems.add(new JumpActivityItem("编码操作", EncodeActivity.class));
+        mItems.add(new BasicItem("1、编解码操作"));
+        mItems.add(new JumpActivityItem("2编码操作", EncodeActivity.class));
         mItems.add(new JumpActivityItem("解码操作", DecodeActivity.class));
         mItems.add(new JumpActivityItem("图片预览", ShowPGMActivity.class));
     }

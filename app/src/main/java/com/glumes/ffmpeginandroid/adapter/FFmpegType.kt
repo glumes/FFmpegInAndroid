@@ -1,5 +1,6 @@
-package com.glumes.ffmpeginandroid
+package com.glumes.ffmpeginandroid.adapter
 
+import com.glumes.ffmpeginandroid.adapter.FFmpegOps
 import com.glumes.widget.models.ExpandableGroup
 
 /**

@@ -1,9 +1,9 @@
-package com.glumes.ffmpeginandroid
+package com.glumes.ffmpeginandroid.adapter
 
 import android.view.View
 import android.widget.TextView
+import com.glumes.ffmpeginandroid.R
 import com.glumes.widget.viewholders.ChildViewHolder
-import com.glumes.widget.viewholders.GroupViewHolder
 
 /**
  * @Author  glumes
@@ -11,7 +11,5 @@ import com.glumes.widget.viewholders.GroupViewHolder
 
 class FFmpegOpsViewHolder(itemView: View) : ChildViewHolder(itemView) {
 
-     val mTextView: TextView = itemView.findViewById(R.id.textview_ffmpeg_ops)
-
-
+    val title: TextView = itemView.findViewById(R.id.textview_ffmpeg_ops)
 }

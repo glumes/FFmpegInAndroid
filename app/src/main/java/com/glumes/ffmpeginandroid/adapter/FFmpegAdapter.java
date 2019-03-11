@@ -1,12 +1,13 @@
-package com.glumes.ffmpeginandroid;
+package com.glumes.ffmpeginandroid.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.glumes.ffmpeginandroid.R;
+import com.glumes.ffmpeginandroid.listener.OnFFmpegOpsClickListener;
 import com.glumes.widget.ExpandableRecyclerViewAdapter;
 import com.glumes.widget.models.ExpandableGroup;
-import com.glumes.widget.models.ExpandableListPosition;
 
 import java.util.List;
 
@@ -15,9 +16,14 @@ import java.util.List;
  */
 public class FFmpegAdapter extends ExpandableRecyclerViewAdapter<FFmpegTypeViewHolder, FFmpegOpsViewHolder> {
 
+
+    private OnFFmpegOpsClickListener listener;
+
+
     public FFmpegAdapter(List<? extends ExpandableGroup> groups) {
         super(groups);
     }
+
 
     @Override
     public FFmpegTypeViewHolder onCreateGroupViewHolder(ViewGroup parent, int viewType) {
@@ -36,11 +42,21 @@ public class FFmpegAdapter extends ExpandableRecyclerViewAdapter<FFmpegTypeViewH
     public void onBindChildViewHolder(FFmpegOpsViewHolder holder, int flatPosition, ExpandableGroup group, int childIndex) {
 
         FFmpegOps ops = ((FFmpegType) group).getItems().get(childIndex);
-    
+        holder.getTitle().setText(ops.getTitle());
+        holder.itemView.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onFFmpegOpsClick(ops);
+            }
+        });
     }
 
     @Override
     public void onBindGroupViewHolder(FFmpegTypeViewHolder holder, int flatPosition, ExpandableGroup group) {
+        holder.getTitle().setText(group.getTitle());
 
+    }
+
+    public void setListener(OnFFmpegOpsClickListener listener) {
+        this.listener = listener;
     }
 }

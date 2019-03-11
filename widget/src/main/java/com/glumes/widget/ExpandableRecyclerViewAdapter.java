@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 
 import com.glumes.widget.listeners.ExpandCollapseListener;
 import com.glumes.widget.listeners.GroupExpandCollapseListener;
-import com.glumes.widget.listeners.OnChildClickListener;
 import com.glumes.widget.listeners.OnGroupClickListener;
 import com.glumes.widget.models.ExpandableGroup;
 import com.glumes.widget.models.ExpandableList;
@@ -27,7 +26,6 @@ public abstract class ExpandableRecyclerViewAdapter<GVH extends GroupViewHolder,
     private ExpandCollapseController expandCollapseController;
 
     private OnGroupClickListener groupClickListener;
-    private OnChildClickListener childClickListener;
 
     private GroupExpandCollapseListener expandCollapseListener;
 
@@ -247,9 +245,7 @@ public abstract class ExpandableRecyclerViewAdapter<GVH extends GroupViewHolder,
         groupClickListener = listener;
     }
 
-    public void setOnChildClickListener(OnChildClickListener listener) {
-        childClickListener = listener;
-    }
+
 
     public void setOnGroupExpandCollapseListener(GroupExpandCollapseListener listener) {
         expandCollapseListener = listener;

@@ -1,4 +1,4 @@
-package com.glumes.ffmpeginandroid
+package com.glumes.ffmpeginandroid.adapter
 
 import android.os.Parcel
 import android.os.Parcelable
@@ -7,13 +7,15 @@ import android.os.Parcelable
  * @Author  glumes
  */
 
-class FFmpegOps(var ops: String? = "") : Parcelable {
+class FFmpegOps(var title: String? = "", var type: Int) : Parcelable {
 
-    constructor(parcel: Parcel) : this(parcel.readString()) {
-    }
+    constructor(parcel: Parcel) : this(
+            parcel.readString(),
+            parcel.readInt())
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeString(ops)
+        parcel.writeString(title)
+        parcel.writeInt(type)
     }
 
     override fun describeContents(): Int {

@@ -1,43 +1,32 @@
 package com.glumes.ffmpeginandroid
 
 import android.os.Bundle
-import android.os.Parcelable
-import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.Toolbar
-import android.util.Log
 import com.glumes.ffmpegexamples.base.BaseActivity
-import com.glumes.ffmpeginandroid.GenreDataFactory.makeGenres
-import com.glumes.sampleutil.BaseToolbarActivity
-import com.glumes.widget.models.ExpandableGroup
+import com.glumes.ffmpeginandroid.adapter.FFmpegAdapter
+import com.glumes.ffmpeginandroid.ffmpeg.FFmpegBridge
+import com.glumes.ffmpeginandroid.ffmpeg.FFmpegFactory
 import kotlinx.android.synthetic.main.activity_ffmpeg.*
 
-class FFmpegActivity : AppCompatActivity() {
+class FFmpegActivity : BaseActivity() {
 
-//    override fun setUpToolbar(toolbar: Toolbar) {
-//        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-//    }
+    override fun getToolbarTitle(): String {
+        return getString(R.string.app_name)
+    }
 
     private lateinit var mFFmpegAdapter: FFmpegAdapter
-
-//    override fun getToolbarTitle(): String {
-//        return resources.getString(R.string.app_name)
-//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ffmpeg)
         val layoutManager = LinearLayoutManager(this)
 
-//
-//        mFFmpegAdapter = FFmpegAdapter2(FFmpegFactory.makeData() as MutableList<out ExpandableGroup<Parcelable>>)
+        mFFmpegAdapter = FFmpegAdapter(FFmpegFactory.makeData())
 
-        mFFmpegAdapter = FFmpegAdapter(makeGenres())
-
+        mFFmpegAdapter.setListener(FFmpegBridge())
 
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = mFFmpegAdapter
 
-        Log.d("adapter", "log num is ${mFFmpegAdapter.itemCount}")
     }
 }

@@ -18,6 +18,7 @@ class FFmpegActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_ffmpeg)
         val layoutManager = LinearLayoutManager(this)
 
@@ -27,6 +28,7 @@ class FFmpegActivity : BaseActivity() {
 
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = mFFmpegAdapter
+
 
     }
 }

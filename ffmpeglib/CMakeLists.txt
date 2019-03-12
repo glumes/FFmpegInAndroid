@@ -40,6 +40,7 @@ add_library(
 
         src/main/cpp/basic/ffmpeg_basic_operations.cpp
         src/main/cpp/basic/FFmpegBasic.cpp
+        src/main/cpp/common/LogClient.cpp
 )
 
 
@@ -89,10 +90,8 @@ find_library( # Sets the name of the path variable.
 
 include_directories(src/main/cpp/include/)
 include_directories(src/main/cpp/common/)
-
 include_directories(src/main/cpp/basic/)
 
-#include_directories(src/main/cpp/spdlog/)
 
 target_link_libraries( # Specifies the target library.
         media-lib

@@ -9,10 +9,21 @@ JNIEXPORT void JNICALL
 Java_com_glumes_ffmpeglib_basic_FFmpegBasicOperation_printFileMetaData(JNIEnv *env,
                                                                        jobject instance) {
 
-//    std::string tag = "spdlog";
-//    auto android_logger = spdlog::android_logger_mt("android", tag);
-//    android_logger->critical("Use \"adb shell logcat\" to view this message.");
-    LOGD("print meta data");
+    LogClient::LogD("print av format info");
+    char *format_infostr = FFmpegBasic::getAvFormatInfo();
+    LogClient::LogD(format_infostr);
+    free(format_infostr);
+
+    LogClient::LogD("print av codec info");
+    char *codec_infostr = FFmpegBasic::getAvCodecInfo();
+    LogClient::LogD(codec_infostr);
+    free(codec_infostr);
+
+    LogClient::LogD("print av filter info");
+    char *avfilter_infostr = FFmpegBasic::getAvFilterInfo();
+    LogClient::LogD(avfilter_infostr);
+    free(avfilter_infostr);
+
 }
 
 

@@ -3,6 +3,8 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
+apply from : "../gradles/util.gradle"
+
 android {
 
     compileSdkVersion rootProject.ext.android.compileSdkVersion

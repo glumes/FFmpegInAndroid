@@ -8,6 +8,7 @@ import com.glumes.ffmpeglib.FFmpegWork
 
 class FFmpegBridge : OnFFmpegOpsClickListener {
 
+
     override fun onFFmpegOpsClick(ops: FFmpegOps) {
         when (ops.type) {
             FFMPEG_GET_META_DATA_INFO -> {

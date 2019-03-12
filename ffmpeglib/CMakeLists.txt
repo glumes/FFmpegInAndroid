@@ -39,6 +39,7 @@ add_library(
         SHARED
 
         src/main/cpp/basic/ffmpeg_basic_operations.cpp
+        src/main/cpp/basic/FFmpegBasic.cpp
 )
 
 

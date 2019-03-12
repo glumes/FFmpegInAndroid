@@ -9,9 +9,10 @@ JNIEXPORT void JNICALL
 Java_com_glumes_ffmpeglib_basic_FFmpegBasicOperation_printFileMetaData(JNIEnv *env,
                                                                        jobject instance) {
 
-    std::string tag = "spdlo";
-    auto android_logger = spdlog::android_logger_mt("android", tag);
-    android_logger->critical("Use \"adb shell logcat\" to view this message.");
+//    std::string tag = "spdlog";
+//    auto android_logger = spdlog::android_logger_mt("android", tag);
+//    android_logger->critical("Use \"adb shell logcat\" to view this message.");
+    LOGD("print meta data");
 }
 
 

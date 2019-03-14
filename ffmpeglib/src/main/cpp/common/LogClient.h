@@ -24,6 +24,8 @@ class LogClient {
 public:
     static void LogD(char *msg);
 
+    static void LogD(const char *tag, const char *fmt, ...);
+
     static void LogD(std::string msg);
 
     static void LogE(char *msg);

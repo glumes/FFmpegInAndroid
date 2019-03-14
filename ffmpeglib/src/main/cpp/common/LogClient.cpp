@@ -43,3 +43,8 @@ void LogClient::LogE(std::string msg) {
         LOGD("%s", msg.c_str());
     }
 }
+
+void LogClient::LogD(const char *tag, const char *fmt, ...) {
+//    char buf[LOG_LENGTH];
+//    int ret = sprintf(buf,LOG_LENGTH,)
+}

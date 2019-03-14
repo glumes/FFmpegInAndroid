@@ -43,6 +43,16 @@ add_library(
         src/main/cpp/common/LogClient.cpp
 )
 
+add_library(
+        ffmpegcodec
+
+        SHARED
+
+        src/main/cpp/codec/FFmpegCodec.cpp
+        src/main/cpp/common/LogClient.cpp
+
+)
+
 
 add_library(avcodec-57-lib SHARED IMPORTED)
 set_target_properties(avcodec-57-lib PROPERTIES IMPORTED_LOCATION
@@ -129,3 +139,17 @@ target_link_libraries(
         ${log-lib}
 )
 
+
+target_link_libraries(
+        ffmpegcodec
+        avcodec-57-lib
+        avdevice-57-lib
+        avfilter-6-lib
+        avformat-57-lib
+        avutil-55-lib
+        swresample-2-lib
+        swscale-4-lib
+        avresample-3-lib
+        x264-148-lib
+        ${log-lib}
+)

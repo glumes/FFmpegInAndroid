@@ -62,6 +62,7 @@ char *FFmpegBasic::getAvCodecInfo() {
         sprintf(info, "%s %10s\n", info, c_temp->name);
         c_temp = c_temp->next;
     }
+
     return info;
 }
 

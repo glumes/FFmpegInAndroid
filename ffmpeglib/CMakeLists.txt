@@ -48,6 +48,7 @@ add_library(
 
         SHARED
 
+        src/main/cpp/codec/ffmpeg_codec_operation.cpp
         src/main/cpp/codec/FFmpegCodec.cpp
         src/main/cpp/common/LogClient.cpp
 
@@ -101,6 +102,7 @@ find_library( # Sets the name of the path variable.
 include_directories(src/main/cpp/include/)
 include_directories(src/main/cpp/common/)
 include_directories(src/main/cpp/basic/)
+include_directories(src/main/cpp/codec/)
 
 
 target_link_libraries( # Specifies the target library.

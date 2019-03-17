@@ -1,0 +1,17 @@
+package com.glumes.ffmpeglib.codec;
+
+/**
+ * @Author glumes
+ */
+public class FFmpegCodecOperation {
+
+    static {
+        System.loadLibrary("ffmpegcodec");
+    }
+
+    public native void decodeVideo(String inname, String outname);
+
+    public native void encodeVideo(String inname, String outname);
+
+
+}

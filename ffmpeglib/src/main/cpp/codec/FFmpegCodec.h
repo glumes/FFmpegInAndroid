@@ -23,11 +23,17 @@ extern "C" {
 
 class FFmpegCodec {
 
+private:
+
 public:
 
     void encode_video(const char *filename, const char *codec_name);
 
     void decode_video_to_yuv(const char *input_path, const char *output_path);
+
+    void encode_yuv_to_video(const char *input_path, const char *output_path);
+
+    void encode_yuv_to_h264(const char *input_path, const char *output_path);
 };
 
 

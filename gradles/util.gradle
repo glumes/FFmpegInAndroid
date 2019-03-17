@@ -1,18 +1,44 @@
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 
-def static calcMD5(filePath) {
-    MessageDigest md = null
-    try {
-        md = MessageDigest.getInstance("MD5")
-    } catch (NoSuchAlgorithmException e) {
-        return ""
-    }
+//def static calcMD5(filePath) {
+//    MessageDigest md = null
+//    try {
+//        md = MessageDigest.getInstance("MD5")
+//    } catch (NoSuchAlgorithmException e) {
+//        return ""
+//    }
+//
+//    new File(filePath).eachByte 4096, {
+//        bytes, size -> md.update(bytes, 0, size);
+//    }
+//    String result = md.digest().collect { String.format "%02x", it }.join()
+//    System.out.println(String.format("The md5 of File %s is:\n%s", filePath, result))
+//    return result
+//}
 
-    new File(filePath).eachByte 4096, {
-        bytes, size -> md.update(bytes, 0, size);
+
+task changeMD5Vaule << {
+
+    def path = projectDir.getAbsolutePath() + File.separatorChar + "proguard-rules.pro"
+
+//    def path = projectDir.getAbsolutePath().toSt
+
+    def md5 = generateMD5(file(path))
+
+    println md5
+}
+
+def generateMD5(final file) {
+    MessageDigest digest = MessageDigest.getInstance("MD5")
+    file.withInputStream() { is ->
+        byte[] buffer = new byte[8192]
+        int read = 0
+        while ((read = is.read(buffer)) > 0) {
+            digest.update(buffer, 0, read)
+        }
     }
-    String result = md.digest().collect { String.format "%02x", it }.join()
-    System.out.println(String.format("The md5 of File %s is:\n%s", filePath, result))
-    return result
+    byte[] md5sum = digest.digest()
+    BigInteger bigInt = new BigInteger(1, md5sum)
+    return bigInt.toString(16)
 }

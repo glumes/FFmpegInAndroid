@@ -2,9 +2,7 @@ package com.glumes.ffmpeginandroid.ffmpeg
 
 import com.glumes.ffmpeginandroid.adapter.FFmpegOps
 import com.glumes.ffmpeginandroid.listener.OnFFmpegOpsClickListener
-import com.glumes.ffmpeglib.FFMPEG_GET_FFMPEG_INFO
-import com.glumes.ffmpeglib.FFMPEG_GET_META_DATA_INFO
-import com.glumes.ffmpeglib.FFmpegWork
+import com.glumes.ffmpeglib.*
 
 class FFmpegBridge : OnFFmpegOpsClickListener {
 
@@ -16,6 +14,12 @@ class FFmpegBridge : OnFFmpegOpsClickListener {
             }
             FFMPEG_GET_FFMPEG_INFO -> {
                 FFmpegWork.printFFmpegInfo()
+            }
+            FFMPEG_CODEC_DECODE_VIDEO -> {
+                FFmpegWork.codecDecodeVideo()
+            }
+            FFMPEG_CODEC_ENCODE_VIDEO -> {
+                FFmpegWork.codecEncodeYUV2H264()
             }
         }
     }

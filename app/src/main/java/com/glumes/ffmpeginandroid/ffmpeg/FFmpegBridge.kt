@@ -21,6 +21,15 @@ class FFmpegBridge : OnFFmpegOpsClickListener {
             FFMPEG_CODEC_ENCODE_VIDEO -> {
                 FFmpegWork.codecEncodeYUV2H264()
             }
+            FFMPEG_MUXER_DEMUXER_SIMPLE -> {
+                FFmpegWork.muxerDemuxerSample()
+            }
+            FFMPEG_MUXER_DEMUXER_STANDARD -> {
+                FFmpegWork.muxerDemuxerStandard()
+            }
+            FFMPEG_MUXER_DEMUXER_SIMPLE -> {
+                FFmpegWork.muxerDemuxerSample()
+            }
         }
     }
 }

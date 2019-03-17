@@ -5,6 +5,7 @@ import android.os.Environment;
 
 import com.glumes.ffmpeglib.basic.FFmpegBasicOperation;
 import com.glumes.ffmpeglib.codec.FFmpegCodecOperation;
+import com.glumes.ffmpeglib.muxer.FFmpegMuxerOperation;
 
 import java.io.File;
 
@@ -18,6 +19,7 @@ public class FFmpegWork {
 
     private static FFmpegBasicOperation basicOperation = new FFmpegBasicOperation();
     private static FFmpegCodecOperation codecOperation = new FFmpegCodecOperation();
+    private static FFmpegMuxerOperation muxerOperation = new FFmpegMuxerOperation();
 
     public static void printFileMetaData() {
         basicOperation.printFileMetaData();
@@ -33,5 +35,13 @@ public class FFmpegWork {
 
     public static void codecEncodeYUV2H264() {
         codecOperation.encodeVideo(yuv_input_path, h264_output_path);
+    }
+
+    public static void muxerDemuxerSample() {
+        muxerOperation.demuxerSample();
+    }
+
+    public static void muxerDemuxerStandard() {
+        muxerOperation.demuxerStandard();
     }
 }

@@ -49,7 +49,7 @@ class FFmpegFactory {
 
         private fun muxerOperationList(): MutableList<FFmpegOps>? {
             val op1 = FFmpegOps("音视频分离简化版", FFMPEG_MUXER_DEMUXER_SIMPLE)
-            val op2 = FFmpegOps("音视频分离标准版", FFMPEG_MUXER_DEMUXER_STANARD)
+            val op2 = FFmpegOps("音视频分离标准版", FFMPEG_MUXER_DEMUXER_STANDARD)
             return Arrays.asList(op1, op2)
         }
     }

@@ -82,4 +82,8 @@ char *FFmpegBasic::getAvFilterInfo() {
     return info;
 }
 
+void FFmpegBasic::printVideoInfo() {
+
+}
+
 

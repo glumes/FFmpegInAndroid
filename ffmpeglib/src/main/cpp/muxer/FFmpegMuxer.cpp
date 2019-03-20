@@ -6,6 +6,12 @@
 
 #define USE_H264BSF 1
 
+/**
+ *
+ * @param input_path 输入的文件
+ * @param output_path_video 输出的视频文件
+ * @param output_path_audio 输出的音频文件
+ */
 void FFmpegMuxer::muxer_simple(const char *input_path, const char *output_path_video,
                                const char *output_path_audio) {
 

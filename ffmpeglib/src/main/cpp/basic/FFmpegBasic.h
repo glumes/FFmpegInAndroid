@@ -35,6 +35,8 @@ public:
     static char *getAvCodecInfo();
 
     static char *getAvFilterInfo();
+
+    void printVideoInfo();
 };
 
 

@@ -10,7 +10,7 @@ class FFmpegBridge : OnFFmpegOpsClickListener {
     override fun onFFmpegOpsClick(ops: FFmpegOps) {
         when (ops.type) {
             FFMPEG_GET_META_DATA_INFO -> {
-                FFmpegWork.printFileMetaData()
+                FFmpegWork.printFFmpegConfig()
             }
             FFMPEG_GET_FFMPEG_INFO -> {
                 FFmpegWork.printFFmpegInfo()

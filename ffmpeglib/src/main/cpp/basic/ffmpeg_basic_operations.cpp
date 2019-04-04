@@ -4,6 +4,7 @@
 
 #include "ffmpeg_basic_operations.h"
 
+static FFmpegBasic *fFmpegBasic;
 extern "C"
 JNIEXPORT void JNICALL
 Java_com_glumes_ffmpeglib_basic_FFmpegBasicOperation_printFileMetaData(JNIEnv *env,
@@ -26,11 +27,18 @@ Java_com_glumes_ffmpeglib_basic_FFmpegBasicOperation_printFileMetaData(JNIEnv *e
 
 }
 
-
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_glumes_ffmpeglib_basic_FFmpegBasicOperation_printFFmpegInfo(JNIEnv *env,
-                                                                     jobject instance) {
+Java_com_glumes_ffmpeglib_basic_FFmpegBasicOperation_printFFmpegInfo(JNIEnv *env, jobject instance,
+                                                                     jstring path_) {
+    const char *path = env->GetStringUTFChars(path_, 0);
 
+    LOGD("%s and data is  %d", __FUNCTION__, __LINE__);
 
+    fFmpegBasic = new FFmpegBasic();
+
+    fFmpegBasic->printVideoInfo(path);
+
+    env->ReleaseStringUTFChars(path_, path);
 }
+

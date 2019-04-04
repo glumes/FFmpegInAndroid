@@ -9,5 +9,5 @@ public class FFmpegBasicOperation {
 
     public native void printFileMetaData();
 
-    public native void printFFmpegInfo();
+    public native void printFFmpegInfo(String path);
 }

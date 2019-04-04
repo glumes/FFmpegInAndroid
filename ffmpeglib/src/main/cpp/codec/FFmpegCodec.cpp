@@ -401,6 +401,75 @@ void FFmpegCodec::decode_video_to_yuv(const char *input_path, const char *output
     LogClient::LogD(info);
 }
 
+
+void FFmpegCodec::decode_video_to_h264(const char *input_path, const char *output_path) {
+    AVFormatContext *formatContext = nullptr;
+    int videoIndex;
+
+    AVCodecContext *codecContext = nullptr;
+    AVCodec *codec = nullptr;
+    AVPacket *packet = nullptr;
+    FILE *file_h264 = nullptr;
+
+    file_h264 = fopen(output_path, "wb+");
+
+    if (file_h264 == nullptr) {
+        LogClient::LogD("could not open file");
+        return;
+    }
+    av_register_all();
+
+    formatContext = avformat_alloc_context();
+    if (avformat_open_input(&formatContext, input_path, nullptr, nullptr)) {
+        LogClient::LogD("could not open input stream");
+        return;
+    }
+
+    if (avformat_find_stream_info(formatContext, nullptr) < 0) {
+        LogClient::LogD("could not find stream information");
+        return;
+    }
+
+    videoIndex = -1;
+    for (int i = 0; i < formatContext->nb_streams; ++i) {
+        if (formatContext->streams[i]->codec->codec_type == AVMEDIA_TYPE_VIDEO) {
+            videoIndex = i;
+            break;
+        }
+    }
+
+    if (videoIndex == -1) {
+        LogClient::LogD("could not find video stream");
+        return;
+    }
+
+    codecContext = formatContext->streams[videoIndex]->codec;
+
+
+    codec = avcodec_find_decoder(codecContext->codec_id);
+
+    if (codec == nullptr) {
+        LogClient::LogD("could not find codec");
+        return;
+    }
+
+
+    packet = static_cast<AVPacket *>(av_malloc(sizeof(AVPacket)));
+
+    while (av_read_frame(formatContext, packet) >= 0) {
+        if (packet->stream_index == videoIndex) {
+            fwrite(packet->data, 1, packet->size, file_h264);
+        }
+        av_free_packet(packet);
+    }
+
+    fclose(file_h264);
+    avcodec_close(codecContext);
+    avformat_close_input(&formatContext);
+
+}
+
+
 void FFmpegCodec::encode_yuv_to_video(const char *input_path, const char *output_path) {
 
 }
@@ -578,3 +647,4 @@ void FFmpegCodec::encode_yuv_to_h264(const char *input_path, const char *output_
 
     LogClient::LogD("encode yuv to h264 success\n");
 }
+

@@ -3,6 +3,7 @@ package com.glumes.ffmpeginandroid
 import android.Manifest
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import com.glumes.ffmpegexamples.base.BaseActivity
 import com.glumes.ffmpeginandroid.adapter.FFmpegAdapter
 import com.glumes.ffmpeginandroid.ffmpeg.FFmpegBridge

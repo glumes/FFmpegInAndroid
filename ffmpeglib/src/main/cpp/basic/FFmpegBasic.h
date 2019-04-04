@@ -24,6 +24,8 @@ extern "C" {
 };
 #endif
 
+#include <LogClient.h>
+
 class FFmpegBasic {
 public:
     FFmpegBasic();
@@ -36,7 +38,7 @@ public:
 
     static char *getAvFilterInfo();
 
-    void printVideoInfo();
+    void printVideoInfo(const char *file_path);
 };
 
 

@@ -5,7 +5,7 @@ import com.glumes.base.BaseListActivity
 import com.glumes.base.binder.BackOperationBinder
 import com.glumes.base.binder.BackOpsItem
 import com.glumes.ffmpeginandroid.R
-import com.glumes.util.FileContants
+import com.glumes.util.FileConstants
 import com.glumes.util.OPS_TYPE_DECODE
 import com.glumes.util.TYPE_DECODE_MPEG_TO_PGM
 import java.io.File
@@ -16,12 +16,12 @@ class DecodeActivity : BaseListActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val file = File(FileContants.PGM_DRI)
+        val file = File(FileConstants.PGM_DRI)
         if (!file.exists()) {
             file.mkdir()
         }
 
-        val outFile = File(FileContants.OUT_PUT_FILE)
+        val outFile = File(FileConstants.OUT_PUT_FILE)
         if (!outFile.exists()) {
             outFile.createNewFile()
         }

@@ -23,7 +23,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
         <activity android:name="com.glumes.codec.DecodeActivity" />
         <activity android:name="com.glumes.codec.EncodeActivity" />
         <activity android:name=".ShowPGMActivity" />

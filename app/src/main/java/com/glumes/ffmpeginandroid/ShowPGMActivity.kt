@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.glumes.ffmpeglib.utils.LogUtil
-import com.glumes.util.FileContants
+import com.glumes.util.FileConstants
 import com.glumes.util.PGM
 import kotlinx.android.synthetic.main.activity_show_pgm.*
 import java.io.File
@@ -20,7 +20,7 @@ class ShowPGMActivity : AppCompatActivity(), View.OnClickListener {
 
         setContentView(R.layout.activity_show_pgm)
 
-//        val path = FileContants.PGM_DRI + File.separator + "test-300.pgm"
+//        val path = FileConstants.PGM_DRI + File.separator + "test-300.pgm"
 //        val iw: Int
 //        val ih: Int
 //        val pix: IntArray
@@ -48,7 +48,7 @@ class ShowPGMActivity : AppCompatActivity(), View.OnClickListener {
 
 
     fun showImage(num: Int) {
-        val path = FileContants.PGM_DRI + File.separator + "test-" + num
+        val path = FileConstants.PGM_DRI + File.separator + "test-" + num
         val iw: Int
         val ih: Int
         val pix: IntArray

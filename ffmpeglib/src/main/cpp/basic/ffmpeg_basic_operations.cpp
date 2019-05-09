@@ -39,6 +39,7 @@ Java_com_glumes_ffmpeglib_basic_FFmpegBasicOperation_printFFmpegInfo(JNIEnv *env
 
     fFmpegBasic->printVideoInfo(path);
 
+
     env->ReleaseStringUTFChars(path_, path);
 }
 

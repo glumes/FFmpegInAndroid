@@ -16,10 +16,10 @@ class FFmpegBridge : OnFFmpegOpsClickListener {
                 FFmpegWork.printFFmpegInfo()
             }
             FFMPEG_CODEC_DECODE_VIDEO -> {
-                FFmpegWork.codecDecodeVideo()
+                FFmpegWork.decodeVideo2YUV()
             }
             FFMPEG_CODEC_ENCODE_VIDEO -> {
-                FFmpegWork.codecEncodeYUV2H264()
+                FFmpegWork.encodeYUV2H264()
             }
             FFMPEG_MUXER_DEMUXER_SIMPLE -> {
                 FFmpegWork.muxerDemuxerSample()

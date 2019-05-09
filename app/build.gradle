@@ -89,6 +89,7 @@ dependencies {
     implementation deps.rxjava
     implementation deps.rxandroid
     implementation deps.cardview
+    implementation deps.timber
 
 
     testImplementation deps.junit

@@ -18,11 +18,14 @@ class FFmpegBridge : OnFFmpegOpsClickListener {
             }
 
             // 编解码相关操作
-            FFMPEG_CODEC_DECODE_VIDEO_TO_YUV -> {
-                FFmpegWork.decodeMp4ToYUV()
+            FFMPEG_CODEC_MP4_TO_YUV -> {
+                FFmpegWork.codecMp4ToYUV()
             }
-            FFMPEG_CODEC_ENCODE_YUV_TO_H264 -> {
-                FFmpegWork.encodeYUVToH264()
+            FFMPEG_CODEC_YUV_TO_H264 -> {
+                FFmpegWork.codecYUVToH264()
+            }
+            FFMPEG_CODEC_H264_TO_MP4 -> {
+                FFmpegWork.codecH264ToMp4()
             }
 
             // 解复用相关操作

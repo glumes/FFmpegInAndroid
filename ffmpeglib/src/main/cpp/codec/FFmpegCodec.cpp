@@ -4,6 +4,7 @@
 
 #include "FFmpegCodec.h"
 
+#include <libavutil/mathematics.h>
 
 int flush_encoder(AVFormatContext *formatContext, unsigned int stream_index) {
     int ret;
@@ -193,7 +194,7 @@ void FFmpegCodec::encode_video(const char *filename, const char *codec_name) {
  * @param input_path
  * @param output_path
  */
-void FFmpegCodec::decode_video_to_yuv(const char *input_path, const char *output_path) {
+void FFmpegCodec::codec_mp4_to_yuv(const char *input_path, const char *output_path) {
 
     AVFormatContext *formatContext;
 
@@ -402,7 +403,7 @@ void FFmpegCodec::decode_video_to_yuv(const char *input_path, const char *output
 }
 
 
-void FFmpegCodec::decode_video_to_h264(const char *input_path, const char *output_path) {
+void FFmpegCodec::codec_mp4_to_h264(const char *input_path, const char *output_path) {
     AVFormatContext *formatContext = nullptr;
     int videoIndex;
 
@@ -479,7 +480,7 @@ void FFmpegCodec::encode_yuv_to_video(const char *input_path, const char *output
  * @param input_path
  * @param output_path
  */
-void FFmpegCodec::encode_yuv_to_h264(const char *input_path, const char *output_path) {
+void FFmpegCodec::codec_yuv_to_h264(const char *input_path, const char *output_path) {
 
     AVFormatContext *formatContext;
 
@@ -653,7 +654,7 @@ void FFmpegCodec::encode_yuv_to_h264(const char *input_path, const char *output_
  * @param input_path
  * @param output_path
  */
-void FFmpegCodec::encode_h264_to_mp4(const char *input_path, const char *output_path) {
+void FFmpegCodec::codec_h264_to_mp4(const char *input_path, const char *output_path) {
 
     AVFormatContext *ifmt_ctx = nullptr, *ofmt_ctx = nullptr;
     AVOutputFormat *ofmt;
@@ -662,6 +663,9 @@ void FFmpegCodec::encode_h264_to_mp4(const char *input_path, const char *output_
 
     int ret, i;
     int videoindex_v = 0, videoindex_out = 0;
+
+    int frame_index = 0;
+    int64_t cur_pts_v = 0, cur_pts_a = 0;
 
     FILE *in_file = fopen(input_path, "rb");
 
@@ -690,6 +694,8 @@ void FFmpegCodec::encode_h264_to_mp4(const char *input_path, const char *output_
 
     ofmt = ofmt_ctx->oformat;
 
+    LOGD("nb_streams is %d", ifmt_ctx->nb_streams);
+
     for (int i = 0; i < ifmt_ctx->nb_streams; ++i) {
         AVStream *in_stream = ifmt_ctx->streams[i];
         AVStream *out_stream = avformat_new_stream(ofmt_ctx, in_stream->codec->codec);
@@ -703,7 +709,8 @@ void FFmpegCodec::encode_h264_to_mp4(const char *input_path, const char *output_
         videoindex_out = out_stream->index;
 
         if (avcodec_copy_context(out_stream->codec, in_stream->codec) < 0) {
-
+            LogClient::LogD("copy context failed");
+            return;
         }
 
         out_stream->codec->codec_tag = 0;
@@ -712,16 +719,15 @@ void FFmpegCodec::encode_h264_to_mp4(const char *input_path, const char *output_
         }
 
     }
-//    av_guess_format()
 
     if (!(ofmt->flags & AVFMT_NOFILE)) {
         if (avio_open(&ofmt_ctx->pb, output_path, AVIO_FLAG_WRITE) < 0) {
-
+            LOGE("could not open file %s", output_path);
         }
     }
 
     if (avformat_write_header(ofmt_ctx, nullptr) < 0) {
-
+        LOGE("write header failed");
     }
 
 #if USE_H264BSF
@@ -731,8 +737,8 @@ void FFmpegCodec::encode_h264_to_mp4(const char *input_path, const char *output_
     AVBitStreamFilterContext* aacbsfc =  av_bitstream_filter_init("aac_adtstoasc");
 #endif
     while (1) {
-        AVStream *in_stream, *out_stream;
         int stream_index = videoindex_out;
+        AVStream *in_stream, *out_stream;
 
         if (av_read_frame(ifmt_ctx, &packet) >= 0) {
             do {
@@ -745,11 +751,64 @@ void FFmpegCodec::encode_h264_to_mp4(const char *input_path, const char *output_
                         int64_t calc_duration =
                                 (double) AV_TIME_BASE / av_q2d(in_stream->r_frame_rate);
 
-//                        packet.pts = (double) (frame_in)
+                        packet.pts = (double) (frame_index * calc_duration) /
+                                     (double) (av_q2d(time_base1) * AV_TIME_BASE);
+
+                        packet.dts = packet.pts;
+
+                        packet.duration = (double) calc_duration /
+                                          (double) (av_q2d(time_base1) * AV_TIME_BASE);
+                        frame_index++;
                     }
+                    cur_pts_v = packet.pts;
+                    break;
                 }
-            }
+            } while (av_read_frame(ifmt_ctx, &packet) >= 0);
+        } else {
+            break;
         }
+
+
+#if USE_H264BSF
+        av_bitstream_filter_filter(h264bsfc, in_stream->codec, NULL, &pkt.data, &pkt.size, pkt.data, pkt.size, 0);
+#endif
+#if USE_AACBSF
+        av_bitstream_filter_filter(aacbsfc, out_stream->codec, NULL, &pkt.data, &pkt.size, pkt.data, pkt.size, 0);
+#endif
+
+        packet.pts = av_rescale_q_rnd(packet.pts, in_stream->time_base, out_stream->time_base,
+                                      AV_ROUND_PASS_MINMAX);
+        packet.dts = av_rescale_q_rnd(packet.dts, in_stream->time_base, out_stream->time_base,
+                                      AV_ROUND_PASS_MINMAX);
+        packet.duration = av_rescale_q(packet.duration, in_stream->time_base,
+                                       out_stream->time_base);
+        packet.pos = -1;
+        packet.stream_index = stream_index;
+
+        if (av_interleaved_write_frame(ofmt_ctx, &packet) < 0) {
+            return;
+        }
+        av_free_packet(&packet);
+    }
+    av_write_trailer(ofmt_ctx);
+
+#if USE_H264BSF
+    av_bitstream_filter_close(h264bsfc);
+#endif
+#if USE_AACBSF
+    av_bitstream_filter_close(aacbsfc);
+#endif
+
+    avformat_close_input(&ifmt_ctx);
+    if (ofmt_ctx && !(ofmt->flags & AVFMT_NOFILE)) {
+        avio_close(ofmt_ctx->pb);
+    }
+    avformat_free_context(ofmt_ctx);
+
+    if (ret < 0) {
+        LOGD("convert %s to %s failed", input_path, output_path);
+    } else {
+        LOGD("convert %s to %s success", input_path, output_path);
     }
 }
 

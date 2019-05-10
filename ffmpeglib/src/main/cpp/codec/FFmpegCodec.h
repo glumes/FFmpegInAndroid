@@ -15,9 +15,16 @@ extern "C" {
 #include "libavutil/avutil.h"
 #include "libavfilter/avfilter.h"
 #include "libavutil/opt.h"
+#include "libavutil/mathematics.h"
 #ifdef  __cplusplus
 };
+
 #endif
+
+#define USE_H264BSF 0
+
+#define USE_AACBSF 0
+#define __STDC_CONSTANT_MACROS
 
 #include <LogClient.h>
 
@@ -29,15 +36,16 @@ public:
 
     void encode_video(const char *filename, const char *codec_name);
 
-    void decode_video_to_yuv(const char *input_path, const char *output_path);
+    void codec_mp4_to_yuv(const char *input_path, const char *output_path);
 
-    void decode_video_to_h264(const char *input_path, const char *output_path);
+    void codec_mp4_to_h264(const char *input_path, const char *output_path);
 
     void encode_yuv_to_video(const char *input_path, const char *output_path);
 
-    void encode_yuv_to_h264(const char *input_path, const char *output_path);
+    void codec_yuv_to_h264(const char *input_path, const char *output_path);
 
-    void encode_h264_to_mp4(const char *input_path, const char *output_path);
+    void codec_h264_to_mp4(const char *input_path, const char *output_path);
+
 };
 
 

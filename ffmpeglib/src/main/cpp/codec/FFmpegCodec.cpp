@@ -648,3 +648,108 @@ void FFmpegCodec::encode_yuv_to_h264(const char *input_path, const char *output_
     LogClient::LogD("encode yuv to h264 success\n");
 }
 
+/**
+ * 将 h264 数据编码成 mp4 文件
+ * @param input_path
+ * @param output_path
+ */
+void FFmpegCodec::encode_h264_to_mp4(const char *input_path, const char *output_path) {
+
+    AVFormatContext *ifmt_ctx = nullptr, *ofmt_ctx = nullptr;
+    AVOutputFormat *ofmt;
+
+    AVPacket packet;
+
+    int ret, i;
+    int videoindex_v = 0, videoindex_out = 0;
+
+    FILE *in_file = fopen(input_path, "rb");
+
+    if (!in_file) {
+        LOGD("file %s not exist\n", input_path);
+        return;
+    }
+
+    av_register_all();
+
+    if ((ret = avformat_open_input(&ifmt_ctx, input_path, nullptr, nullptr)) < 0) {
+        LogClient::LogD("could not open input stream");
+        return;
+    }
+
+    if ((ret = avformat_find_stream_info(ifmt_ctx, nullptr)) < 0) {
+        LogClient::LogD("could not find stream information");
+        return;
+    }
+
+    avformat_alloc_output_context2(&ofmt_ctx, nullptr, nullptr, output_path);
+    if (!ofmt_ctx) {
+        LogClient::LogD("could not create output context");
+        return;
+    }
+
+    ofmt = ofmt_ctx->oformat;
+
+    for (int i = 0; i < ifmt_ctx->nb_streams; ++i) {
+        AVStream *in_stream = ifmt_ctx->streams[i];
+        AVStream *out_stream = avformat_new_stream(ofmt_ctx, in_stream->codec->codec);
+
+        videoindex_v = i;
+
+        if (!out_stream) {
+            return;
+        }
+
+        videoindex_out = out_stream->index;
+
+        if (avcodec_copy_context(out_stream->codec, in_stream->codec) < 0) {
+
+        }
+
+        out_stream->codec->codec_tag = 0;
+        if (ofmt_ctx->oformat->flags & AVFMT_GLOBALHEADER) {
+            out_stream->codec->flags |= CODEC_FLAG_GLOBAL_HEADER;
+        }
+
+    }
+//    av_guess_format()
+
+    if (!(ofmt->flags & AVFMT_NOFILE)) {
+        if (avio_open(&ofmt_ctx->pb, output_path, AVIO_FLAG_WRITE) < 0) {
+
+        }
+    }
+
+    if (avformat_write_header(ofmt_ctx, nullptr) < 0) {
+
+    }
+
+#if USE_H264BSF
+    AVBitStreamFilterContext* h264bsfc =  av_bitstream_filter_init("h264_mp4toannexb");
+#endif
+#if USE_AACBSF
+    AVBitStreamFilterContext* aacbsfc =  av_bitstream_filter_init("aac_adtstoasc");
+#endif
+    while (1) {
+        AVStream *in_stream, *out_stream;
+        int stream_index = videoindex_out;
+
+        if (av_read_frame(ifmt_ctx, &packet) >= 0) {
+            do {
+                in_stream = ifmt_ctx->streams[packet.stream_index];
+                out_stream = ofmt_ctx->streams[stream_index];
+
+                if (packet.stream_index == videoindex_v) {
+                    if (packet.pts == AV_NOPTS_VALUE) {
+                        AVRational time_base1 = in_stream->time_base;
+                        int64_t calc_duration =
+                                (double) AV_TIME_BASE / av_q2d(in_stream->r_frame_rate);
+
+//                        packet.pts = (double) (frame_in)
+                    }
+                }
+            }
+        }
+    }
+}
+

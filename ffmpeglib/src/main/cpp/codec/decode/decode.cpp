@@ -133,4 +133,3 @@ Java_com_glumes_ffmpeglib_codec_DecodeUtils_decode_1MPEG_1to_1PGM(JNIEnv *env, j
     env->ReleaseStringUTFChars(inputFilePath_, inputFilePath);
     env->ReleaseStringUTFChars(outputFilePath_, outputFilePath);
 }
-

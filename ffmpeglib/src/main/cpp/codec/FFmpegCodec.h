@@ -36,6 +36,8 @@ public:
     void encode_yuv_to_video(const char *input_path, const char *output_path);
 
     void encode_yuv_to_h264(const char *input_path, const char *output_path);
+
+    void encode_h264_to_mp4(const char *input_path, const char *output_path);
 };
 
 

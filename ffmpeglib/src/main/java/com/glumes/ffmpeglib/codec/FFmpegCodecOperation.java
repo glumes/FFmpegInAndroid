@@ -15,6 +15,8 @@ public class FFmpegCodecOperation {
     // yuv 到 h264
     public native void encodeVideo(String inname, String outname);
 
+    // h264 数据到 mp4
+    public native void encodeH264ToMp4(String inname, String outname);
 
     public native void decodeVideo2H264(String inname, String outname);
 

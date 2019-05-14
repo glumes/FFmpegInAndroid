@@ -6,9 +6,12 @@
 
 static FFmpegCodec ffmpegCodec;
 
+/**
+ * mp4 到 yuv
+ */
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_glumes_ffmpeglib_codec_FFmpegCodecOperation_decodeVideo(JNIEnv *env, jobject instance,
+Java_com_glumes_ffmpeglib_codec_FFmpegCodecOperation_codecMp4ToYUV(JNIEnv *env, jobject instance,
                                                                  jstring inname_,
                                                                  jstring outname_) {
     const char *inname = env->GetStringUTFChars(inname_, 0);
@@ -22,9 +25,12 @@ Java_com_glumes_ffmpeglib_codec_FFmpegCodecOperation_decodeVideo(JNIEnv *env, jo
     env->ReleaseStringUTFChars(outname_, outname);
 }
 
+/**
+ * yuv 到 h264
+ */
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_glumes_ffmpeglib_codec_FFmpegCodecOperation_encodeVideo(JNIEnv *env, jobject instance,
+Java_com_glumes_ffmpeglib_codec_FFmpegCodecOperation_codecYUVToH264(JNIEnv *env, jobject instance,
                                                                  jstring inname_,
                                                                  jstring outname_) {
     const char *inname = env->GetStringUTFChars(inname_, 0);
@@ -77,7 +83,7 @@ Java_com_glumes_ffmpeglib_codec_FFmpegCodecOperation_decodeVideo2YUV(JNIEnv *env
  */
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_glumes_ffmpeglib_codec_FFmpegCodecOperation_encodeH264ToMp4(JNIEnv *env, jobject instance,
+Java_com_glumes_ffmpeglib_codec_FFmpegCodecOperation_codecH264ToMp4(JNIEnv *env, jobject instance,
                                                                      jstring inname_,
                                                                      jstring outname_) {
     const char *inname = env->GetStringUTFChars(inname_, 0);
@@ -116,6 +122,7 @@ Java_com_glumes_ffmpeglib_codec_FFmpegCodecOperation_codecH264ToYUV(JNIEnv *env,
     env->ReleaseStringUTFChars(input_yuv_file_path_, input_yuv_file_path);
     env->ReleaseStringUTFChars(yuv_to_h264_output_path_, yuv_to_h264_output_path);
 }
+
 
 extern "C"
 JNIEXPORT void JNICALL

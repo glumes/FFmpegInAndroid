@@ -35,14 +35,16 @@ class FFmpegFactory {
         }
 
         private fun codecOperationList(): MutableList<FFmpegOps>? {
-            val op1 = FFmpegOps("视频 解码到 YUV 数据", FFMPEG_CODEC_MP4_TO_YUV)
-            val op2 = FFmpegOps("YUV 数据编码到 H264", FFMPEG_CODEC_YUV_TO_H264)
-            val op3 = FFmpegOps("H264 数据编码到 MP4", FFMPEG_CODEC_H264_TO_MP4)
+            val op1 = FFmpegOps("MP4 到 YUV ", FFMPEG_CODEC_MP4_TO_YUV)
+            val op2 = FFmpegOps("MP4 到 H264 ", FFMPEG_CODEC_MP4_TO_H264)
 
-            val op4 = FFmpegOps("音频解码操作", FFMPEG_CODEC_DECODE_AUDIO)
-            val op5 = FFmpegOps("音频编码操作", FFMPEG_CODEC_ENCODE_AUDIO)
+            val op3 = FFmpegOps("YUV 到 H264", FFMPEG_CODEC_YUV_TO_H264)
+            val op4 = FFmpegOps("H264 到 YUV", FFMPEG_CODEC_H264_TO_YUV)
 
-            return Arrays.asList(op1, op2, op3)
+            val op5 = FFmpegOps("YUV 到 MP4", FFMPEG_CODEC_YUV_TO_MP4)
+            val op6 = FFmpegOps("H264 到 MP4", FFMPEG_CODEC_H264_TO_MP4)
+
+            return Arrays.asList(op1, op2, op3, op4, op5, op6)
         }
 
 

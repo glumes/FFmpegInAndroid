@@ -43,7 +43,7 @@ public class FFmpegWork {
      * mp4 转换成 yuv 文件
      */
     public static void codecMp4ToYUV() {
-        codecOperation.decodeVideo(input_mp4_file_path, mp4_to_yuv_output_path);
+        codecOperation.codecMp4ToYUV(input_mp4_file_path, mp4_to_yuv_output_path);
     }
 
     public static void codecMp4ToH264() {
@@ -54,7 +54,7 @@ public class FFmpegWork {
      * yuv 转换成 h264 文件
      */
     public static void codecYUVToH264() {
-        codecOperation.encodeVideo(input_yuv_file_path, yuv_to_h264_output_path);
+        codecOperation.codecYUVToH264(input_yuv_file_path, yuv_to_h264_output_path);
     }
 
     public static void codecH264ToYUV(){
@@ -66,7 +66,7 @@ public class FFmpegWork {
      * h264 转换到 mp4 文件
      */
     public static void codecH264ToMp4() {
-        codecOperation.encodeH264ToMp4(input_h264_file_path, h264_to_mp4_output_path);
+        codecOperation.codecH264ToMp4(input_h264_file_path, h264_to_mp4_output_path);
     }
 
     /**

@@ -33,7 +33,7 @@ public class FFmpegSample {
     private FFmpegSample() {
     }
 
-    public native void decode_mpeg_to_pgm(String inputFilePath, String outputFilePath);
+//    public native void decode_mpeg_to_pgm(String inputFilePath, String outputFilePath);
 
 
 }

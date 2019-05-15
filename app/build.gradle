@@ -55,12 +55,6 @@ android {
         enabled = true
     }
 
-    sourceSets {
-        main.java.srcDirs += 'src/main/codec'
-        main.java.srcDirs += 'src/main/base'
-        main.java.srcDirs += 'src/main/util'
-    }
-
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8

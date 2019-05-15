@@ -17,22 +17,6 @@ add_library( # Sets the name of the library.
         )
 
 
-add_library( # Sets the name of the library.
-        codec-lib
-
-        # Sets the library as a shared library.
-        SHARED
-
-        # Provides a relative path to your source file(s).
-        src/main/cpp/codec/decode/decode.cpp
-        src/main/cpp/codec/decode/decodeUtil.cpp
-
-        src/main/cpp/codec/encode/encode_video.cpp
-        src/main/cpp/codec/encode/encode_audio.cpp
-
-        )
-
-
 add_library(
         basicoperation
 
@@ -120,20 +104,6 @@ target_link_libraries( # Specifies the target library.
         # included in the NDK.
         ${log-lib}
         )
-
-target_link_libraries(
-        codec-lib
-        avcodec-57-lib
-        avdevice-57-lib
-        avfilter-6-lib
-        avformat-57-lib
-        avutil-55-lib
-        swresample-2-lib
-        swscale-4-lib
-        avresample-3-lib
-        x264-148-lib
-        ${log-lib}
-)
 
 
 target_link_libraries(

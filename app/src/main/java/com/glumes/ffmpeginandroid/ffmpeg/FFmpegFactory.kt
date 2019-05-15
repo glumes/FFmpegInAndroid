@@ -44,7 +44,9 @@ class FFmpegFactory {
             val op5 = FFmpegOps("YUV 到 MP4", FFMPEG_CODEC_YUV_TO_MP4)
             val op6 = FFmpegOps("H264 到 MP4", FFMPEG_CODEC_H264_TO_MP4)
 
-            return Arrays.asList(op1, op2, op3, op4, op5, op6)
+            val split = FFmpegOps("--------------------------")
+            return Arrays.asList(op1, op2, op3, op4, op5, op6,
+                    split)
         }
 
 

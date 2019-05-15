@@ -1,4 +1,4 @@
-package com.glumes.util
+package com.glumes.ffmpeginandroid.util
 
 import timber.log.Timber
 

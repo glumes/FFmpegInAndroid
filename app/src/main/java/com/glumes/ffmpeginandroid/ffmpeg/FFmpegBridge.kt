@@ -38,6 +38,9 @@ class FFmpegBridge : OnFFmpegOpsClickListener {
             FFMPEG_MUXER_DEMUXER_SIMPLE -> {
                 FFmpegWork.muxerDemuxerSample()
             }
+            else -> {
+
+            }
         }
     }
 }

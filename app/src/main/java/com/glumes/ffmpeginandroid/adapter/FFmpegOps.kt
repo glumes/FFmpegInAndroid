@@ -7,7 +7,7 @@ import android.os.Parcelable
  * @Author  glumes
  */
 
-class FFmpegOps(var title: String? = "", var type: Int) : Parcelable {
+class FFmpegOps(var title: String? = "", var type: Int = -1) : Parcelable {
 
     constructor(parcel: Parcel) : this(
             parcel.readString(),

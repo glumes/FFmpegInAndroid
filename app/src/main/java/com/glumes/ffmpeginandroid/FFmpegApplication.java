@@ -3,9 +3,7 @@ package com.glumes.ffmpeginandroid;
 import android.app.Application;
 import android.os.Environment;
 
-import com.glumes.ffmpeglib.utils.Constants;
-import com.glumes.util.FileConstants;
-import com.glumes.util.Log;
+import com.glumes.ffmpeginandroid.util.Log;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -67,7 +65,7 @@ public class FFmpegApplication extends Application {
                 fos.flush();
                 is.close();
                 fos.close();
-                Timber.tag(FileConstants.TAG).d("move file : " + name + " to " + path);
+                Log.Companion.d("move file : " + name + " to " + path);
             }
         } catch (IOException e) {
             Log.Companion.e(e.getMessage());

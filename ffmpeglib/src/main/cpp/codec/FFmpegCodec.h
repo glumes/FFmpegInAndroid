@@ -31,8 +31,12 @@ extern "C" {
 class FFmpegCodec {
 
 private:
+    AVFormatContext *m_pFormatCtx;
+    AVCodecContext *m_pCodecCtx;
+    AVOutputFormat *m_pOutputFmt;
 
 public:
+
 
     void encode_video(const char *filename, const char *codec_name);
 
@@ -45,6 +49,7 @@ public:
     void codec_yuv_to_h264(const char *input_path, const char *output_path);
 
     void codec_h264_to_mp4(const char *input_path, const char *output_path);
+
 
 };
 

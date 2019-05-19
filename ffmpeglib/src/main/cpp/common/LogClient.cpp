@@ -14,13 +14,13 @@ void LogClient::LogD(std::string msg) {
     if (len > LOG_LENGTH) {
         for (int i = 0; i < len; i += LOG_LENGTH) {
             if (i + LOG_LENGTH < len) {
-                LOGD("%s", msg.substr(i, i + LOG_LENGTH).c_str());
+                LogD("%s", msg.substr(i, i + LOG_LENGTH).c_str());
             } else {
-                LOGD("%s", msg.substr(i, msg.length()).c_str());
+                LogD("%s", msg.substr(i, msg.length()).c_str());
             }
         }
     } else {
-        LOGD("%s", msg.c_str());
+        LogD("%s", msg.c_str());
     }
 }
 
@@ -34,17 +34,27 @@ void LogClient::LogE(std::string msg) {
     if (len > LOG_LENGTH) {
         for (int i = 0; i < len; i += LOG_LENGTH) {
             if (i + LOG_LENGTH < len) {
-                LOGE("%s", msg.substr(i, i + LOG_LENGTH).c_str());
+                LogE(msg.substr(i, i + LOG_LENGTH).c_str());
             } else {
-                LOGE("%s", msg.substr(i, msg.length()).c_str());
+                LogE(msg.substr(i, msg.length()).c_str());
             }
         }
     } else {
-        LOGD("%s", msg.c_str());
+        LogE(msg.c_str());
     }
 }
 
-void LogClient::LogD(const char *tag, const char *fmt, ...) {
-//    char buf[LOG_LENGTH];
-//    int ret = sprintf(buf,LOG_LENGTH,)
+void LogClient::LogD(const char *msg, ...) {
+    va_list args;
+    va_start(args, msg);
+    __android_log_vprint(ANDROID_LOG_DEBUG, LOG_TAG, msg, args);
+    va_end(args);
+}
+
+
+void LogClient::LogE(const char *msg, ...) {
+    va_list args;
+    va_start(args, msg);
+    __android_log_vprint(ANDROID_LOG_ERROR, LOG_TAG, msg, args);
+    va_end(args);
 }

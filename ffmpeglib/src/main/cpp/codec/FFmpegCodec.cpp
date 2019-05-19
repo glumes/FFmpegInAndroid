@@ -189,6 +189,62 @@ void FFmpegCodec::encode_video(const char *filename, const char *codec_name) {
 }
 
 
+int FFmpegCodec::parseFile(const char *input_path, FileContext &fileContext) {
+
+    int ret;
+
+    fileContext.s_pFormatCtx = avformat_alloc_context();
+
+    ret = avformat_open_input(&fileContext.s_pFormatCtx, input_path, nullptr, nullptr);
+
+    if (ret < 0) {
+        LogClient::LogE("could not open input stream failed and ret is %d");
+        return RET_FAIL;
+    }
+
+    if (avformat_find_stream_info(fileContext.s_pFormatCtx, nullptr) < 0) {
+        LogClient::LogE("avformat_find_stream_info failed\n");
+    }
+
+    fileContext.s_VideoIndex = fileContext.s_AudioIndex = -1;
+
+    for (int i = 0; i < fileContext.s_pFormatCtx->nb_streams; i++) {
+        if (fileContext.s_pFormatCtx->streams[i]->codec->codec_type == AVMEDIA_TYPE_VIDEO) {
+            fileContext.s_VideoIndex = i;
+            break;
+        }
+    }
+
+    if (fileContext.s_VideoIndex == -1) {
+        LogClient::LogE("could find a video stream\n");
+    }
+
+    for (int i = 0; i < fileContext.s_pFormatCtx->nb_streams; ++i) {
+        if (fileContext.s_pFormatCtx->streams[i]->codec->codec_type == AVMEDIA_TYPE_AUDIO) {
+            fileContext.s_AudioIndex = i;
+            break;
+        }
+    }
+
+    if (fileContext.s_AudioIndex == -1) {
+        LogClient::LogE("could find a audio stream\n");
+    }
+
+    fileContext.s_pCodecCtx = fileContext.s_pFormatCtx->streams[fileContext.s_VideoIndex]->codec;
+
+    fileContext.s_pVideoCodec = avcodec_find_decoder(fileContext.s_pCodecCtx->codec_id);
+
+    if (fileContext.s_pVideoCodec == nullptr) {
+        LogClient::LogE("could find video codec\n");
+    }
+
+    if (avcodec_open2(fileContext.s_pCodecCtx, fileContext.s_pVideoCodec, nullptr) < 0) {
+        LogClient::LogE("could open video codec\n");
+    }
+
+    return RET_OK;
+}
+
 /**
  * 解码后的 yuv 文件通过 ffplay -f rawvideo -video_size 640x360 yuv_file_path 来播放，注意分辨率大小
  * @param input_path
@@ -196,13 +252,14 @@ void FFmpegCodec::encode_video(const char *filename, const char *codec_name) {
  */
 void FFmpegCodec::codec_mp4_to_yuv(const char *input_path, const char *output_path) {
 
-    AVFormatContext *formatContext;
 
-    int i, videoindex;
+    av_register_all();
 
-    AVCodecContext *codecContext;
+    FileContext fileContext;
 
-    AVCodec *codec;
+    if (parseFile(input_path, fileContext) != RET_OK) {
+        return;
+    }
 
     AVFrame *frame, *frameYUV;
 
@@ -222,75 +279,27 @@ void FFmpegCodec::codec_mp4_to_yuv(const char *input_path, const char *output_pa
     clock_t time_start, time_finish;
 
     double time_duration = 0.0;
-//
-//    char input_str[500] = {0};
-//    char output_str[500] = {0};
-
     char info[1000] = {0};
-
-//    sprintf(input_str,"%s",)
-
-    av_register_all();
-    avformat_network_init();
-
-    formatContext = avformat_alloc_context();
-
-    if (avformat_open_input(&formatContext, input_path, nullptr, nullptr) != 0) {
-        LogClient::LogD("could not open input stream");
-        return;
-    }
-
-    if (avformat_find_stream_info(formatContext, nullptr) < 0) {
-        LogClient::LogD("could not find stream information\n");
-        return;
-    }
-
-    videoindex = -1;
-
-    for (i = 0; i < formatContext->nb_streams; i++) {
-        if (formatContext->streams[i]->codec->codec_type == AVMEDIA_TYPE_VIDEO) {
-            videoindex = i;
-            break;
-        }
-    }
-
-    if (videoindex == -1) {
-        LogClient::LogD("could find a video stream");
-        return;;
-    }
-
-    codecContext = formatContext->streams[videoindex]->codec;
-
-    codec = avcodec_find_decoder(codecContext->codec_id);
-
-    if (codec == nullptr) {
-        LogClient::LogD("could find codec\n");
-        return;
-    }
-
-    if (avcodec_open2(codecContext, codec, nullptr) < 0) {
-        LogClient::LogD("could not open codec");
-        return;
-    }
 
     frame = av_frame_alloc();
     frameYUV = av_frame_alloc();
 
     out_buffer = static_cast<uint8_t *>(av_malloc(
-            av_image_get_buffer_size(AV_PIX_FMT_YUV420P, codecContext->width, codecContext->height,
+            av_image_get_buffer_size(AV_PIX_FMT_YUV420P, fileContext.s_pCodecCtx->width,
+                                     fileContext.s_pCodecCtx->height,
                                      1)));
 
     av_image_fill_arrays(frameYUV->data, frameYUV->linesize, out_buffer, AV_PIX_FMT_YUV420P,
-                         codecContext->width, codecContext->height, 1);
+                         fileContext.s_pCodecCtx->width, fileContext.s_pCodecCtx->height, 1);
 
     packet = static_cast<AVPacket *>(av_malloc(sizeof(AVPacket)));
 
     img_convert_ctx = sws_getContext(
-            codecContext->width,
-            codecContext->height,
-            codecContext->pix_fmt,
-            codecContext->width,
-            codecContext->height,
+            fileContext.s_pCodecCtx->width,
+            fileContext.s_pCodecCtx->height,
+            fileContext.s_pCodecCtx->pix_fmt,
+            fileContext.s_pCodecCtx->width,
+            fileContext.s_pCodecCtx->height,
             AV_PIX_FMT_YUV420P,
             SWS_BICUBIC,
             nullptr, nullptr, nullptr);
@@ -298,9 +307,10 @@ void FFmpegCodec::codec_mp4_to_yuv(const char *input_path, const char *output_pa
 
     sprintf(info, "[Input     ]%s\n", input_path);
     sprintf(info, "%s[Output    ]%s\n", info, output_path);
-    sprintf(info, "%s[Format    ]%s\n", info, formatContext->iformat->name);
-    sprintf(info, "%s[Codec     ]%s\n", info, codecContext->codec->name);
-    sprintf(info, "%s[Resolution]%dx%d\n", info, codecContext->width, codecContext->height);
+    sprintf(info, "%s[Format    ]%s\n", info, fileContext.s_pFormatCtx->iformat->name);
+    sprintf(info, "%s[Codec     ]%s\n", info, fileContext.s_pCodecCtx->codec->name);
+    sprintf(info, "%s[Resolution]%dx%d\n", info, fileContext.s_pCodecCtx->width,
+            fileContext.s_pCodecCtx->height);
 
     file_yuv = fopen(output_path, "wb+");
 
@@ -313,17 +323,21 @@ void FFmpegCodec::codec_mp4_to_yuv(const char *input_path, const char *output_pa
 
     time_start = clock();
 
-    while (av_read_frame(formatContext, packet) >= 0) {
-        if (packet->stream_index == videoindex) {
-            ret = avcodec_decode_video2(codecContext, frame, &got_picture, packet);
+    while (av_read_frame(fileContext.s_pFormatCtx, packet) >= 0) {
+
+        LogClient::LogD("av_read_frame > 0");
+
+        if (packet->stream_index == fileContext.s_VideoIndex) {
+            ret = avcodec_decode_video2(fileContext.s_pCodecCtx, frame, &got_picture, packet);
             if (ret < 0) {
                 LogClient::LogD("decode error");
                 return;
             }
             if (got_picture) {
-                sws_scale(img_convert_ctx, frame->data, frame->linesize, 0, codecContext->height,
+                sws_scale(img_convert_ctx, frame->data, frame->linesize, 0,
+                          fileContext.s_pCodecCtx->height,
                           frameYUV->data, frameYUV->linesize);
-                y_size = codecContext->width * codecContext->height;
+                y_size = fileContext.s_pCodecCtx->width * fileContext.s_pCodecCtx->height;
                 fwrite(frameYUV->data[0], 1, y_size, file_yuv);
                 fwrite(frameYUV->data[1], 1, y_size / 4, file_yuv);
                 fwrite(frameYUV->data[2], 1, y_size / 4, file_yuv);
@@ -344,23 +358,25 @@ void FFmpegCodec::codec_mp4_to_yuv(const char *input_path, const char *output_pa
                 }
                 LOGD("Frame Index:%5d.Type:%s", frame_cnt, picType_str);
                 frame_cnt++;
+            } else {
+                LogClient::LogE("not get picture");
             }
         }
         av_free_packet(packet);
     }
 
     while (1) {
-        ret = avcodec_decode_video2(codecContext, frame, &got_picture, packet);
+        ret = avcodec_decode_video2(fileContext.s_pCodecCtx, frame, &got_picture, packet);
         if (ret < 0) {
             break;
         }
         if (!got_picture) {
             break;
         }
-        sws_scale(img_convert_ctx, frame->data, frame->linesize, 0, codecContext->height,
+        sws_scale(img_convert_ctx, frame->data, frame->linesize, 0, fileContext.s_pCodecCtx->height,
                   frameYUV->data, frameYUV->linesize);
 
-        int y_size = codecContext->width * codecContext->height;
+        int y_size = fileContext.s_pCodecCtx->width * fileContext.s_pCodecCtx->height;
         fwrite(frameYUV->data[0], 1, y_size, file_yuv);
         fwrite(frameYUV->data[1], 1, y_size / 4, file_yuv);
         fwrite(frameYUV->data[2], 1, y_size / 4, file_yuv);
@@ -395,21 +411,17 @@ void FFmpegCodec::codec_mp4_to_yuv(const char *input_path, const char *output_pa
 
     av_frame_free(&frameYUV);
     av_frame_free(&frame);
-    avcodec_close(codecContext);
-    avformat_close_input(&formatContext);
-
+    avcodec_close(fileContext.s_pCodecCtx);
+    avformat_close_input(&fileContext.s_pFormatCtx);
 
     LogClient::LogD(info);
 }
 
 
 void FFmpegCodec::codec_mp4_to_h264(const char *input_path, const char *output_path) {
-    AVFormatContext *formatContext = nullptr;
-    int videoIndex;
 
-    AVCodecContext *codecContext = nullptr;
-    AVCodec *codec = nullptr;
     AVPacket *packet = nullptr;
+
     FILE *file_h264 = nullptr;
 
     file_h264 = fopen(output_path, "wb+");
@@ -420,58 +432,31 @@ void FFmpegCodec::codec_mp4_to_h264(const char *input_path, const char *output_p
     }
     av_register_all();
 
-    formatContext = avformat_alloc_context();
-    if (avformat_open_input(&formatContext, input_path, nullptr, nullptr)) {
-        LogClient::LogD("could not open input stream");
+    FileContext fileContext;
+
+    if (parseFile(input_path, fileContext) != RET_OK) {
         return;
     }
-
-    if (avformat_find_stream_info(formatContext, nullptr) < 0) {
-        LogClient::LogD("could not find stream information");
-        return;
-    }
-
-    videoIndex = -1;
-    for (int i = 0; i < formatContext->nb_streams; ++i) {
-        if (formatContext->streams[i]->codec->codec_type == AVMEDIA_TYPE_VIDEO) {
-            videoIndex = i;
-            break;
-        }
-    }
-
-    if (videoIndex == -1) {
-        LogClient::LogD("could not find video stream");
-        return;
-    }
-
-    codecContext = formatContext->streams[videoIndex]->codec;
-
-
-    codec = avcodec_find_decoder(codecContext->codec_id);
-
-    if (codec == nullptr) {
-        LogClient::LogD("could not find codec");
-        return;
-    }
-
 
     packet = static_cast<AVPacket *>(av_malloc(sizeof(AVPacket)));
 
-    while (av_read_frame(formatContext, packet) >= 0) {
-        if (packet->stream_index == videoIndex) {
+    while (av_read_frame(fileContext.s_pFormatCtx, packet) >= 0) {
+        if (packet->stream_index == fileContext.s_VideoIndex) {
             fwrite(packet->data, 1, packet->size, file_h264);
         }
         av_free_packet(packet);
     }
 
     fclose(file_h264);
-    avcodec_close(codecContext);
-    avformat_close_input(&formatContext);
+    avcodec_close(fileContext.s_pCodecCtx);
+    avformat_close_input(&fileContext.s_pFormatCtx);
 
 }
 
 
-void FFmpegCodec::encode_yuv_to_video(const char *input_path, const char *output_path) {
+void FFmpegCodec::codec_yuv_to_mp4(const char *input_path, const char *output_path) {
+
+    codec_yuv_to_h264(input_path, output_path);
 
 }
 
@@ -517,6 +502,14 @@ void FFmpegCodec::codec_yuv_to_h264(const char *input_path, const char *output_p
 
     av_register_all();
 
+    FileContext fileContext;
+
+//    if (parseFile(input_path,fileContext) != RET_OK){
+//        return;
+//    }
+
+
+    // 输出文件的信息配置 AVFormatContext
     formatContext = avformat_alloc_context();
 
     outputFormat = av_guess_format(nullptr, output_path, nullptr);
@@ -539,6 +532,7 @@ void FFmpegCodec::codec_yuv_to_h264(const char *input_path, const char *output_p
         return;
     }
 
+    // 编码成 H264 需要的配置信息
     codecContext = video_stream->codec;
     codecContext->codec_id = outputFormat->video_codec;
     codecContext->codec_type = AVMEDIA_TYPE_VIDEO;
@@ -598,12 +592,19 @@ void FFmpegCodec::codec_yuv_to_h264(const char *input_path, const char *output_p
 
     y_size = codecContext->width * codecContext->height;
 
-    for (int i = 0; i < framenum; ++i) {
-        if (fread(picture_buf, 1, y_size * 3 / 2, in_file) <= 0) {
-            LogClient::LogD("failed to read raw data\n");
-        } else if (feof(in_file)) {
-            break;
-        }
+//    for (int i = 0; i < framenum; ++i) {
+
+
+    int i = 0;
+    while (fread(picture_buf, 1, y_size * 3 / 2, in_file) > 0) {
+
+
+//            if (fread(picture_buf, 1, y_size * 3 / 2, in_file) <= 0) {
+//                LogClient::LogD("failed to read raw data\n");
+//            } else if (feof(in_file)) {
+//                break;
+//            }
+
         frame->data[0] = picture_buf;
         frame->data[1] = picture_buf + y_size;
         frame->data[2] = picture_buf + y_size * 5 / 4;
@@ -624,7 +625,9 @@ void FFmpegCodec::codec_yuv_to_h264(const char *input_path, const char *output_p
             ret = av_write_frame(formatContext, &packet);
             av_free_packet(&packet);
         }
+        i++;
     }
+//    }
 
     int ret = flush_encoder(formatContext, 0);
 
@@ -811,4 +814,6 @@ void FFmpegCodec::codec_h264_to_mp4(const char *input_path, const char *output_p
         LOGD("convert %s to %s success", input_path, output_path);
     }
 }
+
+
 

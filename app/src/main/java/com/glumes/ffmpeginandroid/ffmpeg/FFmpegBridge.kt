@@ -28,6 +28,10 @@ class FFmpegBridge : OnFFmpegOpsClickListener {
                 FFmpegWork.codecH264ToMp4()
             }
 
+            FFMPEG_CODEC_YUV_TO_MP4 -> {
+                FFmpegWork.codecYUVToMp4()
+            }
+
             // 解复用相关操作
             FFMPEG_MUXER_DEMUXER_SIMPLE -> {
                 FFmpegWork.muxerDemuxerSample()

@@ -28,15 +28,42 @@ extern "C" {
 
 #include <LogClient.h>
 
+#define RET_OK 1
+#define RET_FAIL  0
+
+
+struct FileContext {
+    AVFormatContext *s_pFormatCtx;
+    AVCodecContext *s_pCodecCtx;
+    AVCodec *s_pVideoCodec;
+    AVCodec *s_pAudioCodec;
+
+    int s_VideoIndex = -1;
+    int s_AudioIndex = -1;
+
+};
+
+
 class FFmpegCodec {
 
 private:
-    AVFormatContext *m_pFormatCtx;
-    AVCodecContext *m_pCodecCtx;
+
+//    FileContext inputFileContext;
+
+//    AVFormatContext *m_pFormatCtx;
+//
+//    int m_iVideoIndex = -1;
+//
+//    int m_iAudioIndex = -1;
+//
+//    AVCodecContext *m_pCodecCtx;
+//    AVCodec *m_pVideoCodec;
+
     AVOutputFormat *m_pOutputFmt;
 
 public:
 
+    int parseFile(const char *input_path, FileContext &fileContext);
 
     void encode_video(const char *filename, const char *codec_name);
 
@@ -44,7 +71,7 @@ public:
 
     void codec_mp4_to_h264(const char *input_path, const char *output_path);
 
-    void encode_yuv_to_video(const char *input_path, const char *output_path);
+    void codec_yuv_to_mp4(const char *input_path, const char *output_path);
 
     void codec_yuv_to_h264(const char *input_path, const char *output_path);
 

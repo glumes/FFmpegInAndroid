@@ -127,12 +127,15 @@ Java_com_glumes_ffmpeglib_codec_FFmpegCodecOperation_codecH264ToYUV(JNIEnv *env,
 extern "C"
 JNIEXPORT void JNICALL
 Java_com_glumes_ffmpeglib_codec_FFmpegCodecOperation_codecYUVToMp4(JNIEnv *env, jobject instance,
-                                                                   jstring input_h264_file_path_,
-                                                                   jstring h264_to_mp4_output_path_) {
-    const char *input_h264_file_path = env->GetStringUTFChars(input_h264_file_path_, 0);
-    const char *h264_to_mp4_output_path = env->GetStringUTFChars(h264_to_mp4_output_path_, 0);
+                                                                   jstring input_yuv_file_path_,
+                                                                   jstring yuvto_mp4_output_path_) {
+    const char *input_yuv_file_path = env->GetStringUTFChars(input_yuv_file_path_, 0);
+    const char *yuv_to_mp4_output_path = env->GetStringUTFChars(yuvto_mp4_output_path_, 0);
 
+    LOGD("convert %s to %s", input_yuv_file_path, yuv_to_mp4_output_path);
 
-    env->ReleaseStringUTFChars(input_h264_file_path_, input_h264_file_path);
-    env->ReleaseStringUTFChars(h264_to_mp4_output_path_, h264_to_mp4_output_path);
+    ffmpegCodec.codec_yuv_to_h264(input_yuv_file_path, yuv_to_mp4_output_path);
+
+    env->ReleaseStringUTFChars(input_yuv_file_path_, input_yuv_file_path);
+    env->ReleaseStringUTFChars(yuvto_mp4_output_path_, yuv_to_mp4_output_path);
 }

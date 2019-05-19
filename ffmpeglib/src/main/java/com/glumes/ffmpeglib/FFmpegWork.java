@@ -18,6 +18,7 @@ public class FFmpegWork {
 
 
     private static final String yuv_to_h264_output_path = Environment.getExternalStorageDirectory() + File.separator + "yuv_to_h264_output.h264";
+    private static final String yuv_to_mp4_output_path = Environment.getExternalStorageDirectory() + File.separator + "yuv_to_mp4_output.mp4";
     private static final String mp4_to_yuv_output_path = Environment.getExternalStorageDirectory() + File.separator + "mp4_to_yuv_output.yuv";
     private static final String h264_to_mp4_output_path = Environment.getExternalStorageDirectory() + File.separator + "h264_to_mp4_output.mp4";
 
@@ -73,7 +74,7 @@ public class FFmpegWork {
      * yuv 转换到 mp4 文件
      */
     public static void codecYUVToMp4() {
-        codecOperation.codecYUVToMp4(input_h264_file_path, h264_to_mp4_output_path);
+        codecOperation.codecYUVToMp4(input_yuv_file_path, yuv_to_mp4_output_path);
     }
 
 

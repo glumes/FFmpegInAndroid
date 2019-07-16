@@ -35,7 +35,7 @@ ext.deps = [
         appcompatv7         : "com.android.support:appcompat-v7:${versions.supportLibrary}",
         supportv4           : "com.android.support:support-v4:${versions.supportLibrary}",
         constraint_layout   : "com.android.support.constraint:constraint-layout:${versions.constraintLayout}",
-        kotlin              : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin_version}",
+        kotlin              : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}",
 
         // Jetpack 相关
         lifecycle_extensions: "android.arch.lifecycle:extensions:${versions.lifecycle}",

@@ -107,24 +107,22 @@ void FFmpegBasic::printVideoInfo(const char *file_path) {
         return;
     }
 
-
     int nb_streams = avFormatContext->nb_streams;
     int64_t duration = avFormatContext->duration / AV_TIME_BASE;
     char *filename = avFormatContext->filename;
-
-    LOGD("name %s", avFormatContext->filename);
     int64_t start_time = avFormatContext->start_time / AV_TIME_BASE;
+    int64_t bit_rate = avFormatContext->bit_rate / 1000;
 
-    LOGD("nb_streams is %d", nb_streams);
-    LOGD("duration is %lld", duration);
-    LOGD("filename is %s", filename);
-    LOGD("start_time is %lld", start_time);
-    LOGD("bit_rate is %lld", avFormatContext->bit_rate / 1000);
+    LogClient::LogD("nb_streams is %d", nb_streams);
+    LogClient::LogD("duration is %lld", duration);
+    LogClient::LogD("filename is %s", filename);
+    LogClient::LogD("start_time is %lld", start_time);
+    LogClient::LogD("bit_rate is %lld", bit_rate);
 
     int audioIndex = 0;
     int videoIndex = 0;
 
-//    av_dump_format()
+    LogClient::LogD("----------------------");
 
     for (int i = 0; i < avFormatContext->nb_streams; ++i) {
         AVStream *stream = avFormatContext->streams[i];
@@ -132,35 +130,32 @@ void FFmpegBasic::printVideoInfo(const char *file_path) {
 
         if (avCodecParameters->codec_type == AVMEDIA_TYPE_VIDEO) {
             videoIndex = i;
-
-            LOGD("video index is %d", videoIndex);
-            LOGD("video frame rate is %d", stream->avg_frame_rate);
-            LOGD("width is %d", avCodecParameters->width);
-            LOGD("heigit is %d", avCodecParameters->height);
-            LOGD("pixel_format is %d", avCodecParameters->format);
-            LOGD("codec_id is %s", avcodec_get_name(avCodecParameters->codec_id));
-            LOGD("bitrate is %lld kb/s", avCodecParameters->bit_rate / 1000);
-
-            LOGD("----------------------");
+            LogClient::LogD("video index is %d", videoIndex);
+            LogClient::LogD("video frame rate is %d", stream->avg_frame_rate);
+            LogClient::LogD("width is %d", avCodecParameters->width);
+            LogClient::LogD("height is %d", avCodecParameters->height);
+            LogClient::LogD("pixel_format is %d", avCodecParameters->format);
+            LogClient::LogD("codec_id is %s", avcodec_get_name(avCodecParameters->codec_id));
+            LogClient::LogD("bitrate is %lld kb/s", avCodecParameters->bit_rate / 1000);
+            LogClient::LogD("----------------------");
         } else if (avCodecParameters->codec_type == AVMEDIA_TYPE_AUDIO) {
             audioIndex = i;
-            LOGD("audio index is %d", audioIndex);
-            LOGD("audio codec name is %s", avcodec_get_name(avCodecParameters->codec_id));
-            LOGD("audio sample_rate is %d", avCodecParameters->sample_rate);
-            LOGD("audio channels is %d", avCodecParameters->channels);
-            LOGD("audio sample_fmt is %d", stream->codec->sample_fmt);
-            LOGD("audio frame size is %d", stream->codec->frame_size);
-            LOGD("audio bit_rate %lld kb/s", stream->codec->bit_rate / 1000);
+            LogClient::LogD("audio index is %d", audioIndex);
+            LogClient::LogD("audio codec name is %s", avcodec_get_name(avCodecParameters->codec_id));
+            LogClient::LogD("audio sample_rate is %d", avCodecParameters->sample_rate);
+            LogClient::LogD("audio channels is %d", avCodecParameters->channels);
+            LogClient::LogD("audio sample_fmt is %d", stream->codec->sample_fmt);
+            LogClient::LogD("audio frame size is %d", stream->codec->frame_size);
+            LogClient::LogD("audio bit_rate %lld kb/s", stream->codec->bit_rate / 1000);
+            LogClient::LogD("----------------------");
         }
-
     }
 
     AVDictionaryEntry *m = nullptr;
-    while (m = av_dict_get(avFormatContext->metadata, "", m, AV_DICT_IGNORE_SUFFIX)) {
-        LOGD("key is %s", m->key);
-        LOGD("value is %s", m->value);
+    while ((m = av_dict_get(avFormatContext->metadata, "", m, AV_DICT_IGNORE_SUFFIX))) {
+        LogClient::LogD("key is %s", m->key);
+        LogClient::LogD("value is %s", m->value);
     }
-
 }
 
 

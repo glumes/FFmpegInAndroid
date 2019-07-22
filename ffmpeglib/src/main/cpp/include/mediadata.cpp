@@ -84,4 +84,3 @@ Java_com_glumes_ffmpeglib_FFMPEGTest_yuv420Split(JNIEnv *env, jclass type, jstri
     env->ReleaseStringUTFChars(output_u_, output_u);
     env->ReleaseStringUTFChars(output_v_, output_v);
 }
-

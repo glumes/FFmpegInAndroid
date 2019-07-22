@@ -6,7 +6,8 @@ public class FFmpegMuxerOperation {
         System.loadLibrary("ffmpegmuxer");
     }
 
-    public native void demuxerSample();
+    public native void demuxerSample(String input_file,String output_audio_file,String output_video_file);
+
 
     public native void demuxerStandard();
 }

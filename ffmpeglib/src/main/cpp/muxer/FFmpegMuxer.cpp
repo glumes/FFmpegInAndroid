@@ -15,16 +15,27 @@
 void FFmpegMuxer::muxer_simple(const char *input_path, const char *output_path_video,
                                const char *output_path_audio) {
 
-    AVFormatContext *formatContext;
+    LogClient::LogD("start muxer simple");
+
+    av_register_all();
+
+    avformat_network_init();
+
+    avcodec_register_all();
+
+    AVFormatContext *formatContext = nullptr;
 
     AVPacket packet;
 
     int ret, i;
     int videoindex = -1, audioindex = -1;
 
-    av_register_all();
 
-    if ((ret = avformat_open_input(&formatContext, input_path, 0, 0)) < 0) {
+    LogClient::LogD("input file path is %s",input_path);
+
+    ret =  avformat_open_input(&formatContext, input_path, 0, 0);
+
+    if (ret < 0) {
         LogClient::LogD("could not open input file");
         return;
     }
@@ -47,11 +58,13 @@ void FFmpegMuxer::muxer_simple(const char *input_path, const char *output_path_v
     FILE *fp_audio = fopen(output_path_audio, "wb+");
     FILE *fp_video = fopen(output_path_video, "wb+");
 
+    LogClient::LogD("start open file to write");
 #if USE_H264BSF
     AVBitStreamFilterContext *h264bsfc = av_bitstream_filter_init("h264_mp4oannexb");
 #endif
 
     while (av_read_frame(formatContext, &packet) >= 0) {
+
         if (packet.stream_index == videoindex) {
 #if USE_H264BSF
             av_bitstream_filter_filter(h264bsfc, formatContext->streams[videoindex]->codec, nullptr,
@@ -60,7 +73,8 @@ void FFmpegMuxer::muxer_simple(const char *input_path, const char *output_path_v
             LOGD("write video packet.size:%d\tpts:%lld\n", packet.size, packet.pts);
             fwrite(packet.data, 1, packet.size, fp_video);
         } else if (packet.stream_index == audioindex) {
-            LOGD("write video packet.size:%d\tpts:%lld\n", packet.size, packet.pts);
+            LOGD("write audio packet.size:%d\tpts:%lld\n", packet.size, packet.pts);
+            fwrite(packet.data,1,packet.size,fp_audio);
         }
         av_free_packet(&packet);
     }
@@ -69,6 +83,8 @@ void FFmpegMuxer::muxer_simple(const char *input_path, const char *output_path_v
 #endif
     fclose(fp_video);
     fclose(fp_audio);
+
+    LogClient::LogD("close open file to write");
 
     avformat_close_input(&formatContext);
 

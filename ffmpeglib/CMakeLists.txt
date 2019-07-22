@@ -96,6 +96,7 @@ include_directories(src/main/cpp/include/)
 include_directories(src/main/cpp/common/)
 include_directories(src/main/cpp/basic/)
 include_directories(src/main/cpp/codec/)
+include_directories(src/main/cpp/muxer/)
 
 
 target_link_libraries( # Specifies the target library.

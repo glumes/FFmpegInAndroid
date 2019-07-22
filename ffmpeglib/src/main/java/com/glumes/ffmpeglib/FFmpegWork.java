@@ -26,6 +26,10 @@ public class FFmpegWork {
     private static FFmpegCodecOperation codecOperation = new FFmpegCodecOperation();
     private static FFmpegMuxerOperation muxerOperation = new FFmpegMuxerOperation();
 
+
+    private static final String demuxer_simple_input_path = Environment.getExternalStorageDirectory() + File.separator + "cuc_ieschool.flv";
+    private static final String demuxer_simple_audio_output_path = Environment.getExternalStorageDirectory() + File.separator + "cuc_ieschool_audio.mp3";
+    private static final String demuxer_simple_video_output_path = Environment.getExternalStorageDirectory() + File.separator + "cuc_ieschool_videp.h264";
     /**
      * 打印 FFmpeg 相关信息
      */
@@ -79,7 +83,9 @@ public class FFmpegWork {
 
 
     public static void muxerDemuxerSample() {
-        muxerOperation.demuxerSample();
+        muxerOperation.demuxerSample(demuxer_simple_input_path,
+                demuxer_simple_audio_output_path,
+                demuxer_simple_video_output_path);
     }
 
     public static void muxerDemuxerStandard() {

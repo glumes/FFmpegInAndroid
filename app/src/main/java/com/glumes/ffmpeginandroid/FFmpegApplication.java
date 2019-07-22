@@ -47,7 +47,7 @@ public class FFmpegApplication extends Application {
         Log.Companion.d("copy Assert File To SDCard start");
         String pathPrefix = Environment.getExternalStorageDirectory() + File.separator;
         try {
-            String[] fileNames = getApplicationContext().getAssets().list("files/");
+            String[] fileNames = getApplicationContext().getAssets().list("files");
             for (String name : fileNames) {
                 String path = pathPrefix + name;
                 File file = new File(path);

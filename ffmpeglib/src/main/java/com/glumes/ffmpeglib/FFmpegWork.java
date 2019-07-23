@@ -41,7 +41,7 @@ public class FFmpegWork {
      * 输出多媒体文件信息
      */
     public static void printFFmpegInfo() {
-        basicOperation.printFFmpegInfo(input_mp4_file_path);
+        basicOperation.printFFmpegInfo(demuxer_simple_input_path);
     }
 
     /**

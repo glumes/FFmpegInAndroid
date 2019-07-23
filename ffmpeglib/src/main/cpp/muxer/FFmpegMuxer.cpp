@@ -15,7 +15,6 @@
 void FFmpegMuxer::muxer_simple(const char *input_path, const char *output_path_video,
                                const char *output_path_audio) {
 
-    LogClient::LogD("start muxer simple");
 
     av_register_all();
 
@@ -31,26 +30,27 @@ void FFmpegMuxer::muxer_simple(const char *input_path, const char *output_path_v
     int videoindex = -1, audioindex = -1;
 
 
-    LogClient::LogD("input file path is %s",input_path);
+    LogClient::LogD("start muxer simple and input file path is %s", input_path);
 
-    ret =  avformat_open_input(&formatContext, input_path, 0, 0);
+    ret = avformat_open_input(&formatContext, input_path, 0, 0);
 
     if (ret < 0) {
         LogClient::LogD("could not open input file");
         return;
     }
 
-    if ((ret = avformat_find_stream_info(formatContext, 0)) < 0) {
+    ret = avformat_find_stream_info(formatContext, 0);
+    if ( ret < 0) {
         LogClient::LogD("failed to retrieve input stream information");
         return;
     }
 
-    videoindex = -1;
+    LogClient::LogD("duration is %lld",formatContext->duration);
 
     for (i = 0; i < formatContext->nb_streams; i++) {
-        if (formatContext->streams[i]->codec->codec_type == AVMEDIA_TYPE_VIDEO) {
+        if (formatContext->streams[i]->codecpar->codec_type == AVMEDIA_TYPE_VIDEO) {
             videoindex = i;
-        } else if (formatContext->streams[i]->codec->codec_type == AVMEDIA_TYPE_AUDIO) {
+        } else if (formatContext->streams[i]->codecpar->codec_type == AVMEDIA_TYPE_AUDIO) {
             audioindex = i;
         }
     }
@@ -58,9 +58,8 @@ void FFmpegMuxer::muxer_simple(const char *input_path, const char *output_path_v
     FILE *fp_audio = fopen(output_path_audio, "wb+");
     FILE *fp_video = fopen(output_path_video, "wb+");
 
-    LogClient::LogD("start open file to write");
 #if USE_H264BSF
-    AVBitStreamFilterContext *h264bsfc = av_bitstream_filter_init("h264_mp4oannexb");
+    AVBitStreamFilterContext *h264bsfc = av_bitstream_filter_init("h264_mp4toannexb");
 #endif
 
     while (av_read_frame(formatContext, &packet) >= 0) {
@@ -74,7 +73,7 @@ void FFmpegMuxer::muxer_simple(const char *input_path, const char *output_path_v
             fwrite(packet.data, 1, packet.size, fp_video);
         } else if (packet.stream_index == audioindex) {
             LOGD("write audio packet.size:%d\tpts:%lld\n", packet.size, packet.pts);
-            fwrite(packet.data,1,packet.size,fp_audio);
+            fwrite(packet.data, 1, packet.size, fp_audio);
         }
         av_free_packet(&packet);
     }
@@ -84,14 +83,9 @@ void FFmpegMuxer::muxer_simple(const char *input_path, const char *output_path_v
     fclose(fp_video);
     fclose(fp_audio);
 
-    LogClient::LogD("close open file to write");
-
     avformat_close_input(&formatContext);
 
-    if (ret < 0 && ret != AVERROR_EOF) {
-        LogClient::LogD("Errro occurred.\n");
-        return;
-    }
+    LogClient::LogD("end...");
 }
 
 void FFmpegMuxer::muxer_standard(const char *input_path, const char *output_path_video,

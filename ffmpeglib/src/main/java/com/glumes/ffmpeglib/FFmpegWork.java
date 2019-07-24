@@ -29,7 +29,11 @@ public class FFmpegWork {
 
     private static final String demuxer_simple_input_path = Environment.getExternalStorageDirectory() + File.separator + "cuc_ieschool.flv";
     private static final String demuxer_simple_audio_output_path = Environment.getExternalStorageDirectory() + File.separator + "cuc_ieschool_audio.mp3";
-    private static final String demuxer_simple_video_output_path = Environment.getExternalStorageDirectory() + File.separator + "cuc_ieschool_videp.h264";
+    private static final String demuxer_simple_video_output_path = Environment.getExternalStorageDirectory() + File.separator + "cuc_ieschool_video.h264";
+
+    public static final String demuxer_input_path = Environment.getExternalStorageDirectory() + File.separator + "demuxer_input.ts";
+    public static final String demuxer_audio_output_path = Environment.getExternalStorageDirectory() + File.separator + "demuxer_output_audio.aac";
+    public static final String demuxer_video_output_path = Environment.getExternalStorageDirectory() + File.separator + "demuxer_output_video.h264";
     /**
      * 打印 FFmpeg 相关信息
      */
@@ -84,11 +88,14 @@ public class FFmpegWork {
 
     public static void muxerDemuxerSample() {
         muxerOperation.demuxerSample(demuxer_simple_input_path,
-                demuxer_simple_audio_output_path,
-                demuxer_simple_video_output_path);
+                demuxer_simple_video_output_path,
+                demuxer_simple_audio_output_path);
     }
 
     public static void muxerDemuxerStandard() {
-        muxerOperation.demuxerStandard();
+
+        muxerOperation.demuxerStandard(demuxer_input_path,
+                demuxer_video_output_path,
+                demuxer_audio_output_path);
     }
 }
